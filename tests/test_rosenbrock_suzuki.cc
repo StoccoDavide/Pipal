@@ -19,9 +19,10 @@
 #include "Pipal.hh"
 
 using Pipal::Integer;
-using Real   = double;
-using Vector = Pipal::Vector<Real>;
-using Matrix = Pipal::Matrix<Real>;
+using Real         = double;
+using Vector       = Pipal::Vector<Real>;
+using Matrix       = Pipal::Matrix<Real>;
+using SparseMatrix = Pipal::SparseMatrix<Real>;
 
 constexpr bool    VERBOSE{false};
 constexpr Real    SOLVER_TOLERANCE{1.0e-10};
@@ -30,16 +31,16 @@ constexpr Integer MAX_ITERATIONS{100};
 
 TEST(Test1, ProblemWrapper) {
   Pipal::Solver<Real> solver("test_rosenbrock_suzuki",
-    [] (const Vector & x, Real & out) { // Objective function
+    [] (Vector const & x, Real & out) { // Objective function
       out = x(0)*x(0) + x(1)*x(1) + 2.0*x(2)*x(2) + x(3)*x(3) - 5.0*x(0) - 5.0*x(1) - 21.0*x(2) + 7.0*x(3);
       return std::isfinite(out);
     },
-    [] (const Vector & x, Vector & out) { // Gradient of the objective function
+    [] (Vector const & x, Vector & out) { // Gradient of the objective function
       out.resize(4);
       out << 2.0*x(0)-5.0, 2.0*x(1)-5.0, 4.0*x(2)-21.0, 2.0*x(3)+7.0;
       return out.allFinite();
     },
-    [] (const Vector & x, Vector & out) { // Constraints function
+    [] (Vector const & x, Vector & out) { // Constraints function
       out.resize(4);
       out <<
         (x(0)*x(0) + x(1)*x(1) + x(2)*x(2) + x(3)*x(3) + x(0) - x(1) + x(2) - x(3)) - 8.0,
@@ -48,23 +49,44 @@ TEST(Test1, ProblemWrapper) {
         (x(0) + x(1) + x(2) + x(3) - 5.0);
       return out.allFinite();
     },
-    [] (const Vector & x, Matrix & out) { // Jacobian of the constraints function
+    [] (Vector const & x, SparseMatrix & out) { // Jacobian of the constraints function
       out.resize(4,4);
-      out <<
-        2.0*x(0) + 1.0, 2.0*x(1) - 1.0, 2.0*x(2) + 1.0, 2.0*x(3) - 1.0,
-        2.0*x(0) - 1.0, 4.0*x(1),       2.0*x(2),       4.0*x(3) - 1.0,
-        4.0*x(0) + 2.0, 2.0*x(1) - 1.0, 2.0*x(2),       -1.0,
-        1.0,            1.0,            1.0,             1.0;
-      return out.allFinite();
+      std::vector<Eigen::Triplet<Real>> triplets{
+        {0, 0, 2.0*x(0) + 1.0},
+        {0, 1, 2.0*x(1) - 1.0},
+        {0, 2, 2.0*x(2) + 1.0},
+        {0, 3, 2.0*x(3) - 1.0},
+        
+        {1, 0, 2.0*x(0) - 1.0},
+        {1, 1, 4.0*x(1)},
+        {1, 2, 2.0*x(2)},
+        {1, 3, 4.0*x(3) - 1.0},
+        
+        {2, 0, 4.0*x(0) + 2.0},
+        {2, 1, 2.0*x(1) - 1.0},
+        {2, 2, 2.0*x(2)},
+        {2, 3, -1.0},
+        
+        {3, 0, 1},
+        {3, 1, 1},
+        {3, 2, 1},
+        {3, 3, 1}
+      };
+      out.setFromTriplets(triplets.begin(), triplets.end());
+      Eigen::Map<Vector> vec( out.valuePtr(), out.nonZeros() );
+      return vec.allFinite();
     },
-    [] (const Vector &, const Vector &z, Matrix & out) ->bool { // Hessian of the Lagrangian
+    [] (Vector const &, Vector const & z, SparseMatrix & out) -> bool { // Hessian of the Lagrangian
       out.resize(4,4);
-      Vector diag0(4); diag0 << 2.0, 2.0, 4.0, 2.0;
-      Vector diag1(4); diag1 << 2.0, 2.0, 2.0, 2.0;
-      Vector diag2(4); diag2 << 2.0, 4.0, 2.0, 4.0;
-      Vector diag3(4); diag3 << 4.0, 2.0, 2.0, 0.0;
-      out = diag0.asDiagonal() + z(0)*diag1.asDiagonal() + z(1)*diag2.asDiagonal() + z(2)*diag3.asDiagonal();
-      return out.allFinite();
+      std::vector<Eigen::Triplet<Real>> triplets{
+        {0, 0, 2 + z(0)*2 + z(1)*2 + z(2)*4},
+        {1, 1, 2 + z(0)*2 + z(1)*4 + z(2)*2},
+        {2, 2, 4 + z(0)*2 + z(1)*2 + z(2)*2},
+        {3, 3, 2 + z(0)*2 + z(1)*4 + z(2)*0}
+      };
+      out.setFromTriplets(triplets.begin(), triplets.end());
+      Eigen::Map<Vector> vec( out.valuePtr(), out.nonZeros() );
+      return vec.allFinite();
     },
     [] (Vector & out) {out.setConstant(4, -INFINITY); out(0) = -3000.0; return true;}, // Lower bounds on the primal variables
     [] (Vector & out) {out.setConstant(4, INFINITY); return true;}, // Upper bounds on the primal variables

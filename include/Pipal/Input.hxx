@@ -10,23 +10,30 @@
 
 #pragma once
 
-#ifndef INCLUDE_PIPAL_INPUT_HH
-#define INCLUDE_PIPAL_INPUT_HH
-
-// Pipal includes
-#include "Pipal/Types.hh"
-#include "Pipal/Parameter.hh"
+#ifndef INCLUDE_PIPAL_INPUT_HXX
+#define INCLUDE_PIPAL_INPUT_HXX
 
 namespace Pipal
 {
 
   // Constructor
   template <typename Real>
-  inline void buildInput(Input<Real> & i, Parameter<Real> & p, std::string const & name,
-    Vector<Real> const & x0, Vector<Real> const & bl, Vector<Real> const & bu, Vector<Real> const & cl,
-    Vector<Real> const & cu)
-  {
-    #define CMD "Pipal::resetInput(...): "
+  inline
+  void
+  Solver<Real>::buildInput(
+    std::string  const & name,
+    Vector<Real> const & x0,
+    Vector<Real> const & bl,
+    Vector<Real> const & bu,
+    Vector<Real> const & cl,
+    Vector<Real> const & cu
+  ) {
+
+    // Create alias for easier access
+    Parameter<Real> & p{this->m_parameter};
+    Input<Real>     & i{this->m_input};
+
+    //#define CMD "Pipal::resetInput(...): "
 
     // Set problem identity
     i.name = name;
@@ -124,7 +131,7 @@ namespace Pipal
     i.x0.resize(i.nV);
     i.x0 << x0(i.I1), x0(i.I3), x0(i.I4), x0(i.I5);
 
-    #undef CMD
+    //#undef CMD
   }
 
 } // namespace Pipal

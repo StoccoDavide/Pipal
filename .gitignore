@@ -47,3 +47,6 @@
 build/
 *build*/
 third_party/
+
+.vscode
+Xcode

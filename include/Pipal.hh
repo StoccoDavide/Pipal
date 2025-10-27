@@ -14,7 +14,9 @@
 #define INCLUDE_PIPAL_HH
 
 // Pipal includes
-#include "Pipal/Problem.hh"
-#include "Pipal/Solver.hh"
+#include "Pipal/Types.hxx"
+#include "Pipal/Output.hxx"
+#include "Pipal/Problem.hxx"
+#include "Pipal/Solver.hxx"
 
 #endif // INCLUDE_PIPAL_HH

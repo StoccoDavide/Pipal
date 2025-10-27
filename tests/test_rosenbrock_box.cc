@@ -19,9 +19,10 @@
 #include "Pipal.hh"
 
 using Pipal::Integer;
-using Real   = double;
-using Vector = Pipal::Vector<Real>;
-using Matrix = Pipal::Matrix<Real>;
+using Real         = double;
+using Vector       = Pipal::Vector<Real>;
+using Matrix       = Pipal::Matrix<Real>;
+using SparseMatrix = Pipal::SparseMatrix<Real>;
 
 constexpr bool    VERBOSE{false};
 constexpr Real    SOLVER_TOLERANCE{1.0e-10};
@@ -30,29 +31,34 @@ constexpr Integer MAX_ITERATIONS{100};
 
 TEST(Test1, ProblemWrapper) {
   Pipal::Solver<Real> solver("test_rosenbrock_box",
-    [] (const Vector & x, Real & out) { // Objective function
+    [] (Vector const & x, Real & out) { // Objective function
       out = 100.0*std::pow(x(1) - x(0)*x(0), 2.0) + std::pow(1 - x(0), 2.0);
       return std::isfinite(out);
     },
-    [] (const Vector & x, Vector & out) { // Gradient of the objective function
+    [] (Vector const & x, Vector & out) { // Gradient of the objective function
       out.resize(2);
       out << -400.0*x(0)*(x(1)-x(0)*x(0)) - 2.0*(1 - x(0)), 200.0*(x(1) - x(0)*x(0));
       return out.allFinite();
     },
-    [] (const Vector &, Vector & out) { // Constraints function
+    [] (Vector const &, Vector & out) { // Constraints function
       out.resize(0);
       return true;
     },
-    [] (const Vector &, Matrix & out) { // Jacobian of the constraints function
+    [] (Vector const &, SparseMatrix & out) { // Jacobian of the constraints function
       out.resize(0,0);
       return true;
     },
-    [] (const Vector & x, const Vector &, Matrix & out) ->bool { // Hessian of the Lagrangian
+    [] (Vector const & x, Vector const &, SparseMatrix & out) ->bool { // Hessian of the Lagrangian
       out.resize(2,2);
-      out <<
-        1200.0*x(0)*x(0) - 400.0*x(1) + 2, -400.0*x(0),
-        -400.0*x(0), 200.0;
-      return out.allFinite();
+      std::vector<Eigen::Triplet<Real>> triplets{
+        {0, 0, 1200.0*x(0)*x(0) - 400.0*x(1) + 2},
+        {0, 1, -400.0*x(0)},
+        {1, 0, -400.0*x(0)},
+        {1, 1, 200}
+      };
+      out.setFromTriplets(triplets.begin(), triplets.end());
+      Eigen::Map<Vector> vec( out.valuePtr(), out.nonZeros() );
+      return vec.allFinite();
     },
     [] (Vector & out) {out.setConstant(2, -1.0); return true;}, // Lower bounds on the primal variables
     [] (Vector & out) {out.setConstant(2, +1.0); return true;}, // Upper bounds on the primal variables

@@ -10,14 +10,10 @@
 
 #pragma once
 
-#ifndef INCLUDE_PIPAL_PROBLEM_HH
-#define INCLUDE_PIPAL_PROBLEM_HH
+#ifndef INCLUDE_PIPAL_PROBLEM_HXX
+#define INCLUDE_PIPAL_PROBLEM_HXX
 
-// Pipal includes
-#include "Pipal/Types.hh"
-
-namespace Pipal
-{
+namespace Pipal {
   /**
    * \brief Problem class for the Pipal library.
    *
@@ -27,10 +23,11 @@ namespace Pipal
     * \tparam Real The real number type.
    */
   template <typename Real>
-  class Problem
-  {
-    static_assert(std::is_floating_point_v<Real>,
-      "Pipal::Problem<Real>: Real must be a floating-point type.");
+  class Problem  {
+    static_assert(
+      std::is_floating_point_v<Real>,
+      "Pipal::Problem<Real>: Real must be a floating-point type."
+    );
 
     std::string m_name{"(Unnamed Pipal Problem)"}; /*!< Name of the optimization problem. */
 
@@ -122,7 +119,7 @@ namespace Pipal
      * \param[out] out The Jacobian matrix of the constraints function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    virtual bool constraints_jacobian(Vector<Real> const & x, Matrix<Real> & out) const = 0;
+    virtual bool constraints_jacobian(Vector<Real> const & x, SparseMatrix<Real> & out) const = 0;
 
     /**
      * \brief Evaluate the Hessian of the Lagrangian function with respect to the primal variables.
@@ -131,7 +128,7 @@ namespace Pipal
      * \param[out] out The Hessian matrix of the Lagrangian function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    virtual bool lagrangian_hessian(Vector<Real> const & x, Vector<Real> const & z, Matrix<Real> & out) const = 0;
+    virtual bool lagrangian_hessian(Vector<Real> const & x, Vector<Real> const & z, SparseMatrix<Real> & out) const = 0;
 
     /**
      * \brief Lower bounds on the primal variables.
@@ -177,8 +174,8 @@ namespace Pipal
     using ObjectiveFunc           = std::function<bool(Vector<Real> const &, Real &)>;
     using ObjectiveGradientFunc   = std::function<bool(Vector<Real> const &, Vector<Real> &)>;
     using ConstraintsFunc         = std::function<bool(Vector<Real> const &, Vector<Real> &)>;
-    using ConstraintsJacobianFunc = std::function<bool(Vector<Real> const &, Matrix<Real> &)>;
-    using LagrangianHessianFunc   = std::function<bool(Vector<Real> const &, Vector<Real> const &, Matrix<Real> &)>;
+    using ConstraintsJacobianFunc = std::function<bool(Vector<Real> const &, SparseMatrix<Real> &)>;
+    using LagrangianHessianFunc   = std::function<bool(Vector<Real> const &, Vector<Real> const &, SparseMatrix<Real> &)>;
     using BoundsFunc              = std::function<bool(Vector<Real> &)>;
 
   private:
@@ -212,16 +209,29 @@ namespace Pipal
      * \param[in] t_constraints_lower_bounds Lower bounds on the constraints function handle.
      * \param[in] t_constraints_upper_bounds Upper bounds on the constraints function handle.
      */
-    ProblemWrapper(std::string const & t_name, ObjectiveFunc const & t_objective, ObjectiveGradientFunc
-      const & t_objective_gradient, ConstraintsFunc const & t_constraints, ConstraintsJacobianFunc
-      const & t_constraints_jacobian, LagrangianHessianFunc const & t_lagrangian_hessian, BoundsFunc
-      const & t_primal_lower_bounds, BoundsFunc const & t_primal_upper_bounds, BoundsFunc const &
-      t_constraints_lower_bounds, BoundsFunc const & t_constraints_upper_bounds)
-      : Problem<Real>(t_name), m_objective(t_objective), m_objective_gradient(t_objective_gradient),
-        m_constraints(t_constraints), m_constraints_jacobian(t_constraints_jacobian),
-        m_lagrangian_hessian(t_lagrangian_hessian), m_primal_lower_bounds(t_primal_lower_bounds),
-        m_primal_upper_bounds(t_primal_upper_bounds), m_constraints_lower_bounds(t_constraints_lower_bounds),
-        m_constraints_upper_bounds(t_constraints_upper_bounds) {}
+    ProblemWrapper(
+      std::string             const & t_name,
+      ObjectiveFunc           const & t_objective,
+      ObjectiveGradientFunc   const & t_objective_gradient,
+      ConstraintsFunc         const & t_constraints,
+      ConstraintsJacobianFunc const & t_constraints_jacobian,
+      LagrangianHessianFunc   const & t_lagrangian_hessian,
+      BoundsFunc              const & t_primal_lower_bounds,
+      BoundsFunc              const & t_primal_upper_bounds,
+      BoundsFunc              const & t_constraints_lower_bounds,
+      BoundsFunc              const & t_constraints_upper_bounds
+    )
+    : Problem<Real>(t_name)
+    , m_objective(t_objective)
+    , m_objective_gradient(t_objective_gradient)
+    , m_constraints(t_constraints)
+    , m_constraints_jacobian(t_constraints_jacobian)
+    , m_lagrangian_hessian(t_lagrangian_hessian)
+    , m_primal_lower_bounds(t_primal_lower_bounds)
+    , m_primal_upper_bounds(t_primal_upper_bounds)
+    , m_constraints_lower_bounds(t_constraints_lower_bounds)
+    , m_constraints_upper_bounds(t_constraints_upper_bounds)
+    {}
 
     /**
      * \brief Default destructor for the ProblemWrapper class.
@@ -232,163 +242,140 @@ namespace Pipal
      * \brief Get the objective function.
      * \return The objective function.
      */
-    ObjectiveFunc & objective()
-    {
-      return this->m_objective;
-    }
+    ObjectiveFunc &
+    objective() { return this->m_objective; }
 
     /**
      * \brief Set the objective function.
      * \param[in] objective The objective function to set.
      */
-    void objective(ObjectiveFunc const & objective)
-    {
-      this->m_objective = objective;
-    }
+    void
+    objective( ObjectiveFunc const & objective )
+    { this->m_objective = objective; }
 
     /**
      * \brief Get the gradient of the objective function.
      * \return The gradient of the objective function.
      */
-    ObjectiveGradientFunc & objective_gradient()
-    {
-      return this->m_objective_gradient;
-    }
+    ObjectiveGradientFunc &
+    objective_gradient() { return this->m_objective_gradient; }
 
     /**
      * \brief Set the gradient of the objective function.
      * \param[in] objective_gradient The gradient of the objective function to set.
      */
-    void objective_gradient(ObjectiveGradientFunc const & objective_gradient)
-    {
-      this->m_objective_gradient = objective_gradient;
-    }
+    void
+    objective_gradient( ObjectiveGradientFunc const & objective_gradient )
+    { this->m_objective_gradient = objective_gradient; }
 
     /**
      * \brief Get the constraints function.
      * \return The constraints function.
      */
-    ConstraintsFunc & constraints()
-    {
-      return this->m_constraints;
-    }
+    ConstraintsFunc &
+    constraints() { return this->m_constraints; }
 
     /**
      * \brief Set the constraints function.
      * \param[in] constraints The constraints function to set.
      */
-    void constraints(ConstraintsFunc const & constraints)
-    {
-      this->m_constraints = constraints;
-    }
+    void
+    constraints( ConstraintsFunc const & constraints )
+    { this->m_constraints = constraints; }
 
     /**
      * \brief Get the Jacobian of the constraints function.
      * \return The Jacobian of the constraints function.
      */
-    ConstraintsJacobianFunc & constraints_jacobian()
-    {
-      return this->m_constraints_jacobian;
-    }
+    ConstraintsJacobianFunc &
+    constraints_jacobian()
+    { return this->m_constraints_jacobian; }
 
     /**
      * \brief Set the Jacobian of the constraints function.
      * \param[in] constraints_jacobian The Jacobian of the constraints function to set.
      */
-    void constraints_jacobian(ConstraintsJacobianFunc const & constraints_jacobian)
-    {
-      this->m_constraints_jacobian = constraints_jacobian;
-    }
+    void
+    constraints_jacobian( ConstraintsJacobianFunc const & constraints_jacobian )
+    { this->m_constraints_jacobian = constraints_jacobian; }
 
     /**
      * \brief Get the lower bounds on the primal variables function.
      * \return The lower bounds on the primal variables function.
      */
-    BoundsFunc & primal_lower_bounds()
-    {
-      return this->m_primal_lower_bounds;
-    }
+    BoundsFunc &
+    primal_lower_bounds() { return this->m_primal_lower_bounds; }
 
     /**
      * \brief Set the lower bounds on the primal variables function.
      * \param[in] primal_lower_bounds The lower bounds on the primal variables function to set.
      */
-    void primal_lower_bounds(BoundsFunc const & primal_lower_bounds)
-    {
-      this->m_primal_lower_bounds = primal_lower_bounds;
-    }
+    void
+    primal_lower_bounds( BoundsFunc const & primal_lower_bounds )
+    { this->m_primal_lower_bounds = primal_lower_bounds; }
 
     /**
      * \brief Get the upper bounds on the primal variables function.
      * \return The upper bounds on the primal variables function.
      */
-    BoundsFunc & primal_upper_bounds()
-    {
-      return this->m_primal_upper_bounds;
-    }
+    BoundsFunc &
+    primal_upper_bounds()
+    { return this->m_primal_upper_bounds; }
 
     /**
      * \brief Set the upper bounds on the primal variables function.
      * \param[in] primal_upper_bounds The upper bounds on the primal variables function to set.
      */
-    void primal_upper_bounds(BoundsFunc const & primal_upper_bounds)
-    {
-      this->m_primal_upper_bounds = primal_upper_bounds;
-    }
+    void
+    primal_upper_bounds( BoundsFunc const & primal_upper_bounds )
+    { this->m_primal_upper_bounds = primal_upper_bounds; }
 
     /**
      * \brief Get the lower bounds on the constraints function.
      * \return The lower bounds on the constraints function.
      */
-    BoundsFunc & constraints_lower_bounds()
-    {
-      return this->m_constraints_lower_bounds;
-    }
+    BoundsFunc &
+    constraints_lower_bounds()
+    { return this->m_constraints_lower_bounds; }
 
     /**
      * \brief Set the lower bounds on the constraints function.
      * \param[in] constraints_lower_bounds The lower bounds on the constraints function to set.
      */
-    void constraints_lower_bounds(BoundsFunc const & constraints_lower_bounds)
-    {
-      this->m_constraints_lower_bounds = constraints_lower_bounds;
-    }
+    void
+    constraints_lower_bounds( BoundsFunc const & constraints_lower_bounds )
+    { this->m_constraints_lower_bounds = constraints_lower_bounds; }
 
     /**
      * \brief Get the upper bounds on the constraints function.
      * \return The upper bounds on the constraints function.
      */
-    BoundsFunc & constraints_upper_bounds()
-    {
-      return this->m_constraints_upper_bounds;
-    }
+    BoundsFunc &
+    constraints_upper_bounds()
+    { return this->m_constraints_upper_bounds; }
 
     /**
      * \brief Set the upper bounds on the constraints function.
      * \param[in] constraints_upper_bounds The upper bounds on the constraints function to set.
      */
-    void constraints_upper_bounds(BoundsFunc const & constraints_upper_bounds)
-    {
-      this->m_constraints_upper_bounds = constraints_upper_bounds;
-    }
+    void
+    constraints_upper_bounds( BoundsFunc const & constraints_upper_bounds )
+    { this->m_constraints_upper_bounds = constraints_upper_bounds; }
 
     /**
      * \brief Get the Hessian of the Lagrangian function.
      * \return The Hessian of the Lagrangian function.
      */
-    LagrangianHessianFunc & lagrangian_hessian()
-    {
-      return this->m_lagrangian_hessian;
-    }
+    LagrangianHessianFunc &
+    lagrangian_hessian() { return this->m_lagrangian_hessian; }
 
     /**
      * \brief Set the Hessian of the Lagrangian function.
      * \param[in] lagrangian_hessian The Hessian of the Lagrangian function to set.
      */
-    void lagrangian_hessian(LagrangianHessianFunc const & lagrangian_hessian)
-    {
-      this->m_lagrangian_hessian = lagrangian_hessian;
-    }
+    void
+    lagrangian_hessian( LagrangianHessianFunc const & lagrangian_hessian )
+    { this->m_lagrangian_hessian = lagrangian_hessian; }
 
     /**
      * \brief Evaluate the objective function.
@@ -396,8 +383,8 @@ namespace Pipal
      * \param[out] out The objective function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    bool objective(Vector<Real> const & x, Real & out) const override
-    {
+    bool
+    objective( Vector<Real> const & x, Real & out ) const override {
       return this->m_objective(x, out);
     }
 
@@ -407,8 +394,8 @@ namespace Pipal
      * \param[out] out The gradient of the objective function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    bool objective_gradient(Vector<Real> const & x, Vector<Real> & out) const override
-    {
+    bool
+    objective_gradient( Vector<Real> const & x, Vector<Real> & out ) const override {
       return this->m_objective_gradient(x, out);
     }
 
@@ -418,8 +405,8 @@ namespace Pipal
      * \param[out] out The value of the constraints function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    bool constraints(Vector<Real> const & x, Vector<Real> & out) const override
-    {
+    bool
+    constraints( Vector<Real> const & x, Vector<Real> & out ) const override {
       return this->m_constraints(x, out);
     }
 
@@ -429,8 +416,11 @@ namespace Pipal
      * \param[out] out The Jacobian matrix of the constraints function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    bool constraints_jacobian(Vector<Real> const & x, Matrix<Real> & out) const override
-    {
+    bool
+    constraints_jacobian(
+      Vector<Real> const & x,
+      SparseMatrix<Real> & out
+    ) const override {
       return this->m_constraints_jacobian(x, out);
     }
 
@@ -441,8 +431,12 @@ namespace Pipal
      * \param[out] out The Hessian matrix of the Lagrangian function.
      * \return True if the evaluation was successful, false otherwise.
      */
-    bool lagrangian_hessian(Vector<Real> const & x, Vector<Real> const & z, Matrix<Real> & out) const override
-    {
+    bool
+    lagrangian_hessian(
+      Vector<Real> const & x,
+      Vector<Real> const & z,
+      SparseMatrix<Real> & out
+    ) const override {
       return this->m_lagrangian_hessian(x, z, out);
     }
 
@@ -487,12 +481,6 @@ namespace Pipal
     }
 
   }; // class ProblemWrapper
-
-  // Forward declarations of evaluation functions
-  template<typename Real> inline void evalFunctions(Iterate<Real> & z, Input<Real> & i, Counter & c, Problem<Real> const * problem);
-  template<typename Real> inline void evalGradients(Iterate<Real> & z, Input<Real> & i, Counter & c, Problem<Real> const * problem);
-  template<typename Real> inline void evalHessian(Iterate<Real> & z, Input<Real> & i, Counter & c, Problem<Real> const * problem);
-  template<typename Real> inline void evalScalings(Iterate<Real> & z, Parameter<Real> & p, Input<Real> & i, Counter & c, Problem<Real> const * problem);
 
 } // namespace Pipal
 
