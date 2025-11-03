@@ -481,12 +481,4 @@ namespace Pipal {
 
 } // namespace Solver
 
-// Pipal includes
-#include "Pipal/Acceptance.hxx"
-#include "Pipal/Direction.hxx"
-#include "Pipal/Input.hxx"
-#include "Pipal/Iterate.hxx"
-#include "Pipal/Problem.hxx"
-#include "Pipal/Optimize.hxx"
-
 #endif /* INCLUDE_PIPAL_SOLVER_HH */

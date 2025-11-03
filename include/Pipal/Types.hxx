@@ -131,6 +131,7 @@ namespace Pipal
    * \param[in] mask The boolean mask.
    * \return The selected elements from the input vector.
    */
+  [[maybe_unused]]
   static Indices find(Mask const & mask)
   {
     Indices out(mask.count());

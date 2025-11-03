@@ -40,13 +40,45 @@ if(NOT CMAKE_INSTALL_PREFIX)
 endif()
 
 # Dependencies
-include(PipalEigen3)
+# ==============================================================
+# Dependencies
+# ==============================================================
+
+include(FetchContent)
+
+# Imposta la directory base dove scaricare i contenuti
+set(FETCHCONTENT_BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib3rd")
+
+# --------------------------------------------------------------
+# Eigen 5.0.0
+# --------------------------------------------------------------
+# Usa il mirror ufficiale GitLab (Eigen 5.0.0)
+FetchContent_Declare(
+  Eigen3
+  GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+  GIT_TAG 5.0.0         # versione stabile (puoi usare anche "master")
+  GIT_SHALLOW TRUE
+)
+
+# Crea la directory dove installare gli header di Eigen
+set(EIGEN3_INSTALL_DIR "${FETCHCONTENT_BASE_DIR}/Eigen3")
+
+# Scarica Eigen
+FetchContent_MakeAvailable(Eigen3)
+
+# Aggiungi al path include
+set(EIGEN3_INCLUDE_DIR "${eigen3_SOURCE_DIR}")
+
+# --------------------------------------------------------------
+# Include directories per il progetto
+# --------------------------------------------------------------
+include_directories( ${EIGEN3_INCLUDE_DIR} )
+
+message(STATUS "Eigen include path: ${EIGEN3_INCLUDE_DIR}")
 
 # Library definition
 add_library(Pipal INTERFACE)
 add_library(Pipal::Pipal ALIAS Pipal)
-
-target_link_libraries(Pipal INTERFACE Eigen3::Eigen)
 
 target_include_directories(Pipal INTERFACE
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

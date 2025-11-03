@@ -19,4 +19,10 @@
 #include "Pipal/Problem.hxx"
 #include "Pipal/Solver.hxx"
 
+#include "Pipal/Acceptance.hxx"
+#include "Pipal/Direction.hxx"
+#include "Pipal/Input.hxx"
+#include "Pipal/Iterate.hxx"
+#include "Pipal/Optimize.hxx"
+
 #endif // INCLUDE_PIPAL_HH
