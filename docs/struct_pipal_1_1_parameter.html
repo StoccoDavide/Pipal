@@ -138,11 +138,20 @@ $(function(){initNavTree('struct_pipal_1_1_parameter.html','','struct_pipal_1_1_
 <p>Internal parameters for the solver algorithm.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_types_8hh_source.html">Types.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_types_8hxx_source.html">Types.hxx</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9db7e373f757c650d6393d4df7e42061" id="r_a9db7e373f757c650d6393d4df7e42061"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9db7e373f757c650d6393d4df7e42061">Parameter</a> ()=default</td></tr>
+<tr class="memdesc:a9db7e373f757c650d6393d4df7e42061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
+<tr class="memitem:ac7132da098396d99e07d88375309977d" id="r_ac7132da098396d99e07d88375309977d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7132da098396d99e07d88375309977d">Parameter</a> (<a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a> const &amp;)=delete</td></tr>
+<tr class="memdesc:ac7132da098396d99e07d88375309977d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete copy constructor and assignment operator.  <br /></td></tr>
+<tr class="memitem:a7139a8449fdc8912741c3213f15e28d3" id="r_a7139a8449fdc8912741c3213f15e28d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7139a8449fdc8912741c3213f15e28d3">operator=</a> (<a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a> const &amp;)=delete</td></tr>
+<tr class="memdesc:a7139a8449fdc8912741c3213f15e28d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete copy constructor and assignment operator.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:adef54a2a4d69f6070f77dee82ea5d471" id="r_adef54a2a4d69f6070f77dee82ea5d471"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adef54a2a4d69f6070f77dee82ea5d471">opt_err_tol</a> {1.0e-10}</td></tr>
+<tr class="memitem:adef54a2a4d69f6070f77dee82ea5d471" id="r_adef54a2a4d69f6070f77dee82ea5d471"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adef54a2a4d69f6070f77dee82ea5d471">opt_err_tol</a> {1.0e-6}</td></tr>
 <tr class="memitem:a435c1e0779568d3530e53cbe937e679c" id="r_a435c1e0779568d3530e53cbe937e679c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a435c1e0779568d3530e53cbe937e679c">iter_max</a> {1000}</td></tr>
 <tr class="memitem:a1f001154d72fdafdcbc3daba7587acee" id="r_a1f001154d72fdafdcbc3daba7587acee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f001154d72fdafdcbc3daba7587acee">algorithm</a> {Algorithm::ADAPTIVE}</td></tr>
 <tr class="memitem:a5a0e0f1203ad9b090615cff78176ef9d" id="r_a5a0e0f1203ad9b090615cff78176ef9d"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a0e0f1203ad9b090615cff78176ef9d">mu_max_exp</a> {0.0}</td></tr>
@@ -185,7 +194,90 @@ struct Pipal::Parameter&lt; Real &gt;</div><dl class="tparams"><dt>Template Para
   </table>
   </dd>
 </dl>
-</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9db7e373f757c650d6393d4df7e42061" name="a9db7e373f757c650d6393d4df7e42061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db7e373f757c650d6393d4df7e42061">&#9670;&#160;</a></span>Parameter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pipal_1_1_parameter.html">Pipal::Parameter</a>&lt; Real &gt;::Parameter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7132da098396d99e07d88375309977d" name="ac7132da098396d99e07d88375309977d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7132da098396d99e07d88375309977d">&#9670;&#160;</a></span>Parameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pipal_1_1_parameter.html">Pipal::Parameter</a>&lt; Real &gt;::Parameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a7139a8449fdc8912741c3213f15e28d3" name="a7139a8449fdc8912741c3213f15e28d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7139a8449fdc8912741c3213f15e28d3">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a> &amp; <a class="el" href="struct_pipal_1_1_parameter.html">Pipal::Parameter</a>&lt; Real &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a1f001154d72fdafdcbc3daba7587acee" name="a1f001154d72fdafdcbc3daba7587acee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f001154d72fdafdcbc3daba7587acee">&#9670;&#160;</a></span>algorithm</h2>
 
@@ -596,7 +688,7 @@ template&lt;typename Real&gt; </div>
 template&lt;typename Real&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Real <a class="el" href="struct_pipal_1_1_parameter.html">Pipal::Parameter</a>&lt; Real &gt;::opt_err_tol {1.0e-10}</td>
+          <td class="memname">Real <a class="el" href="struct_pipal_1_1_parameter.html">Pipal::Parameter</a>&lt; Real &gt;::opt_err_tol {1.0e-6}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -930,7 +1022,7 @@ template&lt;typename Real&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/Pipal/<a class="el" href="_types_8hh_source.html">Types.hh</a></li>
+<li>include/Pipal/<a class="el" href="_types_8hxx_source.html">Types.hxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -26,10 +26,8 @@ namespace Pipal
   template <typename Real>
   class Output
   {
-    static_assert(
-      std::is_floating_point_v<Real>,
-      "Pipal::Output<Real>: Real must be a floating-point type."
-    );
+    static_assert(std::is_floating_point_v<Real>,
+      "Pipal::Output<Real>: Real must be a floating-point type.");
 
     using MicroSeconds = std::chrono::microseconds;
     using SteadyClock  = std::chrono::steady_clock;
@@ -147,6 +145,7 @@ namespace Pipal
    * \brief Print final summary footer and termination message.
    * \param[in] c Counters used during evaluations.
    * \param[in] z Current iterate (modified temporarily while testing points).
+   * \param[in] b Termination code.
    */
   void
   printFooter(
@@ -203,4 +202,4 @@ namespace Pipal
 
 } // namespace Pipal
 
-#endif // INCLUDE_PIPAL_OUTPUT_HH
+#endif // INCLUDE_PIPAL_OUTPUT_HXX

@@ -1,6 +1,15 @@
 var searchData=
 [
-  ['resetcounter_0',['resetCounter',['../namespace_pipal.html#a42c03ca84b862f079f3e0cb8ec0bf0b7',1,'Pipal']]],
-  ['resetdirection_1',['resetDirection',['../namespace_pipal.html#a05eccf0c5ea24708692a3c3a0a1c9806',1,'Pipal']]],
-  ['resetmumaxexp_2',['resetMuMaxExp',['../namespace_pipal.html#ab21dc910318be765a3dae88a148fe6be',1,'Pipal']]]
+  ['parameter_0',['Parameter',['../struct_pipal_1_1_parameter.html#a9db7e373f757c650d6393d4df7e42061',1,'Pipal::Parameter::Parameter()=default'],['../struct_pipal_1_1_parameter.html#ac7132da098396d99e07d88375309977d',1,'Pipal::Parameter::Parameter(Parameter const &amp;)=delete']]],
+  ['primal_5flower_5fbounds_1',['primal_lower_bounds',['../class_pipal_1_1_problem.html#a006fe563cfa33baea45665fc268df371',1,'Pipal::Problem::primal_lower_bounds()'],['../class_pipal_1_1_problem_wrapper.html#adb257967d0b354296856859fa819caec',1,'Pipal::ProblemWrapper::primal_lower_bounds()'],['../class_pipal_1_1_problem_wrapper.html#a0478665a272f7bca3944351a3c17204f',1,'Pipal::ProblemWrapper::primal_lower_bounds(BoundsFunc const &amp;primal_lower_bounds)'],['../class_pipal_1_1_problem_wrapper.html#a47ee509bd3a911a3098ec25d7a746726',1,'Pipal::ProblemWrapper::primal_lower_bounds(Vector&lt; Real &gt; &amp;out) const override']]],
+  ['primal_5fupper_5fbounds_2',['primal_upper_bounds',['../class_pipal_1_1_problem.html#a9286997812db11c48626a29da725858a',1,'Pipal::Problem::primal_upper_bounds()'],['../class_pipal_1_1_problem_wrapper.html#ad86f8cd99b9d47a5bb593818ffd601b8',1,'Pipal::ProblemWrapper::primal_upper_bounds()'],['../class_pipal_1_1_problem_wrapper.html#ab65a2dc0bad727cdd3026ae562734ee1',1,'Pipal::ProblemWrapper::primal_upper_bounds(BoundsFunc const &amp;primal_upper_bounds)'],['../class_pipal_1_1_problem_wrapper.html#afc53161e878dd58ead7bcb6f84af77fa',1,'Pipal::ProblemWrapper::primal_upper_bounds(Vector&lt; Real &gt; &amp;out) const override']]],
+  ['printacceptance_3',['printAcceptance',['../class_pipal_1_1_output.html#a57ecf700721626eff03d53e86180449e',1,'Pipal::Output']]],
+  ['printbreak_4',['printBreak',['../class_pipal_1_1_output.html#a2ec1ccdb3e65426771d1be1aa6aa016e',1,'Pipal::Output']]],
+  ['printdirection_5',['printDirection',['../class_pipal_1_1_output.html#affae87a2bb3867e9831ee98b592916d4',1,'Pipal::Output']]],
+  ['printfooter_6',['printFooter',['../class_pipal_1_1_output.html#a3a5f5ad816e777fcf3cd68f6f3373e34',1,'Pipal::Output']]],
+  ['printheader_7',['printHeader',['../class_pipal_1_1_output.html#a882ac7482b5a29f24a0398c280419557',1,'Pipal::Output']]],
+  ['printiterate_8',['printIterate',['../class_pipal_1_1_output.html#a5e19b70c07cd0d0a71487ce64e6f71b8',1,'Pipal::Output']]],
+  ['problem_9',['Problem',['../class_pipal_1_1_problem.html#adca4611908092835d82a56c167e9dda1',1,'Pipal::Problem::Problem()=default'],['../class_pipal_1_1_problem.html#a624edfa6b48d5875f64f85ac6833af69',1,'Pipal::Problem::Problem(std::string t_name)'],['../class_pipal_1_1_problem.html#ac269b23eaf78f8d72bf6a97a234c7dc8',1,'Pipal::Problem::Problem(Problem const &amp;)=delete'],['../class_pipal_1_1_problem.html#ab34dec6c8a6cb3a2220c2287f8750a53',1,'Pipal::Problem::Problem(Problem &amp;&amp;)=delete']]],
+  ['problem_10',['problem',['../class_pipal_1_1_solver.html#a940bf063ee747a5712b4669e49fcdb1f',1,'Pipal::Solver::problem(ProblemPtr &amp;&amp;problem)'],['../class_pipal_1_1_solver.html#a43364c20c27301e578ddeb365464962f',1,'Pipal::Solver::problem() const']]],
+  ['problemwrapper_11',['ProblemWrapper',['../class_pipal_1_1_problem_wrapper.html#a82f9ea956bd235cbb56efafdd0ed0323',1,'Pipal::ProblemWrapper']]]
 ];

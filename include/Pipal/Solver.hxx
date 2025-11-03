@@ -24,11 +24,10 @@ namespace Pipal {
    * \tparam Real The floating-point type used for computations (e.g., float, double).
    */
   template <typename Real>
-  class Solver {
-    static_assert(
-      std::is_floating_point_v<Real>,
-      "Pipal::Solver<Real>: Real must be a floating-point type."
-    );
+  class Solver
+  {
+    static_assert(std::is_floating_point_v<Real>,
+      "Pipal::Solver<Real>: Real must be a floating-point type.");
 
   public:
     using ProblemPtr              = typename Problem<Real>::UniquePtr;
@@ -51,8 +50,7 @@ namespace Pipal {
 
     // Some options for the solver
     bool m_verbose{false}; /*!< Verbosity flag. */
-    
-    // Evaluate the step
+
     void buildIterate();
     void evalStep();
     void updateParameters();
@@ -71,109 +69,90 @@ namespace Pipal {
     void evalSlacks();
     void evalMerit();
     void initNewtonMatrix();
-    
-    void resetDirection( Direction<Real> & d ) const;
-    void evalLambdaOriginal( Vector<Real> & l ) const;
-    Real evalViolation( Array<Real> const & cE, Array<Real> const & cI ) const;
+    void resetDirection(Direction<Real> & d) const;
+    void evalLambdaOriginal(Vector<Real> & l) const;
+    Real evalViolation(Array<Real> const & cE, Array<Real> const & cI) const;
     void evalNewtonStep();
-    void evalTrialStep( Direction<Real> & v ) const;
+    void evalTrialStep(Direction<Real> & v) const;
     Integer checkTermination() const;
+    Integer fullStepCheck();
+    Integer secondOrderCorrection();
+    void evalXOriginal(Vector<Real> & x);
+    void setDirection(Vector<Real> const & dx, Vector<Real> const & dr1, Vector<Real> const & dr2,
+      Vector<Real> const & ds1, Vector<Real> const & ds2, Vector<Real> const & dlE,
+      Vector<Real> const & dlI, Real const dx_norm, Real const dl_norm);
+    void evalTrialSteps(Direction<Real> & d1, Direction<Real> & d2, Direction<Real> & d3);
+    void evalTrialStepCut();
+    void evalLinearCombination(Direction<Real> const & d1, Direction<Real> const & d2,
+      Direction<Real> const & d3, Real const a1, Real const a2, Real const a3);
+    Real evalKKTError(Real const rho, Real const mu);
+    void evalKKTErrors();
+    void setPrimals(Vector<Real> const & x, Array<Real> const & r1, Array<Real> const & r2,
+      Array<Real> const & s1, Array<Real> const & s2, Array<Real> const & lE, Array<Real> const & lI,
+      Real const f, Array<Real> const & cE, Array<Real> const & cI, Real const phi);
+    void buildInput(std::string const & name, Vector<Real> const & x0, Vector<Real> const & bl,
+      Vector<Real> const & bu, Vector<Real> const & cl, Vector<Real> const & cu);
 
     /**
      * \brief Compute scaled and unscaled feasibility violations.
      * \tparam Real Floating-point type used by the algorithm.
      * \param[in] z Current iterate.
      */
-    void
-    evalInfeasibility( Iterate<Real> & z ) const {
+    void evalInfeasibility(Iterate<Real> & z) const
+    {
       // Evaluate scaled and unscaled feasibility violations
-      z.v  = evalViolation(z.cE, z.cI) / std::max(1.0, z.v0);
-      z.vu = evalViolation(z.cEu, z.cIu);
+      z.v  = this->evalViolation(z.cE, z.cI)/std::max(1.0, z.v0);
+      z.vu = this->evalViolation(z.cEu, z.cIu);
     }
 
     /**
      * \brief Evaluate model matrices (Hessian and Newton matrix).
      * \tparam Real Floating-point type used by the algorithm.
      */
-    void
-    evalMatrices() {
+    void evalMatrices()
+    {
       // Evaluate Hessian and Newton matrices
-      evalHessian();
-      evalNewtonMatrix();
+      this->evalHessian();
+      this->evalNewtonMatrix();
     }
-
-    Integer fullStepCheck();
-    Integer secondOrderCorrection();
-
-    void evalXOriginal( Vector<Real> & x );
 
     /**
      * \brief Reset maximum exponent used for mu increases to its default.
      * \tparam Real Floating-point type used by the algorithm.
-     * \param[in] p Parameter object whose mu exponent limit is reset.
      */
-    void
-    resetMuMaxExp() { m_parameter.mu_max_exp = m_parameter.mu_max_exp0; }
+    void resetMuMaxExp() {this->m_parameter.mu_max_exp = this->m_parameter.mu_max_exp0;}
 
     /**
      * \brief Initialize algorithm parameters.
-     * \param[in] a Algorithm selection enumerator.
+     * \param[in] t_algorithm Algorithm selection enumerator.
      */
-    void buildParameter( Algorithm a ) { m_parameter.algorithm = a; }
+    void buildParameter(Algorithm t_algorithm) {this->m_parameter.algorithm = t_algorithm;}
 
     /**
      * \brief Force mu exponent increases to use zero as maximum exponent.
      */
-    void setMuMaxExpZero() { m_parameter.mu_max_exp = 0.0; }
+    void setMuMaxExpZero() {this->m_parameter.mu_max_exp = 0.0;}
 
     /**
      * \brief Set penalty parameter rho.
      * \tparam Real Floating-point type used by the algorithm.
-     * \param[in] z Current iterate.
      * \param[in] rho New penalty parameter value.
      */
-    void setRho( Real const rho ) { m_iterate.rho = rho; }
+    void setRho(Real const rho) {this->m_iterate.rho = rho;}
 
     /**
      * \brief Set last (previous) penalty parameter value.
      * \tparam Real Floating-point type used by the algorithm.
-     * \param[in] z Current iterate.
      * \param[in] rho New last penalty parameter value.
      */
-    void setRhoLast( Real const rho ) { m_iterate.rho_ = rho;}
+    void setRhoLast(Real const rho) {this->m_iterate.rho_ = rho;}
 
     /**
      * \brief Set interior-point parameter \p mu.
      * \tparam Real Floating-point type used by the algorithm.
      * \param[in] mu New interior-point parameter value.
      */
-    void setMu( Real const mu ) { m_iterate.mu = mu; }
-
-    void
-    setDirection(
-      Vector<Real> const & dx,
-      Vector<Real> const & dr1,
-      Vector<Real> const & dr2,
-      Vector<Real> const & ds1,
-      Vector<Real> const & ds2,
-      Vector<Real> const & dlE,
-      Vector<Real> const & dlI,
-      Real         const   dx_norm,
-      Real         const   dl_norm
-    );
-
-    void evalTrialSteps( Direction<Real> & d1, Direction<Real> & d2, Direction<Real> & d3 );
-    void evalTrialStepCut();
-
-    void
-    evalLinearCombination(
-      Direction<Real> const & d1,
-      Direction<Real> const & d2,
-      Direction<Real> const & d3,
-      Real            const   a1,
-      Real            const   a2,
-      Real            const   a3
-    );
+    void setMu(Real const mu) {this->m_iterate.mu = mu;}
 
     /**
      * \brief Evaluate quantities that depend on penalty/interior parameters.
@@ -181,99 +160,46 @@ namespace Pipal {
      * Runs slack, merit and KKT-error evaluations that are functions of the current penalty and
      * interior-point parameters.
      */
-    void
-    evalDependent() {
+    void evalDependent()
+    {
       // Evaluate quantities dependent on penalty and interior-point parameters
-      evalSlacks();
-      evalMerit();
-      evalKKTErrors();
+      this->evalSlacks();
+      this->evalMerit();
+      this->evalKKTErrors();
     }
-
-    Real evalKKTError( Real const rho, Real const mu );
-    void evalKKTErrors();
-
-    void
-    setPrimals(
-      Vector<Real> const & x,
-      Array<Real>  const & r1,
-      Array<Real>  const & r2,
-      Array<Real>  const & s1,
-      Array<Real>  const & s2,
-      Array<Real>  const & lE,
-      Array<Real>  const & lI,
-      Real         const   f,
-      Array<Real>  const & cE,
-      Array<Real>  const & cI,
-      Real         const   phi
-    );
-
-    void
-    buildInput(
-      std::string  const & name,
-      Vector<Real> const & x0,
-      Vector<Real> const & bl,
-      Vector<Real> const & bu,
-      Vector<Real> const & cl,
-      Vector<Real> const & cu
-    );
 
     /**
      * \brief Reset all internal counters to zero.
-     * \param[out] c Counter object to reset.
      */
-    void
-    resetCounter() {
-      m_counter.f =
-      m_counter.g =
-      m_counter.H =
-      m_counter.k =
-      m_counter.M = 0;
+    void resetCounter()
+    {
+      this->m_counter.f = this->m_counter.g = this->m_counter.H = this->m_counter.k = this->m_counter.M = 0;
     }
 
     /**
      * \brief Increment the matrix factorization counter.
-     * \param[in] c Counter whose matrix-factorization count is incremented.
      */
-    void
-    incrementFactorizationCount() {
-      ++m_counter.M;
-    }
+    void incrementFactorizationCount() {++this->m_counter.M;}
 
     /**
      * \brief Increment the function evaluation counter.
-     * \param[in] c Counter whose function-evaluation count is incremented.
      */
-    void
-    incrementFunctionCount() {
-      ++m_counter.f;
-    }
+    void incrementFunctionCount() {++this->m_counter.f;}
 
     /**
      * \brief Increment the gradient evaluation counter.
-     * \param[in] c Counter whose gradient-evaluation count is incremented.
      */
-    void
-    incrementGradientCount() {
-      ++m_counter.g;
-    }
+    void incrementGradientCount() {++this->m_counter.g;}
 
     /**
      * \brief Increment the Hessian evaluation counter.
-     * \param[in] c Counter whose Hessian-evaluation count is incremented.
      */
-    void
-    incrementHessianCount() {
-      ++m_counter.H;
-    }
+    void incrementHessianCount() {++this->m_counter.H;}
 
     /**
      * \brief Increment the iteration counter.
-     * \param[in] c Counter whose iteration count is incremented.
      */
-    void
-    incrementIterationCount() {
-      ++m_counter.k;
-    }
+    void incrementIterationCount() {++this->m_counter.k;}
 
   public:
     /**
@@ -310,22 +236,18 @@ namespace Pipal {
       BoundsFunc              const & primal_upper_bounds,
       BoundsFunc              const & constraints_lower_bounds,
       BoundsFunc              const & constraints_upper_bounds
-    )
-    : m_problem(
-       std::make_unique<ProblemWrapper<Real>>(
-         name,
-         objective,
-         objective_gradient,
-         constraints,
-         constraints_jacobian,
-         lagrangian_hessian,
-         primal_lower_bounds,
-         primal_upper_bounds,
-         constraints_lower_bounds,
-         constraints_upper_bounds
-        )
-      )
-    {}
+    ) : m_problem(std::make_unique<ProblemWrapper<Real>>(
+      name,
+      objective,
+      objective_gradient,
+      constraints,
+      constraints_jacobian,
+      lagrangian_hessian,
+      primal_lower_bounds,
+      primal_upper_bounds,
+      constraints_lower_bounds,
+      constraints_upper_bounds
+    )) {}
 
     /**
      * \brief Constructor for the Pipal class (with a unique pointer to a Problem object).
@@ -385,7 +307,7 @@ namespace Pipal {
      * \brief Get the verbose mode.
      * \return The verbose mode.
      */
-    [[nodiscard]] bool verbose_mode() const {return this->m_verbose;}
+    bool verbose_mode() const {return this->m_verbose;}
 
     /**
      * \brief Set the verbose mode.
@@ -397,7 +319,7 @@ namespace Pipal {
      * \brief Get the algorithm mode.
      * \return The algorithm mode.
      */
-    [[nodiscard]] Algorithm algorithm() const {return this->m_parameter.algorithm;}
+    Algorithm algorithm() const {return this->m_parameter.algorithm;}
 
     /**
      * \brief Set the algorithm mode.
@@ -416,12 +338,10 @@ namespace Pipal {
      *
      * \param[in] t_tolerance The convergence tolerance.
      */
-    void
-    tolerance( Real const t_tolerance ) {
-      PIPAL_ASSERT(
-        t_tolerance > 0.0,
-        "Pipal::Solver::tolerance(...): input value must be positive"
-      );
+    void tolerance(Real const t_tolerance)
+    {
+      PIPAL_ASSERT(t_tolerance > 0.0,
+        "Pipal::Solver::tolerance(...): input value must be positive");
       this->m_parameter.opt_err_tol = t_tolerance;
     }
 
@@ -439,12 +359,9 @@ namespace Pipal {
      *
      * \param[in] t_max_iterations The maximum number of iterations.
      */
-    void
-    max_iterations(Integer const t_max_iterations) {
-      PIPAL_ASSERT(
-        t_max_iterations > 0,
-        "Pipal::Solver::max_iterations(...): input value must be positive"
-      );
+    void max_iterations(Integer const t_max_iterations) {
+      PIPAL_ASSERT(t_max_iterations > 0,
+        "Pipal::Solver::max_iterations(...): input value must be positive");
       this->m_parameter.iter_max = t_max_iterations;
     }
 
@@ -452,7 +369,7 @@ namespace Pipal {
      * \brief Get the maximum number of iterations.
      * \return The maximum number of iterations.
      */
-    [[nodiscard]] Integer max_iterations() const {return this->m_parameter.iter_max;}
+    Integer max_iterations() const {return this->m_parameter.iter_max;}
 
     /**
      * \brief Solves the optimization problem using the interior-point method.
@@ -463,7 +380,83 @@ namespace Pipal {
      * \param[out] x_sol Solution vector.
      * \return True if the optimization was successful, false otherwise.
      */
-    bool optimize( Vector<Real> const & x_guess, Vector<Real> & x_sol );
+    bool optimize(Vector<Real> const & x_guess, Vector<Real> & x_sol)
+    {
+
+      #define CMD "Pipal::Solver::optimize(...): "
+
+      // Create alias for easier access
+      Counter          & c{this->m_counter};
+      Input<Real>      & i{this->m_input};
+      Iterate<Real>    & z{this->m_iterate};
+      Direction<Real>  & d{this->m_direction};
+      Acceptance<Real> & a{this->m_acceptance};
+
+      // Check that the problem is set
+      PIPAL_ASSERT(this->m_problem.get() != nullptr,
+        CMD "problem not set, use 'problem(...)' method to set it");
+
+      // Get variable bounds
+      Vector<Real> bl, bu;
+      PIPAL_ASSERT(this->m_problem->primal_lower_bounds(bl),
+        CMD "error in evaluating lower bounds on primal variables");
+      PIPAL_ASSERT(this->m_problem->primal_upper_bounds(bu),
+        CMD "error in evaluating upper bounds on primal variables");
+
+      // Get constraint bounds
+      Vector<Real> cl, cu;
+      PIPAL_ASSERT(this->m_problem->constraints_lower_bounds(cl),
+        CMD "error in evaluating lower bounds on constraints");
+      PIPAL_ASSERT(this->m_problem->constraints_upper_bounds(cu),
+        CMD "error in evaluating upper bounds on constraints");
+
+      // Reset counters
+      resetCounter();
+
+      // Fill input structure
+      buildInput(this->m_problem->name(), x_guess, bl, bu, cl, cu);
+      buildIterate();
+      resetDirection(d);
+
+      // Print header and break line
+      if (this->m_verbose) {this->m_output.printHeader(i, z); this->m_output.printBreak(c);}
+
+      // Iterations loop
+      while (!this->checkTermination()) {
+
+        // Print iterate
+        if (this->m_verbose) {this->m_output.printIterate(c, z);}
+
+        // Evaluate the step
+        this->evalStep();
+
+        // Print direction
+        if (this->m_verbose) {this->m_output.printDirection(z, d);}
+
+        this->lineSearch();
+
+        // Print accepted
+        if (this->m_verbose) {this->m_output.printAcceptance(a);}
+
+        this->updateIterate();
+
+        // Increment iteration counter
+        this->incrementIterationCount();
+
+        // Print break
+        if (this->m_verbose) {this->m_output.printBreak(c);}
+      }
+      // Print footer and terminate
+      if (this->m_verbose) {this->m_output.printFooter(c, z, this->checkTermination());}
+
+      // Get solution in original variables
+      this->evalXOriginal(x_sol);
+
+      // Return success if is finite
+      return x_sol.allFinite();
+
+      #undef CMD
+    }
 
     /**
      * \brief Extract a primal-dual solution in original ordering.
@@ -471,14 +464,14 @@ namespace Pipal {
      * \param[out] x Vector to store primal variables in original space.
      * \param[out] l Vector to store multipliers in original space.
      */
-    void
-    getSolution( Vector<Real> & x, Vector<Real> & l ) {
-      evalXOriginal(x);
-      evalLambdaOriginal(l);
+    void getSolution(Vector<Real> & x, Vector<Real> & l)
+    {
+      this->evalXOriginal(x);
+      this->evalLambdaOriginal(l);
     }
 
   }; // class Solver
 
 } // namespace Solver
 
-#endif /* INCLUDE_PIPAL_SOLVER_HH */
+#endif // INCLUDE_PIPAL_SOLVER_HXX

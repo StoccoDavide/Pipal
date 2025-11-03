@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['secondordercorrection_0',['secondOrderCorrection',['../namespace_pipal.html#a961b07f4e5fdb12693d36127c596be3a',1,'Pipal::secondOrderCorrection(Acceptance&lt; Real &gt; &amp;a, Parameter&lt; Real &gt; &amp;p, Input&lt; Real &gt; &amp;i, Counter &amp;c, Iterate&lt; Real &gt; &amp;z, Direction&lt; Real &gt; &amp;d, Problem&lt; Real &gt; const *problem)'],['../namespace_pipal.html#a288fed3c357a26d4d526abfdf80782f2',1,'Pipal::secondOrderCorrection(Acceptance&lt; Real &gt; &amp;a, Parameter&lt; Real &gt; &amp;p, Input&lt; Real &gt; &amp;i, Counter &amp;c, Iterate&lt; Real &gt; &amp;z, Direction&lt; Real &gt; &amp;d)']]],
-  ['setdirection_1',['setDirection',['../namespace_pipal.html#a8acb2e05d4a184db0db8a0126872f05e',1,'Pipal']]],
-  ['setmu_2',['setMu',['../namespace_pipal.html#a72bdd67cabfa2215bc276ad400f3c72c',1,'Pipal']]],
-  ['setmumaxexpzero_3',['setMuMaxExpZero',['../namespace_pipal.html#ad2125d3a1f3ad2dda5a937e08ac1a5a8',1,'Pipal']]],
-  ['setprimals_4',['setPrimals',['../namespace_pipal.html#a5dad85615817f26016c381ed093ae7bd',1,'Pipal']]],
-  ['setrho_5',['setRho',['../namespace_pipal.html#adb7d3fb768bd19f54f0617e31fa9ec1d',1,'Pipal']]],
-  ['setrholast_6',['setRhoLast',['../namespace_pipal.html#afec530f315eadaae1ad11356c92fc941',1,'Pipal']]],
-  ['solver_7',['Solver',['../class_pipal_1_1_solver.html#a15f3d2b04ffd71385716265b5396e337',1,'Pipal::Solver::Solver()=default'],['../class_pipal_1_1_solver.html#a240999c5883be6f5b93d52aad437eb23',1,'Pipal::Solver::Solver(std::string const &amp;name, ObjectiveFunc const &amp;objective, ObjectiveGradientFunc const &amp;objective_gradient, ConstraintsFunc const &amp;constraints, ConstraintsJacobianFunc const &amp;constraints_jacobian, LagrangianHessianFunc const &amp;lagrangian_hessian, BoundsFunc const &amp;primal_lower_bounds, BoundsFunc const &amp;primal_upper_bounds, BoundsFunc const &amp;constraints_lower_bounds, BoundsFunc const &amp;constraints_upper_bounds)'],['../class_pipal_1_1_solver.html#afaf952aa14029dff36e17af3b2d24369',1,'Pipal::Solver::Solver(ProblemPtr &amp;&amp;problem)'],['../class_pipal_1_1_solver.html#af0d4a77e31cca17d9bef48afbf6c6575',1,'Pipal::Solver::Solver(Solver const &amp;)=delete'],['../class_pipal_1_1_solver.html#a428bc2573556ebeffb5c86a382bb2cdb',1,'Pipal::Solver::Solver(Solver &amp;&amp;)=delete']]]
+  ['resetcounter_0',['resetCounter',['../class_pipal_1_1_solver.html#a77685a50f460f13a89d0b1883e0d7a2a',1,'Pipal::Solver']]],
+  ['resetdirection_1',['resetDirection',['../class_pipal_1_1_solver.html#a3f1df6d3c2cd455a2fe447fa7ded26e0',1,'Pipal::Solver']]],
+  ['resetmumaxexp_2',['resetMuMaxExp',['../class_pipal_1_1_solver.html#a13d3b7e9c8a3f05a4a1a112ea7c0fa89',1,'Pipal::Solver']]]
 ];

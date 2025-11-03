@@ -138,7 +138,7 @@ $(function(){initNavTree('class_pipal_1_1_solver.html','','class_pipal_1_1_solve
 <p><a class="el" href="class_pipal_1_1_solver.html" title="Solver class for the Pipal library.">Solver</a> class for the <a class="el" href="namespace_pipal.html" title="Namespace for the Pipal library.">Pipal</a> library.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_solver_8hh_source.html">Solver.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_solver_8hxx_source.html">Solver.hxx</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -190,10 +190,114 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3e75b7257e485187358b30d0def909c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum number of iterations.  <br /></td></tr>
 <tr class="memitem:a2c91034057845222c188465fed48f3d0" id="r_a2c91034057845222c188465fed48f3d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c91034057845222c188465fed48f3d0">optimize</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;x_guess, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;x_sol)</td></tr>
 <tr class="memdesc:a2c91034057845222c188465fed48f3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the optimization problem using the interior-point method.  <br /></td></tr>
+<tr class="memitem:a923f10ff90103357b5b817ed31e32238" id="r_a923f10ff90103357b5b817ed31e32238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a923f10ff90103357b5b817ed31e32238">getSolution</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;x, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;l)</td></tr>
+<tr class="memdesc:a923f10ff90103357b5b817ed31e32238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a primal-dual solution in original ordering.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4ba2953adf3216051ac6302a74abfb13" id="r_a4ba2953adf3216051ac6302a74abfb13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ba2953adf3216051ac6302a74abfb13">buildIterate</a> ()</td></tr>
+<tr class="memdesc:a4ba2953adf3216051ac6302a74abfb13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an <a class="el" href="struct_pipal_1_1_iterate.html" title="Class for managing the current iterate of the solver.">Iterate</a> object for a given problem/input.  <br /></td></tr>
+<tr class="memitem:a3b7e2f83da64fc21c5a4c29bacec2059" id="r_a3b7e2f83da64fc21c5a4c29bacec2059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b7e2f83da64fc21c5a4c29bacec2059">evalStep</a> ()</td></tr>
+<tr class="memdesc:a3b7e2f83da64fc21c5a4c29bacec2059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the search direction for the current iterate.  <br /></td></tr>
+<tr class="memitem:af8a5f2a72b228c146dd662008bea1561" id="r_af8a5f2a72b228c146dd662008bea1561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8a5f2a72b228c146dd662008bea1561">updateParameters</a> ()</td></tr>
+<tr class="memdesc:af8a5f2a72b228c146dd662008bea1561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update penalty and interior-point parameters based on KKT errors.  <br /></td></tr>
+<tr class="memitem:afddc1d09a15d89c34d019fd5337548f6" id="r_afddc1d09a15d89c34d019fd5337548f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afddc1d09a15d89c34d019fd5337548f6">lineSearch</a> ()</td></tr>
+<tr class="memdesc:afddc1d09a15d89c34d019fd5337548f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line-search driver.  <br /></td></tr>
+<tr class="memitem:a65df81b44fa62b2d55d913299188b8a2" id="r_a65df81b44fa62b2d55d913299188b8a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65df81b44fa62b2d55d913299188b8a2">updateIterate</a> ()</td></tr>
+<tr class="memdesc:a65df81b44fa62b2d55d913299188b8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the iterate after a trial step is accepted.  <br /></td></tr>
+<tr class="memitem:a892f5043eac3693faca0f28b396badcb" id="r_a892f5043eac3693faca0f28b396badcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a892f5043eac3693faca0f28b396badcb">updatePoint</a> ()</td></tr>
+<tr class="memdesc:a892f5043eac3693faca0f28b396badcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a step to the primal and dual variables of the iterate.  <br /></td></tr>
+<tr class="memitem:a48be420a882674ac9035bad01e61c498" id="r_a48be420a882674ac9035bad01e61c498"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48be420a882674ac9035bad01e61c498">backtracking</a> ()</td></tr>
+<tr class="memdesc:a48be420a882674ac9035bad01e61c498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backtracking line search.  <br /></td></tr>
+<tr class="memitem:aea02732caee716a023fcc7451df62c12" id="r_aea02732caee716a023fcc7451df62c12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea02732caee716a023fcc7451df62c12">evalFunctions</a> ()</td></tr>
+<tr class="memdesc:aea02732caee716a023fcc7451df62c12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate objective and constraint functions at the current iterate.  <br /></td></tr>
+<tr class="memitem:ac2b75b31a6407dc718313f41b654e78d" id="r_ac2b75b31a6407dc718313f41b654e78d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2b75b31a6407dc718313f41b654e78d">evalGradients</a> ()</td></tr>
+<tr class="memdesc:ac2b75b31a6407dc718313f41b654e78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate objective gradient and constraint Jacobian.  <br /></td></tr>
+<tr class="memitem:af4b2c6659873f878604631ed05a332b6" id="r_af4b2c6659873f878604631ed05a332b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4b2c6659873f878604631ed05a332b6">evalHessian</a> ()</td></tr>
+<tr class="memdesc:af4b2c6659873f878604631ed05a332b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the Hessian of the Lagrangian and assemble internal H.  <br /></td></tr>
+<tr class="memitem:a9807eb4bb2b3fde57985145f683e7be3" id="r_a9807eb4bb2b3fde57985145f683e7be3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9807eb4bb2b3fde57985145f683e7be3">evalNewtonMatrix</a> ()</td></tr>
+<tr class="memdesc:a9807eb4bb2b3fde57985145f683e7be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble and (attempt to) factorize the Newton system matrix.  <br /></td></tr>
+<tr class="memitem:af73d2f397684c0f1363690a3bbd586e4" id="r_af73d2f397684c0f1363690a3bbd586e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af73d2f397684c0f1363690a3bbd586e4">evalScalings</a> ()</td></tr>
+<tr class="memdesc:af73d2f397684c0f1363690a3bbd586e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate scaling multipliers for objective and constraints.  <br /></td></tr>
+<tr class="memitem:ac009c80b47444aac6e24642f836131de" id="r_ac009c80b47444aac6e24642f836131de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac009c80b47444aac6e24642f836131de">evalModels</a> ()</td></tr>
+<tr class="memdesc:ac009c80b47444aac6e24642f836131de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate model reductions and quality metric for a direction.  <br /></td></tr>
+<tr class="memitem:ad71c47ac0bb3e0bed333d1178db6bc00" id="r_ad71c47ac0bb3e0bed333d1178db6bc00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad71c47ac0bb3e0bed333d1178db6bc00">fractionToBoundary</a> ()</td></tr>
+<tr class="memdesc:ad71c47ac0bb3e0bed333d1178db6bc00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fraction-to-boundary rule for primal and dual variables.  <br /></td></tr>
+<tr class="memitem:a6759c38f02e7846b120615bb7753029f" id="r_a6759c38f02e7846b120615bb7753029f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6759c38f02e7846b120615bb7753029f">evalNewtonRhs</a> ()</td></tr>
+<tr class="memdesc:a6759c38f02e7846b120615bb7753029f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the right-hand side vector for the Newton system.  <br /></td></tr>
+<tr class="memitem:a78227c7ceeb0b93649525a9b8b8bff7c" id="r_a78227c7ceeb0b93649525a9b8b8bff7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78227c7ceeb0b93649525a9b8b8bff7c">evalSlacks</a> ()</td></tr>
+<tr class="memdesc:a78227c7ceeb0b93649525a9b8b8bff7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute internal slack variables from current iterate.  <br /></td></tr>
+<tr class="memitem:a075c3cf43124703d2416e213a900e91b" id="r_a075c3cf43124703d2416e213a900e91b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a075c3cf43124703d2416e213a900e91b">evalMerit</a> ()</td></tr>
+<tr class="memdesc:a075c3cf43124703d2416e213a900e91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the merit function value for the current iterate.  <br /></td></tr>
+<tr class="memitem:a2edfb55f2e56c4720e20cfb4eef251c2" id="r_a2edfb55f2e56c4720e20cfb4eef251c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2edfb55f2e56c4720e20cfb4eef251c2">initNewtonMatrix</a> ()</td></tr>
+<tr class="memdesc:a2edfb55f2e56c4720e20cfb4eef251c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserve and initialize the internal sparse Newton matrix structure.  <br /></td></tr>
+<tr class="memitem:a3f1df6d3c2cd455a2fe447fa7ded26e0" id="r_a3f1df6d3c2cd455a2fe447fa7ded26e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f1df6d3c2cd455a2fe447fa7ded26e0">resetDirection</a> (<a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;d) const</td></tr>
+<tr class="memdesc:a3f1df6d3c2cd455a2fe447fa7ded26e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset a search direction to zero and initialize norms.  <br /></td></tr>
+<tr class="memitem:ad80332f1b7871355bb93f76902016f7a" id="r_ad80332f1b7871355bb93f76902016f7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad80332f1b7871355bb93f76902016f7a">evalLambdaOriginal</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;l) const</td></tr>
+<tr class="memdesc:ad80332f1b7871355bb93f76902016f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct multipliers in the original variable/constraint space.  <br /></td></tr>
+<tr class="memitem:a23ee2ba7880844ab97a50bfd76af81e1" id="r_a23ee2ba7880844ab97a50bfd76af81e1"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23ee2ba7880844ab97a50bfd76af81e1">evalViolation</a> (<a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;cE, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;cI) const</td></tr>
+<tr class="memdesc:a23ee2ba7880844ab97a50bfd76af81e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the 1-norm feasibility violation from equality/inequality values.  <br /></td></tr>
+<tr class="memitem:ad482be1af04fd16b3e049ec7f6f8dae3" id="r_ad482be1af04fd16b3e049ec7f6f8dae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad482be1af04fd16b3e049ec7f6f8dae3">evalNewtonStep</a> ()</td></tr>
+<tr class="memdesc:ad482be1af04fd16b3e049ec7f6f8dae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recover direction components from the Newton system solution.  <br /></td></tr>
+<tr class="memitem:a0a0bbe166cd073655bce24ba789d8267" id="r_a0a0bbe166cd073655bce24ba789d8267"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a0bbe166cd073655bce24ba789d8267">evalTrialStep</a> (<a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;v) const</td></tr>
+<tr class="memdesc:a0a0bbe166cd073655bce24ba789d8267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store a trial step into another direction object.  <br /></td></tr>
+<tr class="memitem:ad99cbdc380c4b8cd8b2251c376646141" id="r_ad99cbdc380c4b8cd8b2251c376646141"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad99cbdc380c4b8cd8b2251c376646141">checkTermination</a> () const</td></tr>
+<tr class="memdesc:ad99cbdc380c4b8cd8b2251c376646141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check termination criteria for the solver.  <br /></td></tr>
+<tr class="memitem:ae5be58d2aac903aa4b4851e93b403167" id="r_ae5be58d2aac903aa4b4851e93b403167"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5be58d2aac903aa4b4851e93b403167">fullStepCheck</a> ()</td></tr>
+<tr class="memdesc:ae5be58d2aac903aa4b4851e93b403167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full-step check for trial penalty parameters.  <br /></td></tr>
+<tr class="memitem:ab4eee3eec708b4ba34fd97ed3c5bc85c" id="r_ab4eee3eec708b4ba34fd97ed3c5bc85c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4eee3eec708b4ba34fd97ed3c5bc85c">secondOrderCorrection</a> ()</td></tr>
+<tr class="memdesc:ab4eee3eec708b4ba34fd97ed3c5bc85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Second-order correction (SOC).  <br /></td></tr>
+<tr class="memitem:a8ce255d425b0f32e66369e45be7d99cc" id="r_a8ce255d425b0f32e66369e45be7d99cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ce255d425b0f32e66369e45be7d99cc">evalXOriginal</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;x)</td></tr>
+<tr class="memdesc:a8ce255d425b0f32e66369e45be7d99cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct the full primal vector in the original variable ordering.  <br /></td></tr>
+<tr class="memitem:ad7f2b9c0b6d1a657805dab22b61f9e77" id="r_ad7f2b9c0b6d1a657805dab22b61f9e77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7f2b9c0b6d1a657805dab22b61f9e77">setDirection</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;dx, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;dr1, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;dr2, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;ds1, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;ds2, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;dlE, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;dlI, Real const dx_norm, Real const dl_norm)</td></tr>
+<tr class="memdesc:ad7f2b9c0b6d1a657805dab22b61f9e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate a <a class="el" href="struct_pipal_1_1_direction.html" title="Class for managing the current search direction of the solver.">Direction</a> object from its component vectors.  <br /></td></tr>
+<tr class="memitem:a398efe475c5af705c6a9a191462743eb" id="r_a398efe475c5af705c6a9a191462743eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a398efe475c5af705c6a9a191462743eb">evalTrialSteps</a> (<a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;d1, <a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;d2, <a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;d3)</td></tr>
+<tr class="memdesc:a398efe475c5af705c6a9a191462743eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute and store directions for a few parameter combinations.  <br /></td></tr>
+<tr class="memitem:af4b4483b5bb6bed8299548550b41dd98" id="r_af4b4483b5bb6bed8299548550b41dd98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4b4483b5bb6bed8299548550b41dd98">evalTrialStepCut</a> ()</td></tr>
+<tr class="memdesc:af4b4483b5bb6bed8299548550b41dd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scale a trial step by the fraction-to-boundary values.  <br /></td></tr>
+<tr class="memitem:a3aba47538bf003ff1e9ac80b1433a87f" id="r_a3aba47538bf003ff1e9ac80b1433a87f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aba47538bf003ff1e9ac80b1433a87f">evalLinearCombination</a> (<a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; const &amp;d1, <a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; const &amp;d2, <a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; const &amp;d3, Real const a1, Real const a2, Real const a3)</td></tr>
+<tr class="memdesc:a3aba47538bf003ff1e9ac80b1433a87f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a linear combination of up to three directions.  <br /></td></tr>
+<tr class="memitem:a021f0a1921fd5b915c60c0c0e961941a" id="r_a021f0a1921fd5b915c60c0c0e961941a"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a021f0a1921fd5b915c60c0c0e961941a">evalKKTError</a> (Real const rho, Real const mu)</td></tr>
+<tr class="memdesc:a021f0a1921fd5b915c60c0c0e961941a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the infinity-norm of the KKT optimality vector.  <br /></td></tr>
+<tr class="memitem:ad5d46986beeb4e6f8bfe2cc7d040a0ce" id="r_ad5d46986beeb4e6f8bfe2cc7d040a0ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5d46986beeb4e6f8bfe2cc7d040a0ce">evalKKTErrors</a> ()</td></tr>
+<tr class="memdesc:ad5d46986beeb4e6f8bfe2cc7d040a0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the three KKT error measures used by the solver.  <br /></td></tr>
+<tr class="memitem:ad224378419f7fd3441775b6b7cbf4f90" id="r_ad224378419f7fd3441775b6b7cbf4f90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;x, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;r1, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;r2, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;s1, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;s2, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;lE, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;lI, Real const f, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;cE, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;cI, Real const phi)</td></tr>
+<tr class="memdesc:ad224378419f7fd3441775b6b7cbf4f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set primal/dual blocks and associated quantities on an iterate.  <br /></td></tr>
+<tr class="memitem:a24236b2521a72e239174ca02bb054cab" id="r_a24236b2521a72e239174ca02bb054cab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24236b2521a72e239174ca02bb054cab">buildInput</a> (std::string const &amp;name, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;x0, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;bl, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;bu, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;cl, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;cu)</td></tr>
+<tr class="memitem:a53926d78055ce757b0ed632e81369d31" id="r_a53926d78055ce757b0ed632e81369d31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53926d78055ce757b0ed632e81369d31">evalInfeasibility</a> (<a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a>&lt; Real &gt; &amp;z) const</td></tr>
+<tr class="memdesc:a53926d78055ce757b0ed632e81369d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute scaled and unscaled feasibility violations.  <br /></td></tr>
+<tr class="memitem:a7cfc414cb6ffaa5aa641a929f573e628" id="r_a7cfc414cb6ffaa5aa641a929f573e628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cfc414cb6ffaa5aa641a929f573e628">evalMatrices</a> ()</td></tr>
+<tr class="memdesc:a7cfc414cb6ffaa5aa641a929f573e628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate model matrices (Hessian and Newton matrix).  <br /></td></tr>
+<tr class="memitem:a13d3b7e9c8a3f05a4a1a112ea7c0fa89" id="r_a13d3b7e9c8a3f05a4a1a112ea7c0fa89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13d3b7e9c8a3f05a4a1a112ea7c0fa89">resetMuMaxExp</a> ()</td></tr>
+<tr class="memdesc:a13d3b7e9c8a3f05a4a1a112ea7c0fa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset maximum exponent used for mu increases to its default.  <br /></td></tr>
+<tr class="memitem:a93e58486861c64ff6a4465472f8a9805" id="r_a93e58486861c64ff6a4465472f8a9805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93e58486861c64ff6a4465472f8a9805">buildParameter</a> (<a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a> t_algorithm)</td></tr>
+<tr class="memdesc:a93e58486861c64ff6a4465472f8a9805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize algorithm parameters.  <br /></td></tr>
+<tr class="memitem:abb3e66056392e62f88999f33d9825897" id="r_abb3e66056392e62f88999f33d9825897"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb3e66056392e62f88999f33d9825897">setMuMaxExpZero</a> ()</td></tr>
+<tr class="memdesc:abb3e66056392e62f88999f33d9825897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force mu exponent increases to use zero as maximum exponent.  <br /></td></tr>
+<tr class="memitem:a0d7438b38956ce892c3ab666cb28ddd5" id="r_a0d7438b38956ce892c3ab666cb28ddd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d7438b38956ce892c3ab666cb28ddd5">setRho</a> (Real const rho)</td></tr>
+<tr class="memdesc:a0d7438b38956ce892c3ab666cb28ddd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set penalty parameter rho.  <br /></td></tr>
+<tr class="memitem:a1f3147e33f95b6827d3d8892cab73a45" id="r_a1f3147e33f95b6827d3d8892cab73a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f3147e33f95b6827d3d8892cab73a45">setRhoLast</a> (Real const rho)</td></tr>
+<tr class="memdesc:a1f3147e33f95b6827d3d8892cab73a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set last (previous) penalty parameter value.  <br /></td></tr>
+<tr class="memitem:a6844184b44f8e30a0d7c221d4fc26df0" id="r_a6844184b44f8e30a0d7c221d4fc26df0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6844184b44f8e30a0d7c221d4fc26df0">setMu</a> (Real const mu)</td></tr>
+<tr class="memdesc:a6844184b44f8e30a0d7c221d4fc26df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set interior-point parameter <code class="param">mu</code>.  <br /></td></tr>
+<tr class="memitem:a2f641d8a75c90d577ff9c4060845ea0e" id="r_a2f641d8a75c90d577ff9c4060845ea0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f641d8a75c90d577ff9c4060845ea0e">evalDependent</a> ()</td></tr>
+<tr class="memdesc:a2f641d8a75c90d577ff9c4060845ea0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate quantities that depend on penalty/interior parameters.  <br /></td></tr>
+<tr class="memitem:a77685a50f460f13a89d0b1883e0d7a2a" id="r_a77685a50f460f13a89d0b1883e0d7a2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77685a50f460f13a89d0b1883e0d7a2a">resetCounter</a> ()</td></tr>
+<tr class="memdesc:a77685a50f460f13a89d0b1883e0d7a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all internal counters to zero.  <br /></td></tr>
+<tr class="memitem:a11cc85fe69805a09f40d77753a73ce8d" id="r_a11cc85fe69805a09f40d77753a73ce8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11cc85fe69805a09f40d77753a73ce8d">incrementFactorizationCount</a> ()</td></tr>
+<tr class="memdesc:a11cc85fe69805a09f40d77753a73ce8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the matrix factorization counter.  <br /></td></tr>
+<tr class="memitem:a5af8a4c8d71ee7843f19959d3a3285c1" id="r_a5af8a4c8d71ee7843f19959d3a3285c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5af8a4c8d71ee7843f19959d3a3285c1">incrementFunctionCount</a> ()</td></tr>
+<tr class="memdesc:a5af8a4c8d71ee7843f19959d3a3285c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the function evaluation counter.  <br /></td></tr>
+<tr class="memitem:a3594a709b518bd39cca10dcd8c3de445" id="r_a3594a709b518bd39cca10dcd8c3de445"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3594a709b518bd39cca10dcd8c3de445">incrementGradientCount</a> ()</td></tr>
+<tr class="memdesc:a3594a709b518bd39cca10dcd8c3de445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the gradient evaluation counter.  <br /></td></tr>
+<tr class="memitem:a577a4790b8003479b4838de58d46068e" id="r_a577a4790b8003479b4838de58d46068e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a577a4790b8003479b4838de58d46068e">incrementHessianCount</a> ()</td></tr>
+<tr class="memdesc:a577a4790b8003479b4838de58d46068e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the Hessian evaluation counter.  <br /></td></tr>
+<tr class="memitem:ac72217f38b92063e90b5e4219b6142bc" id="r_ac72217f38b92063e90b5e4219b6142bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac72217f38b92063e90b5e4219b6142bc">incrementIterationCount</a> ()</td></tr>
+<tr class="memdesc:ac72217f38b92063e90b5e4219b6142bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment the iteration counter.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8902750eadd8c2e403197281bc710b40" id="r_a8902750eadd8c2e403197281bc710b40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#ab5f439eda3bde94055a3f0e2067483e7">Counter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8902750eadd8c2e403197281bc710b40">m_counter</a></td></tr>
+<tr class="memitem:a8902750eadd8c2e403197281bc710b40" id="r_a8902750eadd8c2e403197281bc710b40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#af2bb1d9e27c75bf83705c48a66fe5a22">Counter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8902750eadd8c2e403197281bc710b40">m_counter</a></td></tr>
 <tr class="memitem:a1280654282902b7c7b622db52f856907" id="r_a1280654282902b7c7b622db52f856907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pipal_1_1_acceptance.html">Acceptance</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1280654282902b7c7b622db52f856907">m_acceptance</a></td></tr>
 <tr class="memitem:a2569f5bfbaaad320a64bacf31c5d1312" id="r_a2569f5bfbaaad320a64bacf31c5d1312"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pipal_1_1_input.html">Input</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2569f5bfbaaad320a64bacf31c5d1312">m_input</a></td></tr>
 <tr class="memitem:a3fd9a94cf162084fe3fba2aa60ca776b" id="r_a3fd9a94cf162084fe3fba2aa60ca776b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fd9a94cf162084fe3fba2aa60ca776b">m_direction</a></td></tr>
@@ -578,7 +682,7 @@ template&lt;typename Real&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -619,6 +723,1351 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
+<a id="a48be420a882674ac9035bad01e61c498" name="a48be420a882674ac9035bad01e61c498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48be420a882674ac9035bad01e61c498">&#9670;&#160;</a></span>backtracking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::backtracking </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Performs a backtracking Armijo line search on the merit function. The routine updates the trial primal/dual variables using the candidate direction and the current acceptance object. On success the iterate is restored to the accepted trial point; otherwise the steplength is reduced until the Armijo condition or the fraction-to-boundary constraint prevents further reductions. </p>
+
+</div>
+</div>
+<a id="a24236b2521a72e239174ca02bb054cab" name="a24236b2521a72e239174ca02bb054cab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24236b2521a72e239174ca02bb054cab">&#9670;&#160;</a></span>buildInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::buildInput </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>bl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>bu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>cl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>cu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ba2953adf3216051ac6302a74abfb13" name="a4ba2953adf3216051ac6302a74abfb13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba2953adf3216051ac6302a74abfb13">&#9670;&#160;</a></span>buildIterate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::buildIterate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a93e58486861c64ff6a4465472f8a9805" name="a93e58486861c64ff6a4465472f8a9805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93e58486861c64ff6a4465472f8a9805">&#9670;&#160;</a></span>buildParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::buildParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a></td>          <td class="paramname"><span class="paramname"><em>t_algorithm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t_algorithm</td><td><a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0" title="Enumeration for the algorithm choice.">Algorithm</a> selection enumerator. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad99cbdc380c4b8cd8b2251c376646141" name="ad99cbdc380c4b8cd8b2251c376646141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad99cbdc380c4b8cd8b2251c376646141">&#9670;&#160;</a></span>checkTermination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::checkTermination </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Evaluates optimality/feasibility/iteration-count/bounds error conditions and returns the termination code used by the solver. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An integer termination code (0 = continue, 1..5 = specific exits). </dd></dl>
+
+</div>
+</div>
+<a id="a2f641d8a75c90d577ff9c4060845ea0e" name="a2f641d8a75c90d577ff9c4060845ea0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f641d8a75c90d577ff9c4060845ea0e">&#9670;&#160;</a></span>evalDependent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalDependent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Runs slack, merit and KKT-error evaluations that are functions of the current penalty and interior-point parameters. </p>
+
+</div>
+</div>
+<a id="aea02732caee716a023fcc7451df62c12" name="aea02732caee716a023fcc7451df62c12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea02732caee716a023fcc7451df62c12">&#9670;&#160;</a></span>evalFunctions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalFunctions </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac2b75b31a6407dc718313f41b654e78d" name="ac2b75b31a6407dc718313f41b654e78d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2b75b31a6407dc718313f41b654e78d">&#9670;&#160;</a></span>evalGradients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalGradients </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calls the problem-provided gradient/jacobian functions in the original space, maps the results into the internal compressed representations and applies scaling. Increments gradient counters and handles exceptions. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4b2c6659873f878604631ed05a332b6" name="af4b2c6659873f878604631ed05a332b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b2c6659873f878604631ed05a332b6">&#9670;&#160;</a></span>evalHessian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalHessian </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calls the problem's Hessian-of-Lagrangian routine (with multipliers and primal variables in the original space), maps blocks into the internal sparse Hessian and rescales according to penalization and scaling factors. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a53926d78055ce757b0ed632e81369d31" name="a53926d78055ce757b0ed632e81369d31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53926d78055ce757b0ed632e81369d31">&#9670;&#160;</a></span>evalInfeasibility()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalInfeasibility </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">z</td><td>Current iterate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a021f0a1921fd5b915c60c0c0e961941a" name="a021f0a1921fd5b915c60c0c0e961941a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021f0a1921fd5b915c60c0c0e961941a">&#9670;&#160;</a></span>evalKKTError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalKKTError </td>
+          <td>(</td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>mu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rho</td><td>Current penalty parameter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu</td><td>Current interior-point parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The infinity-norm of the KKT optimality vector. </dd></dl>
+
+</div>
+</div>
+<a id="ad5d46986beeb4e6f8bfe2cc7d040a0ce" name="ad5d46986beeb4e6f8bfe2cc7d040a0ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d46986beeb4e6f8bfe2cc7d040a0ce">&#9670;&#160;</a></span>evalKKTErrors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalKKTErrors </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad80332f1b7871355bb93f76902016f7a" name="ad80332f1b7871355bb93f76902016f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80332f1b7871355bb93f76902016f7a">&#9670;&#160;</a></span>evalLambdaOriginal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalLambdaOriginal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>l</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">l</td><td><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a> to store multipliers in original space. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3aba47538bf003ff1e9ac80b1433a87f" name="a3aba47538bf003ff1e9ac80b1433a87f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aba47538bf003ff1e9ac80b1433a87f">&#9670;&#160;</a></span>evalLinearCombination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalLinearCombination </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>d1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>d2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>d3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>a3</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">d1</td><td>First direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d2</td><td>Second direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d3</td><td>Third direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1</td><td>Scalar multiplier for the first direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2</td><td>Scalar multiplier for the second direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a3</td><td>Scalar multiplier for the third direction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7cfc414cb6ffaa5aa641a929f573e628" name="a7cfc414cb6ffaa5aa641a929f573e628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cfc414cb6ffaa5aa641a929f573e628">&#9670;&#160;</a></span>evalMatrices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalMatrices </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a075c3cf43124703d2416e213a900e91b" name="a075c3cf43124703d2416e213a900e91b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a075c3cf43124703d2416e213a900e91b">&#9670;&#160;</a></span>evalMerit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalMerit </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac009c80b47444aac6e24642f836131de" name="ac009c80b47444aac6e24642f836131de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac009c80b47444aac6e24642f836131de">&#9670;&#160;</a></span>evalModels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalModels </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9807eb4bb2b3fde57985145f683e7be3" name="a9807eb4bb2b3fde57985145f683e7be3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9807eb4bb2b3fde57985145f683e7be3">&#9670;&#160;</a></span>evalNewtonMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalNewtonMatrix </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6759c38f02e7846b120615bb7753029f" name="a6759c38f02e7846b120615bb7753029f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6759c38f02e7846b120615bb7753029f">&#9670;&#160;</a></span>evalNewtonRhs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalNewtonRhs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad482be1af04fd16b3e049ec7f6f8dae3" name="ad482be1af04fd16b3e049ec7f6f8dae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad482be1af04fd16b3e049ec7f6f8dae3">&#9670;&#160;</a></span>evalNewtonStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalNewtonStep </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af73d2f397684c0f1363690a3bbd586e4" name="af73d2f397684c0f1363690a3bbd586e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73d2f397684c0f1363690a3bbd586e4">&#9670;&#160;</a></span>evalScalings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalScalings </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a78227c7ceeb0b93649525a9b8b8bff7c" name="a78227c7ceeb0b93649525a9b8b8bff7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78227c7ceeb0b93649525a9b8b8bff7c">&#9670;&#160;</a></span>evalSlacks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalSlacks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b7e2f83da64fc21c5a4c29bacec2059" name="a3b7e2f83da64fc21c5a4c29bacec2059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b7e2f83da64fc21c5a4c29bacec2059">&#9670;&#160;</a></span>evalStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalStep </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a0bbe166cd073655bce24ba789d8267" name="a0a0bbe166cd073655bce24ba789d8267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a0bbe166cd073655bce24ba789d8267">&#9670;&#160;</a></span>evalTrialStep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalTrialStep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">v</td><td>Destination direction that will contain the trial step. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4b4483b5bb6bed8299548550b41dd98" name="af4b4483b5bb6bed8299548550b41dd98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b4483b5bb6bed8299548550b41dd98">&#9670;&#160;</a></span>evalTrialStepCut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalTrialStepCut </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a398efe475c5af705c6a9a191462743eb" name="a398efe475c5af705c6a9a191462743eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398efe475c5af705c6a9a191462743eb">&#9670;&#160;</a></span>evalTrialSteps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalTrialSteps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>d1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>d2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>d3</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">d1</td><td><a class="el" href="struct_pipal_1_1_direction.html" title="Class for managing the current search direction of the solver.">Direction</a> for the first parameter combination. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">d2</td><td><a class="el" href="struct_pipal_1_1_direction.html" title="Class for managing the current search direction of the solver.">Direction</a> for the second parameter combination. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">d3</td><td><a class="el" href="struct_pipal_1_1_direction.html" title="Class for managing the current search direction of the solver.">Direction</a> for the third parameter combination. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a23ee2ba7880844ab97a50bfd76af81e1" name="a23ee2ba7880844ab97a50bfd76af81e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ee2ba7880844ab97a50bfd76af81e1">&#9670;&#160;</a></span>evalViolation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Real <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalViolation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>cE</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>cI</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cE</td><td>Equality constraint values. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cI</td><td>Inequality constraint values. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The 1-norm feasibility violation. </dd></dl>
+
+</div>
+</div>
+<a id="a8ce255d425b0f32e66369e45be7d99cc" name="a8ce255d425b0f32e66369e45be7d99cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce255d425b0f32e66369e45be7d99cc">&#9670;&#160;</a></span>evalXOriginal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalXOriginal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a> to store primal variables in original space. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad71c47ac0bb3e0bed333d1178db6bc00" name="ad71c47ac0bb3e0bed333d1178db6bc00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad71c47ac0bb3e0bed333d1178db6bc00">&#9670;&#160;</a></span>fractionToBoundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::fractionToBoundary </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Computes the maximum allowable primal and dual step fractions that keep interior-point slacks and multipliers within their prescribed bounds. The computed values are stored in the <code class="param">a.p0</code> (initial primal fraction), <code class="param">a.p</code> (primal steplength) and <code class="param">a.d</code> (dual steplength). </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae5be58d2aac903aa4b4851e93b403167" name="ae5be58d2aac903aa4b4851e93b403167"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5be58d2aac903aa4b4851e93b403167">&#9670;&#160;</a></span>fullStepCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::fullStepCheck </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Attempts full steps for a sequence of trial penalty parameters, verifying the Armijo condition on the merit. If a full step satisfies the acceptance condition the routine returns 1 and the iterate is left at the accepted trial point; otherwise the penalty parameter is decreased and the process repeats. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if a full step was accepted, 0 otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a923f10ff90103357b5b817ed31e32238" name="a923f10ff90103357b5b817ed31e32238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a923f10ff90103357b5b817ed31e32238">&#9670;&#160;</a></span>getSolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::getSolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>l</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a> to store primal variables in original space. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">l</td><td><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a> to store multipliers in original space. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11cc85fe69805a09f40d77753a73ce8d" name="a11cc85fe69805a09f40d77753a73ce8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11cc85fe69805a09f40d77753a73ce8d">&#9670;&#160;</a></span>incrementFactorizationCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::incrementFactorizationCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5af8a4c8d71ee7843f19959d3a3285c1" name="a5af8a4c8d71ee7843f19959d3a3285c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af8a4c8d71ee7843f19959d3a3285c1">&#9670;&#160;</a></span>incrementFunctionCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::incrementFunctionCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3594a709b518bd39cca10dcd8c3de445" name="a3594a709b518bd39cca10dcd8c3de445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3594a709b518bd39cca10dcd8c3de445">&#9670;&#160;</a></span>incrementGradientCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::incrementGradientCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a577a4790b8003479b4838de58d46068e" name="a577a4790b8003479b4838de58d46068e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577a4790b8003479b4838de58d46068e">&#9670;&#160;</a></span>incrementHessianCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::incrementHessianCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac72217f38b92063e90b5e4219b6142bc" name="ac72217f38b92063e90b5e4219b6142bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72217f38b92063e90b5e4219b6142bc">&#9670;&#160;</a></span>incrementIterationCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::incrementIterationCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2edfb55f2e56c4720e20cfb4eef251c2" name="a2edfb55f2e56c4720e20cfb4eef251c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2edfb55f2e56c4720e20cfb4eef251c2">&#9670;&#160;</a></span>initNewtonMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::initNewtonMatrix </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afddc1d09a15d89c34d019fd5337548f6" name="afddc1d09a15d89c34d019fd5337548f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afddc1d09a15d89c34d019fd5337548f6">&#9670;&#160;</a></span>lineSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::lineSearch </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Runs the fraction-to-boundary rule, full-step check, second-order correction and backtracking as needed to find an acceptable trial step. The acceptance object is updated with the final chosen step. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3e75b7257e485187358b30d0def909c4" name="a3e75b7257e485187358b30d0def909c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e75b7257e485187358b30d0def909c4">&#9670;&#160;</a></span>max_iterations() <span class="overload">[1/2]</span></h2>
 
@@ -639,7 +2088,7 @@ template&lt;typename Real&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -837,6 +2286,473 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
+<a id="a77685a50f460f13a89d0b1883e0d7a2a" name="a77685a50f460f13a89d0b1883e0d7a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77685a50f460f13a89d0b1883e0d7a2a">&#9670;&#160;</a></span>resetCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::resetCounter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f1df6d3c2cd455a2fe447fa7ded26e0" name="a3f1df6d3c2cd455a2fe447fa7ded26e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1df6d3c2cd455a2fe447fa7ded26e0">&#9670;&#160;</a></span>resetDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::resetDirection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_direction.html">Direction</a>&lt; Real &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td><a class="el" href="struct_pipal_1_1_direction.html" title="Class for managing the current search direction of the solver.">Direction</a> object to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a13d3b7e9c8a3f05a4a1a112ea7c0fa89" name="a13d3b7e9c8a3f05a4a1a112ea7c0fa89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d3b7e9c8a3f05a4a1a112ea7c0fa89">&#9670;&#160;</a></span>resetMuMaxExp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::resetMuMaxExp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td><a class="el" href="struct_pipal_1_1_parameter.html" title="Internal parameters for the solver algorithm.">Parameter</a> object whose mu exponent limit is reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab4eee3eec708b4ba34fd97ed3c5bc85c" name="ab4eee3eec708b4ba34fd97ed3c5bc85c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4eee3eec708b4ba34fd97ed3c5bc85c">&#9670;&#160;</a></span>secondOrderCorrection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::secondOrderCorrection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Attempts a second-order correction to improve feasibility when the trial step fails the Armijo condition (or other checks). The routine evaluates a corrected Newton step and tests acceptance similarly to the main line-search path. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if SOC not accepted, 1 if first acceptance criterion met, 2 if SOC accepted. </dd></dl>
+
+</div>
+</div>
+<a id="ad7f2b9c0b6d1a657805dab22b61f9e77" name="ad7f2b9c0b6d1a657805dab22b61f9e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f2b9c0b6d1a657805dab22b61f9e77">&#9670;&#160;</a></span>setDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::setDirection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>dx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>dr1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>dr2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>ds1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>ds2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>dlE</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>dlI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>dx_norm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>dl_norm</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dx</td><td>Primal component of the direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dr1</td><td>Equality slack direction (first part). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dr2</td><td>Equality slack direction (second part). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ds1</td><td>Inequality slack direction (first part). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ds2</td><td>Inequality slack direction (second part). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dlE</td><td>Equality multipliers direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dlI</td><td>Inequality multipliers direction. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dx_norm</td><td>Norm of the primal direction (precomputed). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dl_norm</td><td>Norm of the dual direction (precomputed). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6844184b44f8e30a0d7c221d4fc26df0" name="a6844184b44f8e30a0d7c221d4fc26df0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6844184b44f8e30a0d7c221d4fc26df0">&#9670;&#160;</a></span>setMu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::setMu </td>
+          <td>(</td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>mu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mu</td><td>New interior-point parameter value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abb3e66056392e62f88999f33d9825897" name="abb3e66056392e62f88999f33d9825897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb3e66056392e62f88999f33d9825897">&#9670;&#160;</a></span>setMuMaxExpZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::setMuMaxExpZero </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad224378419f7fd3441775b6b7cbf4f90" name="ad224378419f7fd3441775b6b7cbf4f90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad224378419f7fd3441775b6b7cbf4f90">&#9670;&#160;</a></span>setPrimals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::setPrimals </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>r2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>s1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>s2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>lE</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>lI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>cE</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>cI</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>phi</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Primal variable vector. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r1</td><td>Equality constraint slack variables (lower). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r2</td><td>Equality constraint slack variables (upper). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s1</td><td>Inequality constraint slack variables (lower). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s2</td><td>Inequality constraint slack variables (upper). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lE</td><td>Equality constraint multipliers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lI</td><td>Inequality constraint multipliers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>Objective function value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cE</td><td>Equality constraint values. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cI</td><td>Inequality constraint values. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">phi</td><td>Merit function value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d7438b38956ce892c3ab666cb28ddd5" name="a0d7438b38956ce892c3ab666cb28ddd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7438b38956ce892c3ab666cb28ddd5">&#9670;&#160;</a></span>setRho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::setRho </td>
+          <td>(</td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>rho</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rho</td><td>New penalty parameter value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1f3147e33f95b6827d3d8892cab73a45" name="a1f3147e33f95b6827d3d8892cab73a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3147e33f95b6827d3d8892cab73a45">&#9670;&#160;</a></span>setRhoLast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::setRhoLast </td>
+          <td>(</td>
+          <td class="paramtype">Real const</td>          <td class="paramname"><span class="paramname"><em>rho</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rho</td><td>New last penalty parameter value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a4a4196e16e218ddfe05a1a97cef8d7ca" name="a4a4196e16e218ddfe05a1a97cef8d7ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a4196e16e218ddfe05a1a97cef8d7ca">&#9670;&#160;</a></span>tolerance() <span class="overload">[1/2]</span></h2>
 
@@ -899,6 +2815,105 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
+<a id="a65df81b44fa62b2d55d913299188b8a2" name="a65df81b44fa62b2d55d913299188b8a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65df81b44fa62b2d55d913299188b8a2">&#9670;&#160;</a></span>updateIterate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::updateIterate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Applies the accepted step to the iterate, recomputes infeasibility and gradients and updates parameter memory used for adaptive strategies. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8a5f2a72b228c146dd662008bea1561" name="af8a5f2a72b228c146dd662008bea1561"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8a5f2a72b228c146dd662008bea1561">&#9670;&#160;</a></span>updateParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::updateParameters </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Adjusts rho and mu using the solver's adaptive rules to drive optimality and feasibility towards the desired tolerances. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a892f5043eac3693faca0f28b396badcb" name="a892f5043eac3693faca0f28b396badcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a892f5043eac3693faca0f28b396badcb">&#9670;&#160;</a></span>updatePoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::updatePoint </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aef9a0441b1ca2e917b02fefe2f5f53f0" name="aef9a0441b1ca2e917b02fefe2f5f53f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef9a0441b1ca2e917b02fefe2f5f53f0">&#9670;&#160;</a></span>verbose_mode() <span class="overload">[1/2]</span></h2>
 
@@ -919,7 +2934,7 @@ template&lt;typename Real&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -998,7 +3013,7 @@ template&lt;typename Real&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_pipal.html#ab5f439eda3bde94055a3f0e2067483e7">Counter</a> <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::m_counter</td>
+          <td class="memname"><a class="el" href="namespace_pipal.html#af2bb1d9e27c75bf83705c48a66fe5a22">Counter</a> <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::m_counter</td>
         </tr>
       </table>
   </td>
@@ -1186,8 +3201,12 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/Pipal/<a class="el" href="_solver_8hh_source.html">Solver.hh</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>include/Pipal/<a class="el" href="_solver_8hxx_source.html">Solver.hxx</a></li>
+<li>include/Pipal/<a class="el" href="_acceptance_8hxx_source.html">Acceptance.hxx</a></li>
+<li>include/Pipal/<a class="el" href="_direction_8hxx_source.html">Direction.hxx</a></li>
+<li>include/Pipal/<a class="el" href="_input_8hxx_source.html">Input.hxx</a></li>
+<li>include/Pipal/<a class="el" href="_iterate_8hxx_source.html">Iterate.hxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

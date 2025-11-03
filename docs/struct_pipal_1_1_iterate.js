@@ -1,9 +1,12 @@
 var struct_pipal_1_1_iterate =
 [
     [ "LDLT", "struct_pipal_1_1_iterate.html#ad5d3af5e09d550e5815002b18c05ed80", null ],
+    [ "Iterate", "struct_pipal_1_1_iterate.html#aa806b41ceba282fa265f793f57537c83", null ],
+    [ "Iterate", "struct_pipal_1_1_iterate.html#ab8d862068edac074e39ff95b4a69f9a9", null ],
+    [ "operator=", "struct_pipal_1_1_iterate.html#a052b973168242996477f9ef3389ef572", null ],
     [ "A", "struct_pipal_1_1_iterate.html#a6cac7771c2318f749af12a453678883d", null ],
     [ "Annz", "struct_pipal_1_1_iterate.html#a6f9c8d3a7057ebf5411ea5d934232902", null ],
-    [ "b", "struct_pipal_1_1_iterate.html#a9cd521bdb34c78d5f68d1d0e8aa0fe52", null ],
+    [ "b", "struct_pipal_1_1_iterate.html#a736c5a69bf08a66bf27e1dccc985d7c8", null ],
     [ "cE", "struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636", null ],
     [ "cEs", "struct_pipal_1_1_iterate.html#a05c79522f7ff7d448d03e3db0b3fa2d8", null ],
     [ "cEu", "struct_pipal_1_1_iterate.html#ac3228262fb7114fe3a5a9f692dfd7439", null ],

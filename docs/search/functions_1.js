@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['backtracking_0',['backtracking',['../namespace_pipal.html#a3094c9fcbdb0e90053bdca2ea7117c0f',1,'Pipal']]],
-  ['buildinput_1',['buildInput',['../namespace_pipal.html#a2d44b3f9164a684344c9c5a682eae4df',1,'Pipal']]],
-  ['builditerate_2',['buildIterate',['../namespace_pipal.html#a0ee28393d55b2362e84f50287bc2307f',1,'Pipal']]],
-  ['buildparameter_3',['buildParameter',['../namespace_pipal.html#a6e700d70ba380af92f381bfdf889456b',1,'Pipal']]]
+  ['backtracking_0',['backtracking',['../class_pipal_1_1_solver.html#a48be420a882674ac9035bad01e61c498',1,'Pipal::Solver']]],
+  ['buildinput_1',['buildInput',['../class_pipal_1_1_solver.html#a24236b2521a72e239174ca02bb054cab',1,'Pipal::Solver']]],
+  ['builditerate_2',['buildIterate',['../class_pipal_1_1_solver.html#a4ba2953adf3216051ac6302a74abfb13',1,'Pipal::Solver']]],
+  ['buildparameter_3',['buildParameter',['../class_pipal_1_1_solver.html#a93e58486861c64ff6a4465472f8a9805',1,'Pipal::Solver']]]
 ];

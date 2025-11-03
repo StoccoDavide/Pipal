@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>Pipal: include/Pipal/Types.hxx File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/StoccoDavide/Pipal" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Pipal
+   &#160;<span id="projectnumber">1.2.0</span>
+   </div>
+   <div id="projectbrief">Penalty Interior-Point ALgorithm</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_types_8hxx.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Types.hxx File Reference</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;numeric&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;Eigen/Dense&gt;</code><br />
+<code>#include &lt;Eigen/Sparse&gt;</code><br />
+<code>#include &lt;Eigen/SparseCholesky&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Types.hxx:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="_types_8hxx__incl.svg" width="1414" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="_types_8hxx__dep__incl.svg" width="171" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<p><a href="_types_8hxx_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Pipal_3A_3AParameter_3C_20Real_20_3E" id="r_Pipal_3A_3AParameter_3C_20Real_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pipal_1_1_parameter.html">Pipal::Parameter&lt; Real &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal parameters for the solver algorithm.  <a href="struct_pipal_1_1_parameter.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Pipal_3A_3AInput_3C_20Real_20_3E" id="r_Pipal_3A_3AInput_3C_20Real_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pipal_1_1_input.html">Pipal::Input&lt; Real &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_pipal_1_1_input.html" title="Input structure holding all the data defining the optimization problem.">Input</a> structure holding all the data defining the optimization problem.  <a href="struct_pipal_1_1_input.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Pipal_3A_3AIterate_3C_20Real_20_3E" id="r_Pipal_3A_3AIterate_3C_20Real_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate&lt; Real &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for managing the current iterate of the solver.  <a href="struct_pipal_1_1_iterate.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Pipal_3A_3ADirection_3C_20Real_20_3E" id="r_Pipal_3A_3ADirection_3C_20Real_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pipal_1_1_direction.html">Pipal::Direction&lt; Real &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for managing the current search direction of the solver.  <a href="struct_pipal_1_1_direction.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Pipal_3A_3AAcceptance_3C_20Real_20_3E" id="r_Pipal_3A_3AAcceptance_3C_20Real_20_3E"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pipal_1_1_acceptance.html">Pipal::Acceptance&lt; Real &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for managing the acceptance criteria of the solver.  <a href="struct_pipal_1_1_acceptance.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Pipal" id="r_Pipal"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html">Pipal</a></td></tr>
+<tr class="memdesc:namespace_pipal"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the <a class="el" href="namespace_pipal.html" title="Namespace for the Pipal library.">Pipal</a> library. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a2b80a76d08d2bdf6c387375dd89bfcce" id="r_a2b80a76d08d2bdf6c387375dd89bfcce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b80a76d08d2bdf6c387375dd89bfcce">INCLUDE_PIPAL_DEFINES_HXX</a></td></tr>
+<tr class="memitem:a264885d2a566ba454c4066fe702d3220" id="r_a264885d2a566ba454c4066fe702d3220"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a264885d2a566ba454c4066fe702d3220">PIPAL_ERROR</a>(MSG)</td></tr>
+<tr class="memitem:aba285aef304ee6b510db71ba00bc36a1" id="r_aba285aef304ee6b510db71ba00bc36a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba285aef304ee6b510db71ba00bc36a1">PIPAL_ASSERT</a>(COND,  MSG)</td></tr>
+<tr class="memitem:a26a622dc84d3d957bef9e091174ce69b" id="r_a26a622dc84d3d957bef9e091174ce69b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26a622dc84d3d957bef9e091174ce69b">PIPAL_WARNING</a>(MSG)</td></tr>
+<tr class="memitem:a1bdbc5691a6ababe9e62f834cc0f10b7" id="r_a1bdbc5691a6ababe9e62f834cc0f10b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bdbc5691a6ababe9e62f834cc0f10b7">PIPAL_ASSERT_WARNING</a>(COND,  MSG)</td></tr>
+<tr class="memitem:a5fd6f6c5c363f22515b4dd85970df828" id="r_a5fd6f6c5c363f22515b4dd85970df828"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fd6f6c5c363f22515b4dd85970df828">PIPAL_DEFAULT_INTEGER_TYPE</a>&#160;&#160;&#160;int</td></tr>
+<tr class="memitem:a0a5ceb9ceb914e08d345410b561cb37a" id="r_a0a5ceb9ceb914e08d345410b561cb37a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a5ceb9ceb914e08d345410b561cb37a">CMD</a>&#160;&#160;&#160;&quot;Pipal::Solver::insert_block(...): &quot;</td></tr>
+<tr class="memitem:a0a5ceb9ceb914e08d345410b561cb37a" id="r_a0a5ceb9ceb914e08d345410b561cb37a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a5ceb9ceb914e08d345410b561cb37a">CMD</a>&#160;&#160;&#160;&quot;Pipal::Solver::insert_block(...): &quot;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5614603aab2f062f05ae6b99cdbd8f72" id="r_a5614603aab2f062f05ae6b99cdbd8f72"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Pipal::Integer</a> = <a class="el" href="#a5fd6f6c5c363f22515b4dd85970df828">PIPAL_DEFAULT_INTEGER_TYPE</a></td></tr>
+<tr class="memdesc:a5614603aab2f062f05ae6b99cdbd8f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72" title="The Integer type as used for the API.">Integer</a> type as used for the API.  <br /></td></tr>
+<tr class="memitem:adc99e85cd5bca62ce7ebfa6308504103" id="r_adc99e85cd5bca62ce7ebfa6308504103"><td class="memTemplParams" colspan="2">template&lt;typename Real&gt; </td></tr>
+<tr class="memitem:adc99e85cd5bca62ce7ebfa6308504103 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Pipal::Vector</a> = Eigen::Vector&lt;Real, Eigen::Dynamic&gt;</td></tr>
+<tr class="memitem:a235e107a65ec24fec67ce606ac7457ee" id="r_a235e107a65ec24fec67ce606ac7457ee"><td class="memTemplParams" colspan="2">template&lt;typename Real&gt; </td></tr>
+<tr class="memitem:a235e107a65ec24fec67ce606ac7457ee template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a235e107a65ec24fec67ce606ac7457ee">Pipal::Matrix</a> = Eigen::Matrix&lt;Real, Eigen::Dynamic, Eigen::Dynamic&gt;</td></tr>
+<tr class="memitem:a1240305d403fc471f0f0853814e705ed" id="r_a1240305d403fc471f0f0853814e705ed"><td class="memTemplParams" colspan="2">template&lt;typename Real&gt; </td></tr>
+<tr class="memitem:a1240305d403fc471f0f0853814e705ed template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">Pipal::SparseMatrix</a> = Eigen::SparseMatrix&lt;Real&gt;</td></tr>
+<tr class="memitem:a5b5f4931b4a8b74794242fe5f614b7fc" id="r_a5b5f4931b4a8b74794242fe5f614b7fc"><td class="memTemplParams" colspan="2">template&lt;typename Real&gt; </td></tr>
+<tr class="memitem:a5b5f4931b4a8b74794242fe5f614b7fc template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Pipal::Array</a> = Eigen::Array&lt;Real, Eigen::Dynamic, 1&gt;</td></tr>
+<tr class="memitem:a091599d47d8f52d1a63ff9e474ab3869" id="r_a091599d47d8f52d1a63ff9e474ab3869"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Pipal::Indices</a> = Eigen::Array&lt;<a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>, Eigen::Dynamic, 1&gt;</td></tr>
+<tr class="memitem:ac3cd5f27f7e9f5586d2bae4ef55302ad" id="r_ac3cd5f27f7e9f5586d2bae4ef55302ad"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#ac3cd5f27f7e9f5586d2bae4ef55302ad">Pipal::Mask</a> = Eigen::Array&lt;bool, Eigen::Dynamic, 1&gt;</td></tr>
+<tr class="memitem:a1f8ead3baed57e835e258e644131c4e0" id="r_a1f8ead3baed57e835e258e644131c4e0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Pipal::Algorithm</a> = enum class <a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a> : <a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> {CONSERVATIVE = 0, ADAPTIVE = 1}</td></tr>
+<tr class="memdesc:a1f8ead3baed57e835e258e644131c4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration for the algorithm choice.  <br /></td></tr>
+<tr class="memitem:af2bb1d9e27c75bf83705c48a66fe5a22" id="r_af2bb1d9e27c75bf83705c48a66fe5a22"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#af2bb1d9e27c75bf83705c48a66fe5a22">Pipal::Counter</a></td></tr>
+<tr class="memdesc:af2bb1d9e27c75bf83705c48a66fe5a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal counters for solver statistics.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a147c9d72986523f5f27d9b42b1b5ec4e" id="r_a147c9d72986523f5f27d9b42b1b5ec4e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">Pipal::find</a> (<a class="el" href="namespace_pipal.html#ac3cd5f27f7e9f5586d2bae4ef55302ad">Mask</a> const &amp;mask)</td></tr>
+<tr class="memdesc:a147c9d72986523f5f27d9b42b1b5ec4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select elements from a vector based on a boolean mask.  <br /></td></tr>
+<tr class="memitem:a86081f97ec0e871ef24b1566d5948b2c" id="r_a86081f97ec0e871ef24b1566d5948b2c"><td class="memTemplParams" colspan="2">template&lt;typename Real&gt; </td></tr>
+<tr class="memitem:a86081f97ec0e871ef24b1566d5948b2c template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a86081f97ec0e871ef24b1566d5948b2c">Pipal::insert_block</a> (<a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">SparseMatrix</a>&lt; Real &gt; &amp;mat, <a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">SparseMatrix</a>&lt; Real &gt; const &amp;blk, <a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> const row_offset, <a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> const col_offset)</td></tr>
+<tr class="memdesc:a86081f97ec0e871ef24b1566d5948b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a sparse block into a sparse matrix at the specified offsets.  <br /></td></tr>
+<tr class="memitem:a21df59f2068af1789b92f652adbae902" id="r_a21df59f2068af1789b92f652adbae902"><td class="memTemplParams" colspan="2">template&lt;typename Real&gt; </td></tr>
+<tr class="memitem:a21df59f2068af1789b92f652adbae902 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_pipal.html#a21df59f2068af1789b92f652adbae902">Pipal::insert_block</a> (<a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">SparseMatrix</a>&lt; Real &gt; &amp;mat, <a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">SparseMatrix</a>&lt; Real &gt; const &amp;blk, <a class="el" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a> const row_index, <a class="el" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a> const col_index, <a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> const row_offset, <a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> const col_offset)</td></tr>
+<tr class="memdesc:a21df59f2068af1789b92f652adbae902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a sparse block into a sparse matrix at the specified offsets.  <br /></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a0a5ceb9ceb914e08d345410b561cb37a" name="a0a5ceb9ceb914e08d345410b561cb37a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5ceb9ceb914e08d345410b561cb37a">&#9670;&#160;</a></span>CMD <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD&#160;&#160;&#160;&quot;Pipal::Solver::insert_block(...): &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a5ceb9ceb914e08d345410b561cb37a" name="a0a5ceb9ceb914e08d345410b561cb37a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5ceb9ceb914e08d345410b561cb37a">&#9670;&#160;</a></span>CMD <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CMD&#160;&#160;&#160;&quot;Pipal::Solver::insert_block(...): &quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2b80a76d08d2bdf6c387375dd89bfcce" name="a2b80a76d08d2bdf6c387375dd89bfcce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b80a76d08d2bdf6c387375dd89bfcce">&#9670;&#160;</a></span>INCLUDE_PIPAL_DEFINES_HXX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INCLUDE_PIPAL_DEFINES_HXX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba285aef304ee6b510db71ba00bc36a1" name="aba285aef304ee6b510db71ba00bc36a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba285aef304ee6b510db71ba00bc36a1">&#9670;&#160;</a></span>PIPAL_ASSERT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIPAL_ASSERT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>COND</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>MSG</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (!(COND))                  \</div>
+<div class="line">  {                             \</div>
+<div class="line">    PIPAL_ERROR(MSG);           \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1bdbc5691a6ababe9e62f834cc0f10b7" name="a1bdbc5691a6ababe9e62f834cc0f10b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bdbc5691a6ababe9e62f834cc0f10b7">&#9670;&#160;</a></span>PIPAL_ASSERT_WARNING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIPAL_ASSERT_WARNING</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>COND</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>MSG</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> (!(COND))                          \</div>
+<div class="line">  {                                     \</div>
+<div class="line">    PIPAL_WARNING(MSG);                 \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5fd6f6c5c363f22515b4dd85970df828" name="a5fd6f6c5c363f22515b4dd85970df828"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd6f6c5c363f22515b4dd85970df828">&#9670;&#160;</a></span>PIPAL_DEFAULT_INTEGER_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIPAL_DEFAULT_INTEGER_TYPE&#160;&#160;&#160;int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a264885d2a566ba454c4066fe702d3220" name="a264885d2a566ba454c4066fe702d3220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264885d2a566ba454c4066fe702d3220">&#9670;&#160;</a></span>PIPAL_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIPAL_ERROR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>MSG</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  {                                     \</div>
+<div class="line">    std::ostringstream os;              \</div>
+<div class="line">    os &lt;&lt; MSG;                          \</div>
+<div class="line">    <span class="keywordflow">throw</span> std::runtime_error(os.str()); \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a26a622dc84d3d957bef9e091174ce69b" name="a26a622dc84d3d957bef9e091174ce69b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26a622dc84d3d957bef9e091174ce69b">&#9670;&#160;</a></span>PIPAL_WARNING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PIPAL_WARNING</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>MSG</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  {                                \</div>
+<div class="line">    std::cout &lt;&lt; MSG &lt;&lt; std::endl; \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_8c43d5f3253de593d74752c0b19af8ee.html">Pipal</a></li><li class="navelem"><a href="_types_8hxx.html">Types.hxx</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

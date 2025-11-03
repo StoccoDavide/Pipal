@@ -8,7 +8,7 @@ var searchData=
   ['update_5fcon_5f1_5',['update_con_1',['../struct_pipal_1_1_parameter.html#ab342bfa1b305bdbec7542794b7fc2dd3',1,'Pipal::Parameter']]],
   ['update_5fcon_5f2_6',['update_con_2',['../struct_pipal_1_1_parameter.html#ace93dfa7cd13dd18ece0468a665e9cb5',1,'Pipal::Parameter']]],
   ['update_5fcon_5f3_7',['update_con_3',['../struct_pipal_1_1_parameter.html#ae44d8b932544462656b802702215d3dc',1,'Pipal::Parameter']]],
-  ['updateiterate_8',['updateIterate',['../namespace_pipal.html#a2654640efa50f1cc2d9aa478e18adcde',1,'Pipal']]],
-  ['updateparameters_9',['updateParameters',['../namespace_pipal.html#af538b3d64af68226b9710fc7b6af966a',1,'Pipal']]],
-  ['updatepoint_10',['updatePoint',['../namespace_pipal.html#a7551a678a2eee9b06f13f96d3330bec5',1,'Pipal']]]
+  ['updateiterate_8',['updateIterate',['../class_pipal_1_1_solver.html#a65df81b44fa62b2d55d913299188b8a2',1,'Pipal::Solver']]],
+  ['updateparameters_9',['updateParameters',['../class_pipal_1_1_solver.html#af8a5f2a72b228c146dd662008bea1561',1,'Pipal::Solver']]],
+  ['updatepoint_10',['updatePoint',['../class_pipal_1_1_solver.html#a892f5043eac3693faca0f28b396badcb',1,'Pipal::Solver']]]
 ];

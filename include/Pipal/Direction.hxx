@@ -19,13 +19,14 @@ namespace Pipal {
    * \brief Reset a search direction to zero and initialize norms.
    * \tparam Real Floating-point type used by the algorithm.
    * \param[in] d Direction object to reset.
-   * \param[in] i Input structure providing vector/matrix sizes.
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::resetDirection( Direction<Real> & d ) const {
+  void Solver<Real>::resetDirection(Direction<Real> & d) const
+  {
+    // Create alias for easier access
     Input<Real> const & i{this->m_input};
+
+    // Reset all direction members
     d.x.setZero(i.nV);
     d.r1.setZero(i.nE);
     d.r2.setZero(i.nE);
@@ -33,17 +34,14 @@ namespace Pipal {
     d.s1.setZero(i.nI);
     d.s2.setZero(i.nI);
     d.lI.setZero(i.nI);
-    d.x_norm  = 0;
+    d.x_norm = d.l_norm = 0;
     d.x_norm_ = std::numeric_limits<Real>::infinity();
-    d.l_norm  = 0;
     d.lred0 = d.ltred0 = d.ltred = d.qtred = d.m = 0;
   }
 
   /**
    * \brief Evaluate a linear combination of up to three directions.
    * \tparam Real Floating-point type used by the algorithm.
-   * \param[in] d Output direction where the result is stored.
-   * \param[in] i Input structure (used for size checks).
    * \param[in] d1 First direction.
    * \param[in] d2 Second direction.
    * \param[in] d3 Third direction.
@@ -52,16 +50,9 @@ namespace Pipal {
    * \param[in] a3 Scalar multiplier for the third direction.
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::evalLinearCombination(
-    Direction<Real> const & d1,
-    Direction<Real> const & d2,
-    Direction<Real> const & d3,
-    Real            const   a1,
-    Real            const   a2,
-    Real            const   a3
-  ) {
+  void Solver<Real>::evalLinearCombination(Direction<Real> const & d1, Direction<Real> const & d2,
+    Direction<Real> const & d3, Real const a1, Real const a2, Real const a3)
+  {
     // Create alias for easier access
     Input<Real>     & i{this->m_input};
     Direction<Real> & d{this->m_direction};
@@ -89,19 +80,15 @@ namespace Pipal {
   /**
    * \brief Evaluate model reductions and quality metric for a direction.
    * \tparam Real Floating-point type used by the algorithm.
-   * \param[in] d Direction to analyze (most fields updated).
-   * \param[in] i Input structure containing sizes.
-   * \param[in] z Current iterate with model data (gradients, Jacobians, etc.).
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::evalModels() {
+  void Solver<Real>::evalModels()
+  {
     // Create alias for easier access
     Input<Real>     & i{this->m_input};
     Iterate<Real>   & z{this->m_iterate};
     Direction<Real> & d{this->m_direction};
-  
+
     // Evaluate reduction in linear model of penalty-interior-point objective for zero penalty parameter
     d.lred0 = 0;
     if (i.nE > 0) {
@@ -174,19 +161,17 @@ namespace Pipal {
   /**
    * \brief Recover direction components from the Newton system solution.
    * \tparam Real Floating-point type used by the algorithm.
-   * \param[in] d Direction object whose components are set from the Newton solution.
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::evalNewtonStep() {
+  void Solver<Real>::evalNewtonStep()
+  {
     // Create alias for easier access
-    Input<Real>   const & i{this->m_input};
-    Iterate<Real> const & z{this->m_iterate};
-    Direction<Real>     & d{this->m_direction};
+    Input<Real>     const & i{this->m_input};
+    Iterate<Real>   const & z{this->m_iterate};
+    Direction<Real>       & d{this->m_direction};
 
     // Evaluate direction
-    SparseVector<Real> dir(z.ldlt.solve(-z.b));
+    Vector<Real> dir(z.ldlt.solve(-z.b));
 
     // Parse direction
     d.x = dir.head(i.nV);
@@ -211,51 +196,42 @@ namespace Pipal {
   /**
    * \brief Compute the search direction for the current iterate.
    * \tparam Real Floating-point type used by the algorithm.
-   * \param[in] d Direction to fill.
-   * \param[in] p Algorithm parameters (may be updated).
-   * \param[in] i Problem input structure.
-   * \param[in] c Counters used for bookkeeping of evaluations.
-   * \param[in] z Current iterate and working matrices.
-   * \param[in] a Acceptance object used by some subroutines.
-   * \param[in] problem Problem interface used for evaluations.
    */
   template <typename Real>
-  inline
-  void
-  Solver<Real>::evalStep() {
-
+  void Solver<Real>::evalStep()
+  {
     // Create alias for easier access
     Parameter<Real> & p{this->m_parameter};
     Iterate<Real>   & z{this->m_iterate};
     Direction<Real> & d{this->m_direction};
 
     // Reset maximum exponent for interior-point parameter increases
-    resetMuMaxExp();
+    this->resetMuMaxExp();
 
     // Update penalty-interior-point parameters based on KKT errors
-    updateParameters();
+    this->updateParameters();
 
     // Evaluate matrices
-    evalMatrices();
+    this->evalMatrices();
 
     // Set last penalty parameter
-    setRhoLast(z.rho);
+    this->setRhoLast(z.rho);
 
     // Check for aggressive algorithm
     if (p.algorithm == Algorithm::ADAPTIVE)
     {
       // Check KKT memory for potential mu increase limit
-      if (z.kkt(1) > z.kkt_.maxCoeff()) setMuMaxExpZero();
+      if (z.kkt(1) > z.kkt_.maxCoeff()) {this->setMuMaxExpZero();}
 
       // Store current penalty and interior-point parameters
       Real rho_curr{z.rho}, mu_curr{z.mu};
 
       // Evaluate trial steps
       Direction<Real> d1, d2, d3;
-      resetDirection(d1);
-      resetDirection(d2);
-      resetDirection(d3);
-      evalTrialSteps(d1, d2, d3);
+      this->resetDirection(d1);
+      this->resetDirection(d2);
+      this->resetDirection(d3);
+      this->evalTrialSteps(d1, d2, d3);
 
       // Set trial interior-point parameter values
       Array<Real> exponents(Array<Real>::LinSpaced(p.mu_trials, p.mu_trials - 1, 0) - p.mu_max_exp);
@@ -271,28 +247,24 @@ namespace Pipal {
       for (Integer j{0}; j < p.mu_trials; ++j)
       {
         // Set penalty and interior-point parameters
-        setRho(0.0);
-        setMu(Mu(j));
+        this->setRho(0.0);
+        this->setMu(Mu(j));
 
         // Evaluate direction
-        evalLinearCombination(
-          d1, d2, d3,
-          z.rho/rho_curr+z.mu/mu_curr-1.0,
-          1.0-z.mu/mu_curr,
-          1.0-z.rho/rho_curr
-        );
+        this->evalLinearCombination(d1, d2, d3,
+          z.rho/rho_curr+z.mu/mu_curr-1.0, 1.0-z.mu/mu_curr, 1.0-z.rho/rho_curr);
 
         // Cut length
         d.x *= std::min(d.x_norm_/std::max(d.x_norm, 1.0), 1.0);
 
         // Run fraction-to-boundary
-        fractionToBoundary();
+        this->fractionToBoundary();
 
         // Cut length
-        evalTrialStepCut();
+        this->evalTrialStepCut();
 
         // Evaluate models
-        evalModels();
+        this->evalModels();
 
         // Set feasibility direction data
         lred0_0_mu(j) = d.lred0;
@@ -309,19 +281,19 @@ namespace Pipal {
       for (Integer k{0}; k < p.rho_trials; ++k)
       {
         // Set penalty parameter
-        setRho( std::max(p.rho_min, std::pow(p.rho_factor, k)*rho_curr) );
+        this->setRho(std::max(p.rho_min, std::pow(p.rho_factor, k)*rho_curr) );
 
         // Set last penalty parameter
-        if (rho_curr > z.kkt(0)*z.kkt(0)) setRhoLast( z.rho );
+        if (rho_curr > z.kkt(0)*z.kkt(0)) {this->setRhoLast(z.rho );}
 
         // Loop through interior-point parameter values
         for (Integer j{0}; j < p.mu_trials; ++j)
         {
           // Set interior-point parameter
-          setMu(Mu(j));
+          this->setMu(Mu(j));
 
           // Evaluate direction
-          evalLinearCombination(
+          this->evalLinearCombination(
             d1, d2, d3,
             z.rho/rho_curr+z.mu/mu_curr-1.0,
             1.0-z.mu/mu_curr,
@@ -329,13 +301,13 @@ namespace Pipal {
           );
 
           // Run fraction-to-boundary
-          fractionToBoundary();
+          this->fractionToBoundary();
 
           // Cut steps
-          evalTrialStepCut();
+          this->evalTrialStepCut();
 
           // Evaluate models
-          evalModels();
+          this->evalModels();
 
           // Set updating data
           ltred0_rho_mu(j) = d.ltred0;
@@ -364,7 +336,7 @@ namespace Pipal {
           for (Integer j{0}; j < p.mu_trials; ++j)
           {
             // Check condition
-            if (m_rho_mu(j) <= p.update_con_3*m_min) setMu(Mu(j));
+            if (m_rho_mu(j) <= p.update_con_3*m_min) {this->setMu(Mu(j));}
           }
 
           // Set condition check
@@ -376,20 +348,20 @@ namespace Pipal {
       }
 
       // Check conditions
-      if (check == false) { setRho(rho_curr); setMu(mu_curr); }
+      if (check == false) {this->setRho(rho_curr); this->setMu(mu_curr);}
 
       // Evaluate merit
-      evalMerit();
+      this->evalMerit();
     }
 
     // Evaluate primal-dual right-hand side vector
-    evalNewtonRhs();
+    this->evalNewtonRhs();
 
     // Evaluate search direction
-    evalNewtonStep();
+    this->evalNewtonStep();
 
     // Evaluate models
-    evalModels();
+    this->evalModels();
 
     // Store last direction norm
     d.x_norm_ = d.x_norm;
@@ -401,9 +373,8 @@ namespace Pipal {
    * \param[out] v Destination direction that will contain the trial step.
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::evalTrialStep( Direction<Real> & v ) const {
+  void Solver<Real>::evalTrialStep(Direction<Real> & v) const
+  {
     Input<Real>     const & i{this->m_input};
     Direction<Real> const & d{this->m_direction};
     // Set direction components
@@ -415,14 +386,10 @@ namespace Pipal {
   /**
    * \brief Scale a trial step by the fraction-to-boundary values.
    * \tparam Real Floating-point type used by the algorithm.
-   * \param[in] d Direction to scale.
-   * \param[in] i Input structure (used for sizes).
-   * \param[in] a Acceptance object containing fraction values (p and d).
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::evalTrialStepCut() {
+  void Solver<Real>::evalTrialStepCut()
+  {
     // Create alias for easier access
     Input<Real>      & i{this->m_input};
     Direction<Real>  & d{this->m_direction};
@@ -442,13 +409,8 @@ namespace Pipal {
    * \param[out] d3 Direction for the third parameter combination.
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::evalTrialSteps(
-    Direction<Real> & d1,
-    Direction<Real> & d2,
-    Direction<Real> & d3
-  ) {
+  void Solver<Real>::evalTrialSteps(Direction<Real> & d1, Direction<Real> & d2, Direction<Real> & d3)
+  {
     // Create alias for easier access
     Iterate<Real> const & z{this->m_iterate};
 
@@ -456,32 +418,30 @@ namespace Pipal {
     Real rho_curr{z.rho}, mu_curr{z.mu};
 
     // Evaluate direction for current penalty and interior-point parameters
-    setRho(rho_curr);
-    setMu(mu_curr);
-    evalNewtonRhs();
-    evalNewtonStep();
-    evalTrialStep(d1);
+    this->setRho(rho_curr);
+    this->setMu(mu_curr);
+    this->evalNewtonRhs();
+    this->evalNewtonStep();
+    this->evalTrialStep(d1);
 
     // Evaluate direction for zero interior-point parameter
-    setRho(rho_curr);
-    setMu(0.0);
-    evalNewtonRhs();
-    evalNewtonStep();
-    evalTrialStep(d2);
+    this->setRho(rho_curr);
+    this->setMu(0.0);
+    this->evalNewtonRhs();
+    this->evalNewtonStep();
+    this->evalTrialStep(d2);
 
     // Evaluate direction for zero penalty parameter
-    setRho(0.0);
-    setMu(mu_curr);
-    evalNewtonRhs();
-    evalNewtonStep();
-    evalTrialStep(d3);
+    this->setRho(0.0);
+    this->setMu(mu_curr);
+    this->evalNewtonRhs();
+    this->evalNewtonStep();
+    this->evalTrialStep(d3);
   }
 
   /**
    * \brief Populate a Direction object from its component vectors.
    * \tparam Real Floating-point type used by the algorithm.
-   * \param[out] d Direction to populate.
-   * \param[in] i Input used to check which blocks are present.
    * \param[in] dx Primal component of the direction.
    * \param[in] dr1 Equality slack direction (first part).
    * \param[in] dr2 Equality slack direction (second part).
@@ -493,19 +453,10 @@ namespace Pipal {
    * \param[in] dl_norm Norm of the dual direction (precomputed).
    */
   template<typename Real>
-  inline
-  void
-  Solver<Real>::setDirection(
-    Vector<Real> const & dx,
-    Vector<Real> const & dr1,
-    Vector<Real> const & dr2,
-    Vector<Real> const & ds1,
-    Vector<Real> const & ds2,
-    Vector<Real> const & dlE,
-    Vector<Real> const & dlI,
-    Real         const   dx_norm,
-    Real         const   dl_norm
-  ) {
+  void Solver<Real>::setDirection(Vector<Real> const & dx, Vector<Real> const & dr1, Vector<Real> const & dr2,
+    Vector<Real> const & ds1, Vector<Real> const & ds2, Vector<Real> const & dlE, Vector<Real> const & dlI,
+    Real const dx_norm, Real const dl_norm)
+  {
     // Create alias for easier access
     Input<Real> const & i{this->m_input};
     Direction<Real>   & d{this->m_direction};
@@ -520,4 +471,4 @@ namespace Pipal {
 
 } // namespace Pipal
 
-#endif /* INCLUDE_PIPAL_DIRECTION_HH */
+#endif // INCLUDE_PIPAL_DIRECTION_HXX

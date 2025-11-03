@@ -1,5 +1,8 @@
 var struct_pipal_1_1_input =
 [
+    [ "Input", "struct_pipal_1_1_input.html#a2772c1b7aff70cd048215c275bb71823", null ],
+    [ "Input", "struct_pipal_1_1_input.html#a9fec369286861eb44e356b79f353f99f", null ],
+    [ "operator=", "struct_pipal_1_1_input.html#a8f95bbfa24637a39758904014e412f0a", null ],
     [ "b2", "struct_pipal_1_1_input.html#af3b2b79d1defcdb185b37d6ec854ab00", null ],
     [ "b6", "struct_pipal_1_1_input.html#a81899e48dc88c1244ce1d1634677674c", null ],
     [ "I1", "struct_pipal_1_1_input.html#a169e79b3edc7f8560075c6e8f43782f0", null ],

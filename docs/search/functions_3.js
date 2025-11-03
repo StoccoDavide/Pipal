@@ -1,26 +1,4 @@
 var searchData=
 [
-  ['evaldependent_0',['evalDependent',['../namespace_pipal.html#a1cb053a0df30cdf20b5480c867ddbf43',1,'Pipal']]],
-  ['evalfunctions_1',['evalFunctions',['../namespace_pipal.html#aa81b344c06049a23511c37988ff73973',1,'Pipal']]],
-  ['evalgradients_2',['evalGradients',['../namespace_pipal.html#a92034491c91e779bd309e9db40f217f5',1,'Pipal']]],
-  ['evalhessian_3',['evalHessian',['../namespace_pipal.html#a767c56c6bd7358981ddd56cf6060fe52',1,'Pipal']]],
-  ['evalinfeasibility_4',['evalInfeasibility',['../namespace_pipal.html#a3d9caa664bd93479f108cb4a627bb7ee',1,'Pipal']]],
-  ['evalkkterror_5',['evalKKTError',['../namespace_pipal.html#a9fe22b00d96c70eafd7750b79bb09b48',1,'Pipal']]],
-  ['evalkkterrors_6',['evalKKTErrors',['../namespace_pipal.html#a3df064263dcbf42ad429fc750c27f2ce',1,'Pipal']]],
-  ['evallambdaoriginal_7',['evalLambdaOriginal',['../namespace_pipal.html#a696a675861bdfebbac1cd18020e080f6',1,'Pipal']]],
-  ['evallinearcombination_8',['evalLinearCombination',['../namespace_pipal.html#a1df224493294dbbc9ce19e4a26f1a110',1,'Pipal']]],
-  ['evalmatrices_9',['evalMatrices',['../namespace_pipal.html#a7230f04d190beb67aa900b4ceebeb30a',1,'Pipal']]],
-  ['evalmerit_10',['evalMerit',['../namespace_pipal.html#a7081356519d46d2b6dc1fa9434674eb0',1,'Pipal']]],
-  ['evalmodels_11',['evalModels',['../namespace_pipal.html#a6ce393b95a54bd3bdd6423927fec2ab9',1,'Pipal']]],
-  ['evalnewtonmatrix_12',['evalNewtonMatrix',['../namespace_pipal.html#a371aaafe128090910ac85ce247fa2e21',1,'Pipal']]],
-  ['evalnewtonrhs_13',['evalNewtonRhs',['../namespace_pipal.html#a9fadd4960607a09b2707e3e9ef8d1e63',1,'Pipal']]],
-  ['evalnewtonstep_14',['evalNewtonStep',['../namespace_pipal.html#a33d30ae892f3aacaddb158283e88bfb7',1,'Pipal']]],
-  ['evalscalings_15',['evalScalings',['../namespace_pipal.html#ad5a7b0b97c21061705298c19871b74a3',1,'Pipal']]],
-  ['evalslacks_16',['evalSlacks',['../namespace_pipal.html#a72e4c148dbdf3f75bd1d7be62067546b',1,'Pipal']]],
-  ['evalstep_17',['evalStep',['../namespace_pipal.html#a2639f49dfa925ed15d3d5fb7a6ecb4b7',1,'Pipal']]],
-  ['evaltrialstep_18',['evalTrialStep',['../namespace_pipal.html#af707042f29495466132af7a0d78dadc5',1,'Pipal']]],
-  ['evaltrialstepcut_19',['evalTrialStepCut',['../namespace_pipal.html#abd4269cef64145d293e50af656b946ed',1,'Pipal']]],
-  ['evaltrialsteps_20',['evalTrialSteps',['../namespace_pipal.html#ae3261bcfc6a5cb81df1bb71213b25945',1,'Pipal']]],
-  ['evalviolation_21',['evalViolation',['../namespace_pipal.html#a2cc5c88d37859d77ae6bfc7a7529d076',1,'Pipal']]],
-  ['evalxoriginal_22',['evalXOriginal',['../namespace_pipal.html#acddc8f9a64d1e5ef8e5f0d3a3cbf0281',1,'Pipal']]]
+  ['direction_0',['Direction',['../struct_pipal_1_1_direction.html#aea5f740a7e2a50b683abaee867737d34',1,'Pipal::Direction::Direction()=default'],['../struct_pipal_1_1_direction.html#af22f9b6b3759690250825c65ad12a1fc',1,'Pipal::Direction::Direction(Direction const &amp;)=delete']]]
 ];

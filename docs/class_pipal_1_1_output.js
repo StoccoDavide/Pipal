@@ -8,7 +8,7 @@ var class_pipal_1_1_output =
     [ "printAcceptance", "class_pipal_1_1_output.html#a57ecf700721626eff03d53e86180449e", null ],
     [ "printBreak", "class_pipal_1_1_output.html#a2ec1ccdb3e65426771d1be1aa6aa016e", null ],
     [ "printDirection", "class_pipal_1_1_output.html#affae87a2bb3867e9831ee98b592916d4", null ],
-    [ "printFooter", "class_pipal_1_1_output.html#aef5857102081e658eef26f2da6f135b4", null ],
+    [ "printFooter", "class_pipal_1_1_output.html#a3a5f5ad816e777fcf3cd68f6f3373e34", null ],
     [ "printHeader", "class_pipal_1_1_output.html#a882ac7482b5a29f24a0398c280419557", null ],
     [ "printIterate", "class_pipal_1_1_output.html#a5e19b70c07cd0d0a71487ce64e6f71b8", null ],
     [ "l", "class_pipal_1_1_output.html#a897d6389417102a093cb0b0e62180db6", null ],

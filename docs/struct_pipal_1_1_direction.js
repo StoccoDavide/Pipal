@@ -1,5 +1,8 @@
 var struct_pipal_1_1_direction =
 [
+    [ "Direction", "struct_pipal_1_1_direction.html#aea5f740a7e2a50b683abaee867737d34", null ],
+    [ "Direction", "struct_pipal_1_1_direction.html#af22f9b6b3759690250825c65ad12a1fc", null ],
+    [ "operator=", "struct_pipal_1_1_direction.html#adb15537793e3379fb08f38fc32de943f", null ],
     [ "l_norm", "struct_pipal_1_1_direction.html#a1b295298c495d100de2b6fdf3682ce49", null ],
     [ "lE", "struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c", null ],
     [ "lI", "struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806", null ],

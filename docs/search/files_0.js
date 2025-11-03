@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['acceptance_2ehh_0',['Acceptance.hh',['../_acceptance_8hh.html',1,'']]]
+  ['acceptance_2ehxx_0',['Acceptance.hxx',['../_acceptance_8hxx.html',1,'']]]
 ];

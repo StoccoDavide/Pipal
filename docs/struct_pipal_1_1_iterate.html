@@ -138,11 +138,20 @@ $(function(){initNavTree('struct_pipal_1_1_iterate.html','','struct_pipal_1_1_it
 <p>Class for managing the current iterate of the solver.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_types_8hh_source.html">Types.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_types_8hxx_source.html">Types.hxx</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ad5d3af5e09d550e5815002b18c05ed80" id="r_ad5d3af5e09d550e5815002b18c05ed80"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5d3af5e09d550e5815002b18c05ed80">LDLT</a> = Eigen::SimplicialLDLT&lt;<a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">SparseMatrix</a>&lt;Real&gt;, Eigen::Lower&gt;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa806b41ceba282fa265f793f57537c83" id="r_aa806b41ceba282fa265f793f57537c83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa806b41ceba282fa265f793f57537c83">Iterate</a> ()=default</td></tr>
+<tr class="memdesc:aa806b41ceba282fa265f793f57537c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
+<tr class="memitem:ab8d862068edac074e39ff95b4a69f9a9" id="r_ab8d862068edac074e39ff95b4a69f9a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8d862068edac074e39ff95b4a69f9a9">Iterate</a> (<a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a> const &amp;)=delete</td></tr>
+<tr class="memdesc:ab8d862068edac074e39ff95b4a69f9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete copy constructor and assignment operator.  <br /></td></tr>
+<tr class="memitem:a052b973168242996477f9ef3389ef572" id="r_a052b973168242996477f9ef3389ef572"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a052b973168242996477f9ef3389ef572">operator=</a> (<a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a> const &amp;)=delete</td></tr>
+<tr class="memdesc:a052b973168242996477f9ef3389ef572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete copy constructor and assignment operator.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -174,7 +183,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa9d301723111be438dade5677c152324" id="r_aa9d301723111be438dade5677c152324"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ad5d3af5e09d550e5815002b18c05ed80">LDLT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9d301723111be438dade5677c152324">ldlt</a></td></tr>
 <tr class="memitem:a6f9c8d3a7057ebf5411ea5d934232902" id="r_a6f9c8d3a7057ebf5411ea5d934232902"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f9c8d3a7057ebf5411ea5d934232902">Annz</a></td></tr>
 <tr class="memitem:a1616b4fd489d305832c38ef61067e724" id="r_a1616b4fd489d305832c38ef61067e724"><td class="memItemLeft" align="right" valign="top">Real&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1616b4fd489d305832c38ef61067e724">shift</a></td></tr>
-<tr class="memitem:a9cd521bdb34c78d5f68d1d0e8aa0fe52" id="r_a9cd521bdb34c78d5f68d1d0e8aa0fe52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a3a3738a86345370926f9ce938bdac8ee">SparseVector</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cd521bdb34c78d5f68d1d0e8aa0fe52">b</a></td></tr>
+<tr class="memitem:a736c5a69bf08a66bf27e1dccc985d7c8" id="r_a736c5a69bf08a66bf27e1dccc985d7c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a736c5a69bf08a66bf27e1dccc985d7c8">b</a></td></tr>
 <tr class="memitem:addb0b156cea628dafe7ab010d8a5ca8b" id="r_addb0b156cea628dafe7ab010d8a5ca8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addb0b156cea628dafe7ab010d8a5ca8b">kkt</a></td></tr>
 <tr class="memitem:ad989b5880ca0a453d965ad678f8c0def" id="r_ad989b5880ca0a453d965ad678f8c0def"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad989b5880ca0a453d965ad678f8c0def">kkt_</a></td></tr>
 <tr class="memitem:ac4f6b8218af9e6a40a31fffb5baa8f52" id="r_ac4f6b8218af9e6a40a31fffb5baa8f52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4f6b8218af9e6a40a31fffb5baa8f52">err</a></td></tr>
@@ -209,6 +218,89 @@ template&lt;typename Real&gt; </div>
           <td class="memname">using <a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a>&lt; Real &gt;::LDLT = Eigen::SimplicialLDLT&lt;<a class="el" href="namespace_pipal.html#a1240305d403fc471f0f0853814e705ed">SparseMatrix</a>&lt;Real&gt;, Eigen::Lower&gt;</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa806b41ceba282fa265f793f57537c83" name="aa806b41ceba282fa265f793f57537c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa806b41ceba282fa265f793f57537c83">&#9670;&#160;</a></span>Iterate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a>&lt; Real &gt;::Iterate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8d862068edac074e39ff95b4a69f9a9" name="ab8d862068edac074e39ff95b4a69f9a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d862068edac074e39ff95b4a69f9a9">&#9670;&#160;</a></span>Iterate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a>&lt; Real &gt;::Iterate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a052b973168242996477f9ef3389ef572" name="a052b973168242996477f9ef3389ef572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a052b973168242996477f9ef3389ef572">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a> &amp; <a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a>&lt; Real &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -248,8 +340,8 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
-<a id="a9cd521bdb34c78d5f68d1d0e8aa0fe52" name="a9cd521bdb34c78d5f68d1d0e8aa0fe52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd521bdb34c78d5f68d1d0e8aa0fe52">&#9670;&#160;</a></span>b</h2>
+<a id="a736c5a69bf08a66bf27e1dccc985d7c8" name="a736c5a69bf08a66bf27e1dccc985d7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a736c5a69bf08a66bf27e1dccc985d7c8">&#9670;&#160;</a></span>b</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +349,7 @@ template&lt;typename Real&gt; </div>
 template&lt;typename Real&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_pipal.html#a3a3738a86345370926f9ce938bdac8ee">SparseVector</a>&lt;Real&gt; <a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a>&lt; Real &gt;::b</td>
+          <td class="memname"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt;Real&gt; <a class="el" href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a>&lt; Real &gt;::b</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -912,7 +1004,7 @@ template&lt;typename Real&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/Pipal/<a class="el" href="_types_8hh_source.html">Types.hh</a></li>
+<li>include/Pipal/<a class="el" href="_types_8hxx_source.html">Types.hxx</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

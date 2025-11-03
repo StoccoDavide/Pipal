@@ -111,7 +111,6 @@ namespace Pipal
 
   template<typename Real> using Vector       = Eigen::Vector<Real, Eigen::Dynamic>;
   template<typename Real> using Matrix       = Eigen::Matrix<Real, Eigen::Dynamic, Eigen::Dynamic>;
-  template<typename Real> using SparseVector = Eigen::SparseVector<Real>;
   template<typename Real> using SparseMatrix = Eigen::SparseMatrix<Real>;
   template<typename Real> using Array        = Eigen::Array<Real, Eigen::Dynamic, 1>;
 
@@ -131,7 +130,6 @@ namespace Pipal
    * \param[in] mask The boolean mask.
    * \return The selected elements from the input vector.
    */
-  [[maybe_unused]]
   static Indices find(Mask const & mask)
   {
     Indices out(mask.count());
@@ -139,6 +137,87 @@ namespace Pipal
       if (mask[i]) {out[j++] = i;}
     }
     return out;
+  }
+
+  /**
+   * \brief Insert a sparse block into a sparse matrix at the specified offsets.
+   * \tparam Real Floating-point type used by the algorithm.
+   * \tparam CheckZero Whether to skip zero entries when inserting.
+   * \param[in, out] mat Sparse matrix where to insert the block.
+   * \param[in] blk Sparse matrix block to insert.
+   * \param[in] row_offset Row offset in the sparse matrix.
+   * \param[in] col_offset Column offset in the sparse matrix.
+   */
+  template <typename Real>
+  static void insert_block(SparseMatrix<Real> & mat, SparseMatrix<Real> const & blk,
+    Integer const row_offset, Integer const col_offset)
+  {
+    #define CMD "Pipal::Solver::insert_block(...): "
+
+    // Get sizes
+    const Integer mat_cols{static_cast<Integer>(mat.cols())}, mat_rows{static_cast<Integer>(mat.rows())};
+    const Integer blk_cols{static_cast<Integer>(blk.cols())}, blk_rows{static_cast<Integer>(blk.rows())};
+
+    // Check dimensions
+    PIPAL_ASSERT(row_offset >= 0,
+      CMD "row offset must be non-negative.");
+    PIPAL_ASSERT(col_offset >= 0,
+      CMD "column offset must be non-negative.");
+    PIPAL_ASSERT(row_offset + blk_rows <= mat_rows,
+      CMD "inserting block exceeds matrix row dimensions.");
+    PIPAL_ASSERT(col_offset + blk_cols <= mat_cols,
+      CMD "inserting block exceeds matrix column dimensions.");
+
+    // Insert block
+    for (Integer r{0}; r < blk_rows; ++r) {
+      for (Integer c{0}; c < blk_cols; ++c) {
+        mat.coeffRef(r + row_offset, c + col_offset) = blk.coeff(r, c);
+      }
+    }
+
+    #undef CMD
+  }
+
+  /**
+   * \brief Insert a sparse block into a sparse matrix at the specified offsets.
+   * \tparam Real Floating-point type used by the algorithm.
+   * \tparam CheckZero Whether to skip zero entries when inserting.
+   * \param[in, out] mat Sparse matrix where to insert the block.
+   * \param[in] blk Sparse matrix block to insert.
+   * \param[in] row_index Row indices in the block matrix.
+   * \param[in] col_index Column indices in the block matrix.
+   * \param[in] row_offset Row offset in the sparse matrix.
+   * \param[in] col_offset Column offset in the sparse matrix.
+   */
+  template <typename Real>
+  static void insert_block(SparseMatrix<Real> & mat, SparseMatrix<Real> const & blk,
+    Indices const row_index, Indices const col_index, Integer const row_offset, Integer const col_offset)
+  {
+    #define CMD "Pipal::Solver::insert_block(...): "
+
+    // Get sizes
+    const Integer mat_cols{static_cast<Integer>(mat.cols())}, mat_rows{static_cast<Integer>(mat.rows())};
+    const Integer idx_rows{static_cast<Integer>(row_index.size())};
+    const Integer idx_cols{static_cast<Integer>(col_index.size())};
+
+    // Check dimensions
+    PIPAL_ASSERT(row_offset >= 0,
+      CMD "row offset must be non-negative.");
+    PIPAL_ASSERT(col_offset >= 0,
+      CMD "column offset must be non-negative.");
+    PIPAL_ASSERT(row_offset + idx_rows <= mat_rows,
+      CMD "inserting block exceeds matrix row dimensions.");
+    PIPAL_ASSERT(col_offset + idx_cols <= mat_cols,
+      CMD "inserting block exceeds matrix column dimensions.");
+
+    // Insert block
+    for (Integer r{0}; r < idx_rows; ++r) {
+      for (Integer c{0}; c < idx_cols; ++c) {
+        mat.coeffRef(r + row_offset, c + col_offset) = blk.coeff(row_index(r), col_index(c));
+      }
+    }
+
+    #undef CMD
   }
 
   /**
@@ -176,10 +255,26 @@ namespace Pipal
     static constexpr Real    update_con_2{1.0e-02};          /*!< Steering rule constant 2. */
     static constexpr Real    update_con_3{1.01};             /*!< Adaptive interior-point rule constant. */
 
-    Real      opt_err_tol{1.0e-10};           /*!< Default optimality tolerance. */
+    Real      opt_err_tol{1.0e-6};            /*!< Default optimality tolerance. */
     Integer   iter_max{1000};                 /*!< Default iteration limit. */
     Algorithm algorithm{Algorithm::ADAPTIVE}; /*!< Algorithm choice. */
     Real      mu_max_exp{0.0};                /*!< Interior-point parameter maximum exponent in increases. */
+
+    /**
+     * \brief Default constructor.
+     */
+    Parameter() = default;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Parameter(Parameter const &) = delete;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Parameter & operator=(Parameter const &) = delete;
+
   }; // struct Parameter
 
   /**
@@ -187,11 +282,27 @@ namespace Pipal
    */
   using Counter = struct Counter
   {
-    Integer f{0}; // Function evaluation counter
-    Integer g{0}; // Gradient evaluation counter
-    Integer H{0}; // Hessian evaluation counter
-    Integer k{0}; // Iteration counter
-    Integer M{0}; // Matrix factorization counter
+    Integer f{0}; /*!< Function evaluation counter. */
+    Integer g{0}; /*!< Gradient evaluation counter. */
+    Integer H{0}; /*!< Hessian evaluation counter. */
+    Integer k{0}; /*!< Iteration counter. */
+    Integer M{0}; /*!< Matrix factorization counter. */
+
+    /**
+     * \brief Default constructor.
+     */
+    Counter() = default;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Counter(Counter const &) = delete;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Counter & operator=(Counter const &) = delete;
+
   }; // struct Counter
 
   /**
@@ -202,7 +313,6 @@ namespace Pipal
   struct Input
   {
     std::string name; /*!< Problem identity. */
-    Integer       n0; /*!< Number of original formulation variables. */
     Indices       I1; /*!< Indices of free variables. */
     Indices       I2; /*!< Indices of fixed variables. */
     Indices       I3; /*!< Indices of lower bounded variables. */
@@ -223,6 +333,7 @@ namespace Pipal
     Vector<Real>  u8; /*!< Right-hand side of upper bounded constraints. */
     Vector<Real>  l9; /*!< Right-hand side of lower half of lower and upper bounded constraints. */
     Vector<Real>  u9; /*!< Right-hand side of upper half of lower and upper bounded constraints. */
+    Integer       n0; /*!< Number of original formulation variables. */
     Integer       n1; /*!< Number of free variables. */
     Integer       n2; /*!< Number of fixed variables. */
     Integer       n3; /*!< Number of lower bounded variables. */
@@ -237,6 +348,22 @@ namespace Pipal
     Integer       nE; /*!< Number of equality constraints. */
     Integer       nA; /*!< Size of primal-dual matrix. */
     Integer       vi; /*!< Counter for invalid bounds. */
+
+    /**
+     * \brief Default constructor.
+     */
+    Input() = default;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Input(Input const &) = delete;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Input & operator=(Input const &) = delete;
+
   }; // struct Input
 
   /**
@@ -276,7 +403,7 @@ namespace Pipal
     LDLT               ldlt;  /*!< LDLT factorization of Newton matrix. */
     Integer            Annz;  /*!< Newton matrix (upper triangle) nonzeros. */
     Real               shift; /*!< Hessian shift value. */
-    SparseVector<Real> b;     /*!< Newton right-hand side. */
+    Vector<Real>       b;     /*!< Newton right-hand side. */
     Vector<Real>       kkt;   /*!< KKT errors. */
     Vector<Real>       kkt_;  /*!< KKT errors last value. */
     Integer            err;   /*!< Function evaluation error flag. */
@@ -290,6 +417,22 @@ namespace Pipal
     Real               shift22; /*!< Newton matrix (2,2)-block shift value. */
     Real               v_;      /*!< Feasibility violation measure last value. */
     bool               cut_;    /*!< Boolean value for last backtracking line search. */
+
+    /**
+     * \brief Default constructor.
+     */
+    Iterate() = default;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Iterate(Iterate const &) = delete;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Iterate & operator=(Iterate const &) = delete;
+
   }; // struct Iterate
 
   /**
@@ -314,6 +457,22 @@ namespace Pipal
     Real         ltred;   /*!< Penalty-interior-point linear model reduction value. */
     Real         qtred;   /*!< Penalty-interior-point quadratic model reduction value. */
     Real         m;       /*!< Quality function value. */
+
+    /**
+     * \brief Default constructor.
+     */
+    Direction() = default;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Direction(Direction const &) = delete;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Direction & operator=(Direction const &) = delete;
+
   }; // struct Direction
 
   /**
@@ -327,8 +486,24 @@ namespace Pipal
     Real p{0.0};   /*!< Primal steplength. */
     Real d{0.0};   /*!< Dual steplength. */
     bool s{false}; /*!< Bool for second-order correction. */
+
+    /**
+     * \brief Default constructor.
+     */
+    Acceptance() = default;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Acceptance(Acceptance const &) = delete;
+
+    /**
+     * \brief Delete copy constructor and assignment operator.
+     */
+    Acceptance & operator=(Acceptance const &) = delete;
+
   }; // struct Acceptance
 
 } // namespace Pipal
 
-#endif // INCLUDE_PIPAL_DEFINES_HH
+#endif // INCLUDE_PIPAL_DEFINES_HXX

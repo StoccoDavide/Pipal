@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
+<meta name="twitter:title" content="Doxygen Awesome" />
+<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
+<!-- END twitter metadata -->
+<title>Pipal: include/Pipal/Acceptance.hxx Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="custom-alternative.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/StoccoDavide/Pipal" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.svg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Pipal
+   &#160;<span id="projectnumber">1.2.0</span>
+   </div>
+   <div id="projectbrief">Penalty Interior-Point ALgorithm</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Search',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_acceptance_8hxx_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Acceptance.hxx</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_acceptance_8hxx.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (counter) 2025, Davide Stocco and Enrico Bertolazzi.                                *</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *                                                                                               *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * The Pipal project is distributed under the MIT License.                                       *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *                                                                                               *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Davide Stocco                                                               Enrico Bertolazzi *</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * University of Trento                                                     University of Trento *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * e-mail: davide.stocco@unitn.it                             e-mail: enrico.bertolazzi@unitn.it *</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef INCLUDE_PIPAL_ACCEPTANCE_HXX</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="_acceptance_8hxx.html#abc1faf9c54092b44a51cf4bc5b9c4ca8">   14</a></span><span class="preprocessor">#define INCLUDE_PIPAL_ACCEPTANCE_HXX</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespace_pipal.html">   16</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_pipal.html">Pipal</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Real&gt;</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_pipal_1_1_solver.html#a48be420a882674ac9035bad01e61c498">   27</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_pipal_1_1_solver.html#a48be420a882674ac9035bad01e61c498">Solver&lt;Real&gt;::backtracking</a>()</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> Real EPS{std::numeric_limits&lt;Real&gt;::epsilon()};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// Create alias for easier access</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_struct" href="struct_pipal_1_1_parameter.html">Parameter&lt;Real&gt;</a>  &amp; p{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#ac8f6c93cc6092b84f6534bbe93b96e19">m_parameter</a>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_struct" href="struct_pipal_1_1_input.html">Input&lt;Real&gt;</a>      &amp; i{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a2569f5bfbaaad320a64bacf31c5d1312">m_input</a>};</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_struct" href="struct_pipal_1_1_iterate.html">Iterate&lt;Real&gt;</a>    &amp; z{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a6fc53c2cd726c93093b5da86afe2d9fe">m_iterate</a>};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_struct" href="struct_pipal_1_1_direction.html">Direction&lt;Real&gt;</a>  &amp; d{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a3fd9a94cf162084fe3fba2aa60ca776b">m_direction</a>};</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="struct_pipal_1_1_acceptance.html">Acceptance&lt;Real&gt;</a> &amp; a{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a1280654282902b7c7b622db52f856907">m_acceptance</a>};</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// Store current values</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    Real f{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>}, phi{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_typedef" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array&lt;Real&gt;</a> cE(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>), r1(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a>), r2(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a>), lE(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a56e3143f044610f4cc20dbdee8ead6c0">lE</a>), cI(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>), s1(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a>), s2(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a>), lI(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a2a7edfa1c522afb4a3e5105ecba9734d">lI</a>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_typedef" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector&lt;Real&gt;</a> x(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a3c4831e605b997955f835b6c286b73ed">x</a>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">// Backtracking loop</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">while</span> (a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a> &gt;= EPS)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      <span class="comment">// Set trial point</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a892f5043eac3693faca0f28b396badcb">updatePoint</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#aea02732caee716a023fcc7451df62c12">evalFunctions</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      <span class="comment">// Check for function evaluation error</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      <span class="keywordflow">if</span> (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ac4f6b8218af9e6a40a31fffb5baa8f52">err</a> == 0)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// Set remaining trial values</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a78227c7ceeb0b93649525a9b8b8bff7c">evalSlacks</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">evalMerit</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">// Check for nonlinear fraction-to-boundary violation</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> ftb{0};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">const</span> Real tmp_min{std::min(p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a9e7a0e0033056fd8d4e6c350f9ed369c">ls_frac</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a1a48a3d39f76bc6adc1d8a38721f9507">mu</a>)};</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">nE</a> &gt; 0) {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>          ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a> &lt; tmp_min*r1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a> &lt; tmp_min*r2).count();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">nI</a> &gt; 0) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>          ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a> &lt; tmp_min*s1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a> &lt; tmp_min*s2).count();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="comment">// Check Armijo condition</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordflow">if</span> (ftb == 0 &amp;&amp; z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a> - phi &lt;= -p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a0853b150f86e41f713aa48be8589b7fe">ls_thresh</a>*a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*std::max(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a2b085064c4b6f1d7970856f6788d0421">qtred</a>, 0.0))</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>          <span class="comment">// Reset variables and return</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>          this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>          <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>          <span class="comment">// Reset variables</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>          this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">// Reset variables</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      <span class="comment">// Reduce step length</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a> *= p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a25cac1d32b88fddcde60b01571016814">ls_factor</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  }</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Real&gt;</div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_pipal_1_1_solver.html#ad71c47ac0bb3e0bed333d1178db6bc00">  100</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_pipal_1_1_solver.html#ad71c47ac0bb3e0bed333d1178db6bc00">Solver&lt;Real&gt;::fractionToBoundary</a>()</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> Real INF{std::numeric_limits&lt;Real&gt;::infinity()};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// Create alias for easier access</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_struct" href="struct_pipal_1_1_parameter.html">Parameter&lt;Real&gt;</a>  &amp; p{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#ac8f6c93cc6092b84f6534bbe93b96e19">m_parameter</a>};</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_struct" href="struct_pipal_1_1_input.html">Input&lt;Real&gt;</a>      &amp; i{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a2569f5bfbaaad320a64bacf31c5d1312">m_input</a>};</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_struct" href="struct_pipal_1_1_iterate.html">Iterate&lt;Real&gt;</a>    &amp; z{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a6fc53c2cd726c93093b5da86afe2d9fe">m_iterate</a>};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_struct" href="struct_pipal_1_1_direction.html">Direction&lt;Real&gt;</a>  &amp; d{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a3fd9a94cf162084fe3fba2aa60ca776b">m_direction</a>};</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_struct" href="struct_pipal_1_1_acceptance.html">Acceptance&lt;Real&gt;</a> &amp; a{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a1280654282902b7c7b622db52f856907">m_acceptance</a>};</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">// Initialize primal fraction-to-boundary</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">p0</a> = 1.0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// Update primal fraction-to-boundary for constraint slacks</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    Real frac{std::min(p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a9e7a0e0033056fd8d4e6c350f9ed369c">ls_frac</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a1a48a3d39f76bc6adc1d8a38721f9507">mu</a>)};</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">nE</a> &gt; 0) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a> idx_r1(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a64de2b649c1d9b230f2edd88a1cb312f">r1</a> &lt; 0.0)), idx_r2(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a51ddcb269e00b16db8cef4dc2d9f3d9a">r2</a> &lt; 0.0));</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      Real min_1{INF}, min_2{INF};</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keywordflow">if</span> (idx_r1.size() &gt; 0) {min_1 = (((frac - 1.0)*z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a>(idx_r1))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a64de2b649c1d9b230f2edd88a1cb312f">r1</a>(idx_r1)).minCoeff();}</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      <span class="keywordflow">if</span> (idx_r2.size() &gt; 0) {min_2 = (((frac - 1.0)*z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a>(idx_r2))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a51ddcb269e00b16db8cef4dc2d9f3d9a">r2</a>(idx_r2)).minCoeff();}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">p0</a> = std::min(a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">p0</a>, std::min(min_1, min_2));</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">nI</a> &gt; 0) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a> idx_s1(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#acf601a46c3110e5251a915fc272fc532">s1</a> &lt; 0.0)), idx_s2(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a208e3ffdf36b39ef308eb55b4aa6faf0">s2</a> &lt; 0.0));</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      Real min_1{INF}, min_2{INF};</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      <span class="keywordflow">if</span> (idx_s1.size() &gt; 0) {min_1 = (((frac - 1.0)*z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a>(idx_s1))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#acf601a46c3110e5251a915fc272fc532">s1</a>(idx_s1)).minCoeff();}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      <span class="keywordflow">if</span> (idx_s2.size() &gt; 0) {min_2 = (((frac - 1.0)*z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a>(idx_s2))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a208e3ffdf36b39ef308eb55b4aa6faf0">s2</a>(idx_s2)).minCoeff();}</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>      a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">p0</a> = std::min(a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">p0</a>, std::min(min_1, min_2));</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">// Initialize primal step length</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a> = a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">p0</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="comment">// Initialize dual fraction-to-boundary</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a> = 1.0;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="comment">// Update dual fraction-to-boundary for constraint multipliers</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">nE</a> &gt; 0) {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>      <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a> idx_l(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a> &lt; 0.0)), idx_g(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a> &gt; 0));</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      Real min_1{INF}, min_2{INF};</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>      <span class="keywordflow">if</span> (idx_l.size() &gt; 0) {min_1 = (((frac - 1.0)*(1.0 + z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a56e3143f044610f4cc20dbdee8ead6c0">lE</a>(idx_l)))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a>(idx_l)).minCoeff();}</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      <span class="keywordflow">if</span> (idx_g.size() &gt; 0) {min_2 = (((1.0 - frac)*(1.0 - z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a56e3143f044610f4cc20dbdee8ead6c0">lE</a>(idx_g)))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a>(idx_g)).minCoeff();}</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a> = std::min(a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a>, std::min(min_1, min_2));</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">nI</a> &gt; 0) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>      <span class="keyword">const</span> <a class="code hl_typedef" href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Indices</a> idx_l(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a> &lt; 0.0)), idx_g(<a class="code hl_function" href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">find</a>(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a> &gt; 0));</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>      Real min_1{INF}, min_2{INF};</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>      <span class="keywordflow">if</span> (idx_l.size() &gt; 0) {min_1 = (((frac - 1.0)*       z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a2a7edfa1c522afb4a3e5105ecba9734d">lI</a>(idx_l)) /d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a>(idx_l)).minCoeff();}</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      <span class="keywordflow">if</span> (idx_g.size() &gt; 0) {min_2 = (((1.0 - frac)*(1.0 - z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a2a7edfa1c522afb4a3e5105ecba9734d">lI</a>(idx_g)))/d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a>(idx_g)).minCoeff();}</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a> = std::min(a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a>, std::min(min_1, min_2));</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  }</div>
+</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Real&gt;</div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_pipal_1_1_solver.html#ae5be58d2aac903aa4b4851e93b403167">  165</a></span>  <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> <a class="code hl_function" href="class_pipal_1_1_solver.html#ae5be58d2aac903aa4b4851e93b403167">Solver&lt;Real&gt;::fullStepCheck</a>()</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment">// Create alias for easier access</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <a class="code hl_struct" href="struct_pipal_1_1_parameter.html">Parameter&lt;Real&gt;</a>  &amp; p{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#ac8f6c93cc6092b84f6534bbe93b96e19">m_parameter</a>};</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <a class="code hl_struct" href="struct_pipal_1_1_input.html">Input&lt;Real&gt;</a>      &amp; i{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a2569f5bfbaaad320a64bacf31c5d1312">m_input</a>};</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_struct" href="struct_pipal_1_1_iterate.html">Iterate&lt;Real&gt;</a>    &amp; z{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a6fc53c2cd726c93093b5da86afe2d9fe">m_iterate</a>};</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_struct" href="struct_pipal_1_1_direction.html">Direction&lt;Real&gt;</a>  &amp; d{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a3fd9a94cf162084fe3fba2aa60ca776b">m_direction</a>};</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <a class="code hl_struct" href="struct_pipal_1_1_acceptance.html">Acceptance&lt;Real&gt;</a> &amp; a{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a1280654282902b7c7b622db52f856907">m_acceptance</a>};</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="comment">// Set current and last penalty parameters</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    Real rho{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0ad6c63d68e7dfedee7b077bc3b62fe5">rho</a>}, rho_temp{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a37b249e815ebccf12756c4b47cbd56e8">rho_</a>};</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="comment">// Loop through last penalty parameters</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">while</span> (rho &lt; rho_temp)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      <span class="comment">// Set penalty parameter</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a0d7438b38956ce892c3ab666cb28ddd5">setRho</a>(rho_temp);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>      <span class="comment">// Evaluate merit</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">evalMerit</a>();</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>      <span class="comment">// Store current values</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>      Real phi{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>}, f{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>};</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      <a class="code hl_typedef" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array&lt;Real&gt;</a> cE(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>), r1(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a>), r2(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a>), lE(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a56e3143f044610f4cc20dbdee8ead6c0">lE</a>), cI(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>), s1(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a>), s2(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a>), lI(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a2a7edfa1c522afb4a3e5105ecba9734d">lI</a>);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>      <a class="code hl_typedef" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector&lt;Real&gt;</a> x(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a3c4831e605b997955f835b6c286b73ed">x</a>);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>      <span class="comment">// Set trial point</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a892f5043eac3693faca0f28b396badcb">updatePoint</a>();</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#aea02732caee716a023fcc7451df62c12">evalFunctions</a>();</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>      <span class="comment">// Check for function evaluation error</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      <span class="keywordflow">if</span> (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ac4f6b8218af9e6a40a31fffb5baa8f52">err</a> == 0)</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="comment">// Set remaining trial values</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a78227c7ceeb0b93649525a9b8b8bff7c">evalSlacks</a>();</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">evalMerit</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="comment">// Check for nonlinear fraction-to-boundary violation</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> ftb{0};</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keyword">const</span> Real tmp_min{std::min(p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a9e7a0e0033056fd8d4e6c350f9ed369c">ls_frac</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a1a48a3d39f76bc6adc1d8a38721f9507">mu</a>)};</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">nE</a> &gt; 0) {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>          ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a> &lt; tmp_min*r1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a> &lt; tmp_min*r2).count();</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">nI</a> &gt; 0) {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>          ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a> &lt; tmp_min*s1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a> &lt; tmp_min*s2).count();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="comment">// Check Armijo condition</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordflow">if</span> (ftb == 0 &amp;&amp; z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a> - phi &lt;= -p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a0853b150f86e41f713aa48be8589b7fe">ls_thresh</a>*a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*std::max(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a2b085064c4b6f1d7970856f6788d0421">qtred</a>, 0.0))</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        {</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>          <span class="comment">// Reset variables, set boolean, and return</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>          this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>          <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>          <span class="comment">// Reset variables</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>          this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>      }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="comment">// Reset variables</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>      <span class="comment">// Decrease rho</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>      rho_temp *= p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a0a98c7be5fc714c6a158ed22b7c5b426">rho_factor</a>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">// Set rho</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a0d7438b38956ce892c3ab666cb28ddd5">setRho</a>(rho);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="comment">// Evaluate merit</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">evalMerit</a>();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>  }</div>
+</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Real&gt;</div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="class_pipal_1_1_solver.html#afddc1d09a15d89c34d019fd5337548f6">  253</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_pipal_1_1_solver.html#afddc1d09a15d89c34d019fd5337548f6">Solver&lt;Real&gt;::lineSearch</a>()</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="comment">// Create alias for easier access</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <a class="code hl_struct" href="struct_pipal_1_1_acceptance.html">Acceptance&lt;Real&gt;</a> &amp; a{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a1280654282902b7c7b622db52f856907">m_acceptance</a>};</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="comment">// Check fraction-to-boundary rule</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad71c47ac0bb3e0bed333d1178db6bc00">fractionToBoundary</a>();</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="comment">// Check for full step for trial penalty parameters</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> b{this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ae5be58d2aac903aa4b4851e93b403167">fullStepCheck</a>()};</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="comment">// Run second-order correction</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a15fa3f80ce3728c9465ae3ac252e39cc">s</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">if</span> (b == 0) {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>      b = this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ab4eee3eec708b4ba34fd97ed3c5bc85c">secondOrderCorrection</a>();</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>      <span class="keywordflow">if</span> (b == 2) {a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a15fa3f80ce3728c9465ae3ac252e39cc">s</a> = <span class="keyword">true</span>;}</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    }</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="comment">// Run backtracking line search</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">if</span> (b == 0) {this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a48be420a882674ac9035bad01e61c498">backtracking</a>();}</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  }</div>
+</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Real&gt;</div>
+<div class="foldopen" id="foldopen00284" data-start="{" data-end="}">
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="class_pipal_1_1_solver.html#ab4eee3eec708b4ba34fd97ed3c5bc85c">  284</a></span>  <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> <a class="code hl_function" href="class_pipal_1_1_solver.html#ab4eee3eec708b4ba34fd97ed3c5bc85c">Solver&lt;Real&gt;::secondOrderCorrection</a>()</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="comment">// Create alias for easier access</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <a class="code hl_struct" href="struct_pipal_1_1_parameter.html">Parameter&lt;Real&gt;</a>  &amp; p{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#ac8f6c93cc6092b84f6534bbe93b96e19">m_parameter</a>};</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <a class="code hl_struct" href="struct_pipal_1_1_input.html">Input&lt;Real&gt;</a>      &amp; i{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a2569f5bfbaaad320a64bacf31c5d1312">m_input</a>};</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <a class="code hl_struct" href="struct_pipal_1_1_iterate.html">Iterate&lt;Real&gt;</a>    &amp; z{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a6fc53c2cd726c93093b5da86afe2d9fe">m_iterate</a>};</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <a class="code hl_struct" href="struct_pipal_1_1_direction.html">Direction&lt;Real&gt;</a>  &amp; d{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a3fd9a94cf162084fe3fba2aa60ca776b">m_direction</a>};</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <a class="code hl_struct" href="struct_pipal_1_1_acceptance.html">Acceptance&lt;Real&gt;</a> &amp; a{this-&gt;<a class="code hl_variable" href="class_pipal_1_1_solver.html#a1280654282902b7c7b622db52f856907">m_acceptance</a>};</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="comment">// Store current iterate values</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    Real f{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>}, phi{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>}, v{z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0cc8cf7783644b3c2c1b207fc22dd86b">v</a>};</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_typedef" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array&lt;Real&gt;</a> cE(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>), r1(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a>), r2(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a>), lE(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a56e3143f044610f4cc20dbdee8ead6c0">lE</a>), cI(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>), s1(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a>), s2(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a>), lI(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a2a7edfa1c522afb4a3e5105ecba9734d">lI</a>);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <a class="code hl_typedef" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector&lt;Real&gt;</a> x(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a3c4831e605b997955f835b6c286b73ed">x</a>);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="comment">// Set trial point</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a892f5043eac3693faca0f28b396badcb">updatePoint</a>();</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#aea02732caee716a023fcc7451df62c12">evalFunctions</a>();</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="comment">// Check for function evaluation error</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordflow">if</span> (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ac4f6b8218af9e6a40a31fffb5baa8f52">err</a> == 0)</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    {</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>      <span class="comment">// Set remaining trial values</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a78227c7ceeb0b93649525a9b8b8bff7c">evalSlacks</a>();</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">evalMerit</a>();</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      <span class="comment">// Check for nonlinear fraction-to-boundary violation</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> ftb{0};</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      <span class="keyword">const</span> Real tmp_min{std::min(p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a9e7a0e0033056fd8d4e6c350f9ed369c">ls_frac</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a1a48a3d39f76bc6adc1d8a38721f9507">mu</a>)};</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>      <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">nE</a> &gt; 0) {</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a> &lt; tmp_min*r1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a> &lt; tmp_min*r2).count();</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>      }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>      <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">nI</a> &gt; 0) {</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a> &lt; tmp_min*s1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a> &lt; tmp_min*s2).count();</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>      }</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>      <span class="comment">// Check Armijo condition</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>      <span class="keywordflow">if</span> (ftb == 0 &amp;&amp; z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a> - phi &lt;= -p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a0853b150f86e41f713aa48be8589b7fe">ls_thresh</a>*a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*std::max(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a2b085064c4b6f1d7970856f6788d0421">qtred</a>, 0.0))</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>      {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="comment">// Reset variables, set flag, and return</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>);</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>      }</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a23ee2ba7880844ab97a50bfd76af81e1">evalViolation</a>(z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>) &lt; v)</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>      {</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="comment">// Reset variables and return</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>      }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>      <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>      {</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="comment">// Reset variables (but leave constraint values for second-order correction)</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>, phi);</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>      }</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    }</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    {</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>      <span class="comment">// Reset variables and return</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    }</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="comment">// Recompute slacks for second order correction</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a78227c7ceeb0b93649525a9b8b8bff7c">evalSlacks</a>();</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="comment">// Evaluate trial primal-dual right-hand side vector</span></div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a6759c38f02e7846b120615bb7753029f">evalNewtonRhs</a>();</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="comment">// Store current direction values</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <a class="code hl_typedef" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector&lt;Real&gt;</a> dx(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#ac65158a6b518552967cf3bd9a5e818bc">x</a>), dr1(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a64de2b649c1d9b230f2edd88a1cb312f">r1</a>), dr2(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a51ddcb269e00b16db8cef4dc2d9f3d9a">r2</a>), dlE(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a>), ds1(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#acf601a46c3110e5251a915fc272fc532">s1</a>), ds2(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a208e3ffdf36b39ef308eb55b4aa6faf0">s2</a>), dlI(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a>);</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    Real dx_norm{d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a35121b9b277a006eb1264050d813213f">x_norm</a>}, dl_norm{d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a1b295298c495d100de2b6fdf3682ce49">l_norm</a>};</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <span class="comment">// Evaluate search direction</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad482be1af04fd16b3e049ec7f6f8dae3">evalNewtonStep</a>();</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <span class="comment">// Set trial direction</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad7f2b9c0b6d1a657805dab22b61f9e77">setDirection</a>(a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*dx+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#ac65158a6b518552967cf3bd9a5e818bc">x</a>, a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*dr1+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a64de2b649c1d9b230f2edd88a1cb312f">r1</a>.matrix(), a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*dr2+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a51ddcb269e00b16db8cef4dc2d9f3d9a">r2</a>.matrix(), a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*ds1+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#acf601a46c3110e5251a915fc272fc532">s1</a>.matrix(),</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>      a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*ds2+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a208e3ffdf36b39ef308eb55b4aa6faf0">s2</a>.matrix(), a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a>*dlE+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a>.matrix(), a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a>*dlI+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a>.matrix(), (a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*dx+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#ac65158a6b518552967cf3bd9a5e818bc">x</a>).norm(),</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>      std::sqrt((a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a>*dlE+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">lE</a>.matrix()).matrix().squaredNorm() + (a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">d</a>*dlI+d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">lI</a>.matrix()).squaredNorm()));</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="comment">// Set trial point</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a892f5043eac3693faca0f28b396badcb">updatePoint</a>();</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#aea02732caee716a023fcc7451df62c12">evalFunctions</a>();</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="comment">// Check for function evaluation error</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keywordflow">if</span> (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ac4f6b8218af9e6a40a31fffb5baa8f52">err</a> == 0)</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    {</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>      <span class="comment">// Set remaining trial values</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a78227c7ceeb0b93649525a9b8b8bff7c">evalSlacks</a>();</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">evalMerit</a>();</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>      <span class="comment">// Check for nonlinear fraction-to-boundary violation</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>      <a class="code hl_typedef" href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Integer</a> ftb{0};</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>      <span class="keyword">const</span> Real tmp_min{std::min(p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a9e7a0e0033056fd8d4e6c350f9ed369c">ls_frac</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a1a48a3d39f76bc6adc1d8a38721f9507">mu</a>)};</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>      <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">nE</a> &gt; 0) {</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">r1</a> &lt; tmp_min*r1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">r2</a> &lt; tmp_min*r2).count();</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>      }</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>      <span class="keywordflow">if</span> (i.<a class="code hl_variable" href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">nI</a> &gt; 0) {</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        ftb += (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">s1</a> &lt; tmp_min*s1).count() + (z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">s2</a> &lt; tmp_min*s2).count();</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>      }</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>      <span class="comment">// Check Armijo condition</span></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>      <span class="keywordflow">if</span> (ftb == 0 &amp;&amp; z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a> - phi &lt;= -p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a0853b150f86e41f713aa48be8589b7fe">ls_thresh</a>*a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a>*std::max(d.<a class="code hl_variable" href="struct_pipal_1_1_direction.html#a2b085064c4b6f1d7970856f6788d0421">qtred</a>, 0.0))</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>      {</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="comment">// Reset variables, set flag, and return</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">f</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">cE</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">cI</a>, z.<a class="code hl_variable" href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">phi</a>);</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <span class="keywordflow">return</span> 2;</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>      }</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>      <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>      {</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>        <span class="comment">// Reset variables</span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>        this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>      }</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    }</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    {</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>      <span class="comment">// Reset variables</span></div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>      this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a>(x, r1, r2, s1, s2, lE, lI, f, cE, cI, phi);</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    }</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <span class="comment">// Reset direction</span></div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    this-&gt;<a class="code hl_function" href="class_pipal_1_1_solver.html#ad7f2b9c0b6d1a657805dab22b61f9e77">setDirection</a>(dx, dr1, dr2, ds1, ds2, dlE, dlI, dx_norm, dl_norm);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="comment">// Reduce step length</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    a.<a class="code hl_variable" href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">p</a> *= p.<a class="code hl_variable" href="struct_pipal_1_1_parameter.html#a25cac1d32b88fddcde60b01571016814">ls_factor</a>;</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>  }</div>
+</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>} <span class="comment">// namespace Pipal</span></div>
+</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span><span class="preprocessor">#endif </span><span class="comment">/* INCLUDE_PIPAL_ACCEPTANCE_HH */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a075c3cf43124703d2416e213a900e91b"><div class="ttname"><a href="class_pipal_1_1_solver.html#a075c3cf43124703d2416e213a900e91b">Pipal::Solver::evalMerit</a></div><div class="ttdeci">void evalMerit()</div><div class="ttdoc">Compute the merit function value for the current iterate.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:523</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a0d7438b38956ce892c3ab666cb28ddd5"><div class="ttname"><a href="class_pipal_1_1_solver.html#a0d7438b38956ce892c3ab666cb28ddd5">Pipal::Solver::setRho</a></div><div class="ttdeci">void setRho(Real const rho)</div><div class="ttdoc">Set penalty parameter rho.</div><div class="ttdef"><b>Definition</b> Solver.hxx:142</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a1280654282902b7c7b622db52f856907"><div class="ttname"><a href="class_pipal_1_1_solver.html#a1280654282902b7c7b622db52f856907">Pipal::Solver::m_acceptance</a></div><div class="ttdeci">Acceptance&lt; Real &gt; m_acceptance</div><div class="ttdef"><b>Definition</b> Solver.hxx:43</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a23ee2ba7880844ab97a50bfd76af81e1"><div class="ttname"><a href="class_pipal_1_1_solver.html#a23ee2ba7880844ab97a50bfd76af81e1">Pipal::Solver::evalViolation</a></div><div class="ttdeci">Real evalViolation(Array&lt; Real &gt; const &amp;cE, Array&lt; Real &gt; const &amp;cI) const</div><div class="ttdoc">Compute the 1-norm feasibility violation from equality/inequality values.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:997</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a2569f5bfbaaad320a64bacf31c5d1312"><div class="ttname"><a href="class_pipal_1_1_solver.html#a2569f5bfbaaad320a64bacf31c5d1312">Pipal::Solver::m_input</a></div><div class="ttdeci">Input&lt; Real &gt; m_input</div><div class="ttdef"><b>Definition</b> Solver.hxx:44</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a3fd9a94cf162084fe3fba2aa60ca776b"><div class="ttname"><a href="class_pipal_1_1_solver.html#a3fd9a94cf162084fe3fba2aa60ca776b">Pipal::Solver::m_direction</a></div><div class="ttdeci">Direction&lt; Real &gt; m_direction</div><div class="ttdef"><b>Definition</b> Solver.hxx:45</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a48be420a882674ac9035bad01e61c498"><div class="ttname"><a href="class_pipal_1_1_solver.html#a48be420a882674ac9035bad01e61c498">Pipal::Solver::backtracking</a></div><div class="ttdeci">void backtracking()</div><div class="ttdoc">Backtracking line search.</div><div class="ttdef"><b>Definition</b> Acceptance.hxx:27</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a6759c38f02e7846b120615bb7753029f"><div class="ttname"><a href="class_pipal_1_1_solver.html#a6759c38f02e7846b120615bb7753029f">Pipal::Solver::evalNewtonRhs</a></div><div class="ttdeci">void evalNewtonRhs()</div><div class="ttdoc">Build the right-hand side vector for the Newton system.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:646</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a6fc53c2cd726c93093b5da86afe2d9fe"><div class="ttname"><a href="class_pipal_1_1_solver.html#a6fc53c2cd726c93093b5da86afe2d9fe">Pipal::Solver::m_iterate</a></div><div class="ttdeci">Iterate&lt; Real &gt; m_iterate</div><div class="ttdef"><b>Definition</b> Solver.hxx:46</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a78227c7ceeb0b93649525a9b8b8bff7c"><div class="ttname"><a href="class_pipal_1_1_solver.html#a78227c7ceeb0b93649525a9b8b8bff7c">Pipal::Solver::evalSlacks</a></div><div class="ttdeci">void evalSlacks()</div><div class="ttdoc">Compute internal slack variables from current iterate.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:752</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_a892f5043eac3693faca0f28b396badcb"><div class="ttname"><a href="class_pipal_1_1_solver.html#a892f5043eac3693faca0f28b396badcb">Pipal::Solver::updatePoint</a></div><div class="ttdeci">void updatePoint()</div><div class="ttdoc">Apply a step to the primal and dual variables of the iterate.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:973</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ab4eee3eec708b4ba34fd97ed3c5bc85c"><div class="ttname"><a href="class_pipal_1_1_solver.html#ab4eee3eec708b4ba34fd97ed3c5bc85c">Pipal::Solver::secondOrderCorrection</a></div><div class="ttdeci">Integer secondOrderCorrection()</div><div class="ttdoc">Second-order correction (SOC).</div><div class="ttdef"><b>Definition</b> Acceptance.hxx:284</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ac8f6c93cc6092b84f6534bbe93b96e19"><div class="ttname"><a href="class_pipal_1_1_solver.html#ac8f6c93cc6092b84f6534bbe93b96e19">Pipal::Solver::m_parameter</a></div><div class="ttdeci">Parameter&lt; Real &gt; m_parameter</div><div class="ttdef"><b>Definition</b> Solver.hxx:48</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ad224378419f7fd3441775b6b7cbf4f90"><div class="ttname"><a href="class_pipal_1_1_solver.html#ad224378419f7fd3441775b6b7cbf4f90">Pipal::Solver::setPrimals</a></div><div class="ttdeci">void setPrimals(Vector&lt; Real &gt; const &amp;x, Array&lt; Real &gt; const &amp;r1, Array&lt; Real &gt; const &amp;r2, Array&lt; Real &gt; const &amp;s1, Array&lt; Real &gt; const &amp;s2, Array&lt; Real &gt; const &amp;lE, Array&lt; Real &gt; const &amp;lI, Real const f, Array&lt; Real &gt; const &amp;cE, Array&lt; Real &gt; const &amp;cI, Real const phi)</div><div class="ttdoc">Set primal/dual blocks and associated quantities on an iterate.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:876</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ad482be1af04fd16b3e049ec7f6f8dae3"><div class="ttname"><a href="class_pipal_1_1_solver.html#ad482be1af04fd16b3e049ec7f6f8dae3">Pipal::Solver::evalNewtonStep</a></div><div class="ttdeci">void evalNewtonStep()</div><div class="ttdoc">Recover direction components from the Newton system solution.</div><div class="ttdef"><b>Definition</b> Direction.hxx:166</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ad71c47ac0bb3e0bed333d1178db6bc00"><div class="ttname"><a href="class_pipal_1_1_solver.html#ad71c47ac0bb3e0bed333d1178db6bc00">Pipal::Solver::fractionToBoundary</a></div><div class="ttdeci">void fractionToBoundary()</div><div class="ttdoc">Fraction-to-boundary rule for primal and dual variables.</div><div class="ttdef"><b>Definition</b> Acceptance.hxx:100</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ad7f2b9c0b6d1a657805dab22b61f9e77"><div class="ttname"><a href="class_pipal_1_1_solver.html#ad7f2b9c0b6d1a657805dab22b61f9e77">Pipal::Solver::setDirection</a></div><div class="ttdeci">void setDirection(Vector&lt; Real &gt; const &amp;dx, Vector&lt; Real &gt; const &amp;dr1, Vector&lt; Real &gt; const &amp;dr2, Vector&lt; Real &gt; const &amp;ds1, Vector&lt; Real &gt; const &amp;ds2, Vector&lt; Real &gt; const &amp;dlE, Vector&lt; Real &gt; const &amp;dlI, Real const dx_norm, Real const dl_norm)</div><div class="ttdoc">Populate a Direction object from its component vectors.</div><div class="ttdef"><b>Definition</b> Direction.hxx:456</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_ae5be58d2aac903aa4b4851e93b403167"><div class="ttname"><a href="class_pipal_1_1_solver.html#ae5be58d2aac903aa4b4851e93b403167">Pipal::Solver::fullStepCheck</a></div><div class="ttdeci">Integer fullStepCheck()</div><div class="ttdoc">Full-step check for trial penalty parameters.</div><div class="ttdef"><b>Definition</b> Acceptance.hxx:165</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_aea02732caee716a023fcc7451df62c12"><div class="ttname"><a href="class_pipal_1_1_solver.html#aea02732caee716a023fcc7451df62c12">Pipal::Solver::evalFunctions</a></div><div class="ttdeci">void evalFunctions()</div><div class="ttdoc">Evaluate objective and constraint functions at the current iterate.</div><div class="ttdef"><b>Definition</b> Iterate.hxx:124</div></div>
+<div class="ttc" id="aclass_pipal_1_1_solver_html_afddc1d09a15d89c34d019fd5337548f6"><div class="ttname"><a href="class_pipal_1_1_solver.html#afddc1d09a15d89c34d019fd5337548f6">Pipal::Solver::lineSearch</a></div><div class="ttdeci">void lineSearch()</div><div class="ttdoc">Line-search driver.</div><div class="ttdef"><b>Definition</b> Acceptance.hxx:253</div></div>
+<div class="ttc" id="anamespace_pipal_html"><div class="ttname"><a href="namespace_pipal.html">Pipal</a></div><div class="ttdoc">Namespace for the Pipal library.</div><div class="ttdef"><b>Definition</b> Acceptance.hxx:16</div></div>
+<div class="ttc" id="anamespace_pipal_html_a091599d47d8f52d1a63ff9e474ab3869"><div class="ttname"><a href="namespace_pipal.html#a091599d47d8f52d1a63ff9e474ab3869">Pipal::Indices</a></div><div class="ttdeci">Eigen::Array&lt; Integer, Eigen::Dynamic, 1 &gt; Indices</div><div class="ttdef"><b>Definition</b> Types.hxx:117</div></div>
+<div class="ttc" id="anamespace_pipal_html_a147c9d72986523f5f27d9b42b1b5ec4e"><div class="ttname"><a href="namespace_pipal.html#a147c9d72986523f5f27d9b42b1b5ec4e">Pipal::find</a></div><div class="ttdeci">static Indices find(Mask const &amp;mask)</div><div class="ttdoc">Select elements from a vector based on a boolean mask.</div><div class="ttdef"><b>Definition</b> Types.hxx:133</div></div>
+<div class="ttc" id="anamespace_pipal_html_a5614603aab2f062f05ae6b99cdbd8f72"><div class="ttname"><a href="namespace_pipal.html#a5614603aab2f062f05ae6b99cdbd8f72">Pipal::Integer</a></div><div class="ttdeci">PIPAL_DEFAULT_INTEGER_TYPE Integer</div><div class="ttdoc">The Integer type as used for the API.</div><div class="ttdef"><b>Definition</b> Types.hxx:110</div></div>
+<div class="ttc" id="anamespace_pipal_html_a5b5f4931b4a8b74794242fe5f614b7fc"><div class="ttname"><a href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Pipal::Array</a></div><div class="ttdeci">Eigen::Array&lt; Real, Eigen::Dynamic, 1 &gt; Array</div><div class="ttdef"><b>Definition</b> Types.hxx:115</div></div>
+<div class="ttc" id="anamespace_pipal_html_adc99e85cd5bca62ce7ebfa6308504103"><div class="ttname"><a href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Pipal::Vector</a></div><div class="ttdeci">Eigen::Vector&lt; Real, Eigen::Dynamic &gt; Vector</div><div class="ttdef"><b>Definition</b> Types.hxx:112</div></div>
+<div class="ttc" id="astruct_pipal_1_1_acceptance_html"><div class="ttname"><a href="struct_pipal_1_1_acceptance.html">Pipal::Acceptance</a></div><div class="ttdoc">Class for managing the acceptance criteria of the solver.</div><div class="ttdef"><b>Definition</b> Types.hxx:484</div></div>
+<div class="ttc" id="astruct_pipal_1_1_acceptance_html_a15fa3f80ce3728c9465ae3ac252e39cc"><div class="ttname"><a href="struct_pipal_1_1_acceptance.html#a15fa3f80ce3728c9465ae3ac252e39cc">Pipal::Acceptance::s</a></div><div class="ttdeci">bool s</div><div class="ttdef"><b>Definition</b> Types.hxx:488</div></div>
+<div class="ttc" id="astruct_pipal_1_1_acceptance_html_a60895347251b63fa2337af6fbbd4a313"><div class="ttname"><a href="struct_pipal_1_1_acceptance.html#a60895347251b63fa2337af6fbbd4a313">Pipal::Acceptance::d</a></div><div class="ttdeci">Real d</div><div class="ttdef"><b>Definition</b> Types.hxx:487</div></div>
+<div class="ttc" id="astruct_pipal_1_1_acceptance_html_a96f40a3ebfbfa767541ef59b98bd3c61"><div class="ttname"><a href="struct_pipal_1_1_acceptance.html#a96f40a3ebfbfa767541ef59b98bd3c61">Pipal::Acceptance::p</a></div><div class="ttdeci">Real p</div><div class="ttdef"><b>Definition</b> Types.hxx:486</div></div>
+<div class="ttc" id="astruct_pipal_1_1_acceptance_html_ac3d688b87b5cdf2969e4edaa1d2ff241"><div class="ttname"><a href="struct_pipal_1_1_acceptance.html#ac3d688b87b5cdf2969e4edaa1d2ff241">Pipal::Acceptance::p0</a></div><div class="ttdeci">Real p0</div><div class="ttdef"><b>Definition</b> Types.hxx:485</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html"><div class="ttname"><a href="struct_pipal_1_1_direction.html">Pipal::Direction</a></div><div class="ttdoc">Class for managing the current search direction of the solver.</div><div class="ttdef"><b>Definition</b> Types.hxx:444</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a1b295298c495d100de2b6fdf3682ce49"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a1b295298c495d100de2b6fdf3682ce49">Pipal::Direction::l_norm</a></div><div class="ttdeci">Real l_norm</div><div class="ttdef"><b>Definition</b> Types.hxx:454</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a208e3ffdf36b39ef308eb55b4aa6faf0"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a208e3ffdf36b39ef308eb55b4aa6faf0">Pipal::Direction::s2</a></div><div class="ttdeci">Array&lt; Real &gt; s2</div><div class="ttdef"><b>Definition</b> Types.hxx:452</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a2b085064c4b6f1d7970856f6788d0421"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a2b085064c4b6f1d7970856f6788d0421">Pipal::Direction::qtred</a></div><div class="ttdeci">Real qtred</div><div class="ttdef"><b>Definition</b> Types.hxx:458</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a35121b9b277a006eb1264050d813213f"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a35121b9b277a006eb1264050d813213f">Pipal::Direction::x_norm</a></div><div class="ttdeci">Real x_norm</div><div class="ttdef"><b>Definition</b> Types.hxx:446</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a360b99d9ad119838a618eb4e0794c806"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a360b99d9ad119838a618eb4e0794c806">Pipal::Direction::lI</a></div><div class="ttdeci">Array&lt; Real &gt; lI</div><div class="ttdef"><b>Definition</b> Types.hxx:453</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a51ddcb269e00b16db8cef4dc2d9f3d9a"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a51ddcb269e00b16db8cef4dc2d9f3d9a">Pipal::Direction::r2</a></div><div class="ttdeci">Array&lt; Real &gt; r2</div><div class="ttdef"><b>Definition</b> Types.hxx:449</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a64de2b649c1d9b230f2edd88a1cb312f"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a64de2b649c1d9b230f2edd88a1cb312f">Pipal::Direction::r1</a></div><div class="ttdeci">Array&lt; Real &gt; r1</div><div class="ttdef"><b>Definition</b> Types.hxx:448</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_a83ae498fc43d84f711db6e32a620989c"><div class="ttname"><a href="struct_pipal_1_1_direction.html#a83ae498fc43d84f711db6e32a620989c">Pipal::Direction::lE</a></div><div class="ttdeci">Array&lt; Real &gt; lE</div><div class="ttdef"><b>Definition</b> Types.hxx:450</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_ac65158a6b518552967cf3bd9a5e818bc"><div class="ttname"><a href="struct_pipal_1_1_direction.html#ac65158a6b518552967cf3bd9a5e818bc">Pipal::Direction::x</a></div><div class="ttdeci">Vector&lt; Real &gt; x</div><div class="ttdef"><b>Definition</b> Types.hxx:445</div></div>
+<div class="ttc" id="astruct_pipal_1_1_direction_html_acf601a46c3110e5251a915fc272fc532"><div class="ttname"><a href="struct_pipal_1_1_direction.html#acf601a46c3110e5251a915fc272fc532">Pipal::Direction::s1</a></div><div class="ttdeci">Array&lt; Real &gt; s1</div><div class="ttdef"><b>Definition</b> Types.hxx:451</div></div>
+<div class="ttc" id="astruct_pipal_1_1_input_html"><div class="ttname"><a href="struct_pipal_1_1_input.html">Pipal::Input</a></div><div class="ttdoc">Input structure holding all the data defining the optimization problem.</div><div class="ttdef"><b>Definition</b> Types.hxx:314</div></div>
+<div class="ttc" id="astruct_pipal_1_1_input_html_acaa757bcc631e3f79a47071d9f789c86"><div class="ttname"><a href="struct_pipal_1_1_input.html#acaa757bcc631e3f79a47071d9f789c86">Pipal::Input::nI</a></div><div class="ttdeci">Integer nI</div><div class="ttdef"><b>Definition</b> Types.hxx:347</div></div>
+<div class="ttc" id="astruct_pipal_1_1_input_html_ae8f971b5c3633e030381ee382a8088c2"><div class="ttname"><a href="struct_pipal_1_1_input.html#ae8f971b5c3633e030381ee382a8088c2">Pipal::Input::nE</a></div><div class="ttdeci">Integer nE</div><div class="ttdef"><b>Definition</b> Types.hxx:348</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html"><div class="ttname"><a href="struct_pipal_1_1_iterate.html">Pipal::Iterate</a></div><div class="ttdoc">Class for managing the current iterate of the solver.</div><div class="ttdef"><b>Definition</b> Types.hxx:375</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a0ad6c63d68e7dfedee7b077bc3b62fe5"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a0ad6c63d68e7dfedee7b077bc3b62fe5">Pipal::Iterate::rho</a></div><div class="ttdeci">Real rho</div><div class="ttdef"><b>Definition</b> Types.hxx:379</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a0c9f0ab50875ee3458fe4bf12ff69636"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a0c9f0ab50875ee3458fe4bf12ff69636">Pipal::Iterate::cE</a></div><div class="ttdeci">Array&lt; Real &gt; cE</div><div class="ttdef"><b>Definition</b> Types.hxx:387</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a0cc8cf7783644b3c2c1b207fc22dd86b"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a0cc8cf7783644b3c2c1b207fc22dd86b">Pipal::Iterate::v</a></div><div class="ttdeci">Real v</div><div class="ttdef"><b>Definition</b> Types.hxx:399</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a1a48a3d39f76bc6adc1d8a38721f9507"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a1a48a3d39f76bc6adc1d8a38721f9507">Pipal::Iterate::mu</a></div><div class="ttdeci">Real mu</div><div class="ttdef"><b>Definition</b> Types.hxx:381</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a2a7edfa1c522afb4a3e5105ecba9734d"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a2a7edfa1c522afb4a3e5105ecba9734d">Pipal::Iterate::lI</a></div><div class="ttdeci">Array&lt; Real &gt; lI</div><div class="ttdef"><b>Definition</b> Types.hxx:396</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a37b249e815ebccf12756c4b47cbd56e8"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a37b249e815ebccf12756c4b47cbd56e8">Pipal::Iterate::rho_</a></div><div class="ttdeci">Real rho_</div><div class="ttdef"><b>Definition</b> Types.hxx:380</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a38aa83bf796837a049683139c8a69802"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a38aa83bf796837a049683139c8a69802">Pipal::Iterate::r1</a></div><div class="ttdeci">Array&lt; Real &gt; r1</div><div class="ttdef"><b>Definition</b> Types.hxx:385</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a3c4831e605b997955f835b6c286b73ed"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a3c4831e605b997955f835b6c286b73ed">Pipal::Iterate::x</a></div><div class="ttdeci">Vector&lt; Real &gt; x</div><div class="ttdef"><b>Definition</b> Types.hxx:378</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a5301353b4a7d9ceed9147108ef1e2e19"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a5301353b4a7d9ceed9147108ef1e2e19">Pipal::Iterate::s2</a></div><div class="ttdeci">Array&lt; Real &gt; s2</div><div class="ttdef"><b>Definition</b> Types.hxx:392</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a56e3143f044610f4cc20dbdee8ead6c0"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a56e3143f044610f4cc20dbdee8ead6c0">Pipal::Iterate::lE</a></div><div class="ttdeci">Array&lt; Real &gt; lE</div><div class="ttdef"><b>Definition</b> Types.hxx:390</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_a663eb6c6ec4fd7a3451e13d006002f16"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#a663eb6c6ec4fd7a3451e13d006002f16">Pipal::Iterate::cI</a></div><div class="ttdeci">Array&lt; Real &gt; cI</div><div class="ttdef"><b>Definition</b> Types.hxx:393</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_abdd2f8453b1e99790618f8d29a30f439"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#abdd2f8453b1e99790618f8d29a30f439">Pipal::Iterate::f</a></div><div class="ttdeci">Real f</div><div class="ttdef"><b>Definition</b> Types.hxx:382</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_ac4f6b8218af9e6a40a31fffb5baa8f52"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#ac4f6b8218af9e6a40a31fffb5baa8f52">Pipal::Iterate::err</a></div><div class="ttdeci">Integer err</div><div class="ttdef"><b>Definition</b> Types.hxx:409</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_ae3c6f9ee55ed9cff015b23d6324ae52f"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#ae3c6f9ee55ed9cff015b23d6324ae52f">Pipal::Iterate::s1</a></div><div class="ttdeci">Array&lt; Real &gt; s1</div><div class="ttdef"><b>Definition</b> Types.hxx:391</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_aebdd41a9857717e50128ae4a25d2b7e5"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#aebdd41a9857717e50128ae4a25d2b7e5">Pipal::Iterate::r2</a></div><div class="ttdeci">Array&lt; Real &gt; r2</div><div class="ttdef"><b>Definition</b> Types.hxx:386</div></div>
+<div class="ttc" id="astruct_pipal_1_1_iterate_html_aff0f46c909dfbd0ac7912fb21b286002"><div class="ttname"><a href="struct_pipal_1_1_iterate.html#aff0f46c909dfbd0ac7912fb21b286002">Pipal::Iterate::phi</a></div><div class="ttdeci">Real phi</div><div class="ttdef"><b>Definition</b> Types.hxx:402</div></div>
+<div class="ttc" id="astruct_pipal_1_1_parameter_html"><div class="ttname"><a href="struct_pipal_1_1_parameter.html">Pipal::Parameter</a></div><div class="ttdoc">Internal parameters for the solver algorithm.</div><div class="ttdef"><b>Definition</b> Types.hxx:229</div></div>
+<div class="ttc" id="astruct_pipal_1_1_parameter_html_a0853b150f86e41f713aa48be8589b7fe"><div class="ttname"><a href="struct_pipal_1_1_parameter.html#a0853b150f86e41f713aa48be8589b7fe">Pipal::Parameter::ls_thresh</a></div><div class="ttdeci">static constexpr Real ls_thresh</div><div class="ttdef"><b>Definition</b> Types.hxx:236</div></div>
+<div class="ttc" id="astruct_pipal_1_1_parameter_html_a0a98c7be5fc714c6a158ed22b7c5b426"><div class="ttname"><a href="struct_pipal_1_1_parameter.html#a0a98c7be5fc714c6a158ed22b7c5b426">Pipal::Parameter::rho_factor</a></div><div class="ttdeci">static constexpr Real rho_factor</div><div class="ttdef"><b>Definition</b> Types.hxx:245</div></div>
+<div class="ttc" id="astruct_pipal_1_1_parameter_html_a25cac1d32b88fddcde60b01571016814"><div class="ttname"><a href="struct_pipal_1_1_parameter.html#a25cac1d32b88fddcde60b01571016814">Pipal::Parameter::ls_factor</a></div><div class="ttdeci">static constexpr Real ls_factor</div><div class="ttdef"><b>Definition</b> Types.hxx:235</div></div>
+<div class="ttc" id="astruct_pipal_1_1_parameter_html_a9e7a0e0033056fd8d4e6c350f9ed369c"><div class="ttname"><a href="struct_pipal_1_1_parameter.html#a9e7a0e0033056fd8d4e6c350f9ed369c">Pipal::Parameter::ls_frac</a></div><div class="ttdeci">static constexpr Real ls_frac</div><div class="ttdef"><b>Definition</b> Types.hxx:237</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a href="dir_8c43d5f3253de593d74752c0b19af8ee.html">Pipal</a></li><li class="navelem"><a href="_acceptance_8hxx.html">Acceptance.hxx</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

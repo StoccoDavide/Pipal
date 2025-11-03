@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solver_2ehh_0',['Solver.hh',['../_solver_8hh.html',1,'']]]
+  ['types_2ehxx_0',['Types.hxx',['../_types_8hxx.html',1,'']]]
 ];
