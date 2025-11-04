@@ -211,8 +211,9 @@ namespace Pipal {
     // Update penalty-interior-point parameters based on KKT errors
     this->updateParameters();
 
-    // Evaluate matrices
-    this->evalMatrices();
+    // Evaluate Hessian and Newton matrices
+    if (!this->m_bfgs) {this->evalHessian();}
+    this->evalNewtonMatrix();
 
     // Set last penalty parameter
     this->setRhoLast(z.rho);

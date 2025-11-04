@@ -4,6 +4,7 @@ var struct_pipal_1_1_parameter =
     [ "Parameter", "struct_pipal_1_1_parameter.html#ac7132da098396d99e07d88375309977d", null ],
     [ "operator=", "struct_pipal_1_1_parameter.html#a7139a8449fdc8912741c3213f15e28d3", null ],
     [ "algorithm", "struct_pipal_1_1_parameter.html#a1f001154d72fdafdcbc3daba7587acee", null ],
+    [ "bfgs_update_freq", "struct_pipal_1_1_parameter.html#a012ae56745c303de4601a96fce9c307f", null ],
     [ "grad_max", "struct_pipal_1_1_parameter.html#a0cecdaffd9c9a74e0cc8913aa265fd33", null ],
     [ "infeas_max", "struct_pipal_1_1_parameter.html#a81f3469318c2c8ea092b8cd03f99f931", null ],
     [ "iter_max", "struct_pipal_1_1_parameter.html#a435c1e0779568d3530e53cbe937e679c", null ],

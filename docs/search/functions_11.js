@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verbose_5fmode_0',['verbose_mode',['../class_pipal_1_1_solver.html#aef9a0441b1ca2e917b02fefe2f5f53f0',1,'Pipal::Solver::verbose_mode() const'],['../class_pipal_1_1_solver.html#a36f28d583bc107769a0e22124641a582',1,'Pipal::Solver::verbose_mode(bool const t_verbose)']]]
+  ['verbose_0',['verbose',['../class_pipal_1_1_solver.html#a1fd6959e03b79bb4dfcef7be1f8196e9',1,'Pipal::Solver::verbose() const'],['../class_pipal_1_1_solver.html#aa8af99182ea5e4dad4bbbe44e4d5db4c',1,'Pipal::Solver::verbose(bool const t_verbose)']]]
 ];

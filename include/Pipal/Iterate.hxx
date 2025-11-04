@@ -40,6 +40,7 @@ namespace Pipal {
     z.cI.setZero(i.nI);
     z.JI.resize(i.nI, i.nV);
     z.H.resize(i.nV, i.nV);
+    if (this->m_bfgs) {z.H.setIdentity();}
     z.v = 0;
     z.vu = 0;
     z.phi = 0;
@@ -73,7 +74,7 @@ namespace Pipal {
     z.v0    = z.v;
     this->evalInfeasibility(z);
     z.v_    = z.v;
-    this->evalHessian();
+    if (!this->m_bfgs) {this->evalHessian();}
     z.Hnnz  = static_cast<Integer>(z.H.nonZeros());
     z.JEnnz = static_cast<Integer>(z.JE.nonZeros());
     z.JInnz = static_cast<Integer>(z.JI.nonZeros());
@@ -142,8 +143,8 @@ namespace Pipal {
     try
     {
       // Evaluate AMPL functions
-      m_problem->objective(x_orig, z.f);
-      m_problem->constraints(x_orig, c_orig);
+      this->m_problem->objective(x_orig, z.f);
+      this->m_problem->constraints(x_orig, c_orig);
     }
     catch (...)
     {
@@ -231,8 +232,8 @@ namespace Pipal {
     try
     {
       // Evaluate AMPL gradients
-      m_problem->objective_gradient(x_orig, g_orig);
-      m_problem->constraints_jacobian(x_orig, J_orig);
+      this->m_problem->objective_gradient(x_orig, g_orig);
+      this->m_problem->constraints_jacobian(x_orig, J_orig);
     }
     catch (...)
     {
@@ -368,7 +369,7 @@ namespace Pipal {
     try
     {
       // Evaluate H_orig
-      m_problem->lagrangian_hessian(x_orig, l_orig, H_orig);
+      this->m_problem->lagrangian_hessian(x_orig, l_orig, H_orig);
     }
     catch (...)
     {
@@ -873,6 +874,39 @@ namespace Pipal {
   }
 
   /**
+  * \brief Browder-Broyden-Fletcher-Goldfarb-Shanno (BFGS) update for the Hessian approximation.
+  *
+  * This method updates the Hessian approximation using the Browder-Broyden-Fletcher-Goldfarb-Shanno
+  * (BFGS) formula*
+  * \f[
+  *   \mathbf{B}_{k+1} = \mathbf{B}_{k} - \displaystyle\frac{(\mathbf{B}_{k}\mathbf{s}_{k})(
+  *     \mathbf{B}_{k}\mathbf{s}_{k}^\top)}{\mathbf{s}_{k}^\top \mathbf{B}_{k}\mathbf{s}_{k}} +
+  *     \displaystyle\frac{\mathbf{y}\mathbf{y}^\top)}{\mathbf{y}^\top\mathbf{s}_{k}}
+  * \f]
+  * where \f$B\f$ is the current Hessian approximation, \f$s\f$ is the step taken,
+  * and \f$y\f$ is the gradient difference.
+  * \note The condition \f$y^\top s > 0\f$ must be satisfied for the update to be valid.
+  * \tparam Real Floating-point type used by the algorithm.
+  * \param[in] s Step taken in primal variables.
+  * \param[in] y Difference in gradients.
+  * \return Updated Hessian approximation.
+  */
+  template <typename Real>
+  void Solver<Real>::bfgsUpdate(Vector<Real> const & s, Vector<Real> const & y)
+  {
+    // Create alias for easier access
+    Iterate<Real> & z{this->m_iterate};
+
+    PIPAL_ASSERT(y.dot(s) > 0.0,
+      "Pipal::Solver::bfgsUpdate(...): update condition yᵀs > 0 not satisfied");
+
+    // Apply BFGS update
+    Vector<Real> x(z.H * s);
+    z.H -= (x * x.transpose()).sparseView() / (s.dot(x));
+    z.H -= (y * y.transpose()).sparseView() / (y.dot(s));
+  }
+
+  /**
    * \brief Update the iterate after a trial step is accepted.
    *
    * Applies the accepted step to the iterate, recomputes infeasibility and gradients and updates
@@ -891,11 +925,24 @@ namespace Pipal {
     z.v_   = z.v;
     z.cut_ = (a.p < a.p0);
 
+    // Retrieve last primal/dual variables and gradients
+    Vector<Real> const x_old(z.x), g_old(z.g);
+
     // Update iterate quantities
-    updatePoint();
+    this->updatePoint();
     this->evalInfeasibility(z);
     this->evalGradients();
     this->evalDependent();
+
+    // Update objective Hessian approximation if enabled
+    if (this->m_bfgs) {
+      if (this->m_counter.k % this->m_parameter.bfgs_update_freq == 0) {
+        z.H.setIdentity();
+      } else {
+        this->bfgsUpdate(z.x - x_old, z.g - g_old);
+      }
+    }
+
 
     // Update last KKT errors
     z.kkt_ << z.kkt(1), z.kkt_.head(p.opt_err_mem - 1);

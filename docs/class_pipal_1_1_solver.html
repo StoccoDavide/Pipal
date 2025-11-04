@@ -172,10 +172,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a940bf063ee747a5712b4669e49fcdb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the problem to be solved using a unique pointer.  <br /></td></tr>
 <tr class="memitem:a43364c20c27301e578ddeb365464962f" id="r_a43364c20c27301e578ddeb365464962f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pipal_1_1_problem.html">Problem</a>&lt; Real &gt; const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43364c20c27301e578ddeb365464962f">problem</a> () const</td></tr>
 <tr class="memdesc:a43364c20c27301e578ddeb365464962f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the problem being solved.  <br /></td></tr>
-<tr class="memitem:aef9a0441b1ca2e917b02fefe2f5f53f0" id="r_aef9a0441b1ca2e917b02fefe2f5f53f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef9a0441b1ca2e917b02fefe2f5f53f0">verbose_mode</a> () const</td></tr>
-<tr class="memdesc:aef9a0441b1ca2e917b02fefe2f5f53f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the verbose mode.  <br /></td></tr>
-<tr class="memitem:a36f28d583bc107769a0e22124641a582" id="r_a36f28d583bc107769a0e22124641a582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36f28d583bc107769a0e22124641a582">verbose_mode</a> (bool const t_verbose)</td></tr>
-<tr class="memdesc:a36f28d583bc107769a0e22124641a582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the verbose mode.  <br /></td></tr>
+<tr class="memitem:a1fd6959e03b79bb4dfcef7be1f8196e9" id="r_a1fd6959e03b79bb4dfcef7be1f8196e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fd6959e03b79bb4dfcef7be1f8196e9">verbose</a> () const</td></tr>
+<tr class="memdesc:a1fd6959e03b79bb4dfcef7be1f8196e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the verbose mode.  <br /></td></tr>
+<tr class="memitem:aa8af99182ea5e4dad4bbbe44e4d5db4c" id="r_aa8af99182ea5e4dad4bbbe44e4d5db4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8af99182ea5e4dad4bbbe44e4d5db4c">verbose</a> (bool const t_verbose)</td></tr>
+<tr class="memdesc:aa8af99182ea5e4dad4bbbe44e4d5db4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the verbose mode.  <br /></td></tr>
+<tr class="memitem:ae826dba910ff66c4ff5600bc0ecf665e" id="r_ae826dba910ff66c4ff5600bc0ecf665e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae826dba910ff66c4ff5600bc0ecf665e">bfgs</a> () const</td></tr>
+<tr class="memdesc:ae826dba910ff66c4ff5600bc0ecf665e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the BFGS mode.  <br /></td></tr>
+<tr class="memitem:a50f52d26b7e86870bf116f2a05aba9a3" id="r_a50f52d26b7e86870bf116f2a05aba9a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50f52d26b7e86870bf116f2a05aba9a3">bfgs</a> (bool const t_bfgs)</td></tr>
+<tr class="memdesc:a50f52d26b7e86870bf116f2a05aba9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the BFGS mode.  <br /></td></tr>
 <tr class="memitem:a0b4412ac2708298047edbf4b964979b1" id="r_a0b4412ac2708298047edbf4b964979b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b4412ac2708298047edbf4b964979b1">algorithm</a> () const</td></tr>
 <tr class="memdesc:a0b4412ac2708298047edbf4b964979b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the algorithm mode.  <br /></td></tr>
 <tr class="memitem:a2c04526d5a88d89bc59fc9b51581947e" id="r_a2c04526d5a88d89bc59fc9b51581947e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c04526d5a88d89bc59fc9b51581947e">algorithm</a> (<a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a> const t_algorithm)</td></tr>
@@ -203,6 +207,8 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:af8a5f2a72b228c146dd662008bea1561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update penalty and interior-point parameters based on KKT errors.  <br /></td></tr>
 <tr class="memitem:afddc1d09a15d89c34d019fd5337548f6" id="r_afddc1d09a15d89c34d019fd5337548f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afddc1d09a15d89c34d019fd5337548f6">lineSearch</a> ()</td></tr>
 <tr class="memdesc:afddc1d09a15d89c34d019fd5337548f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line-search driver.  <br /></td></tr>
+<tr class="memitem:a381c85f5aca04392d94eb06c3dae2648" id="r_a381c85f5aca04392d94eb06c3dae2648"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381c85f5aca04392d94eb06c3dae2648">bfgsUpdate</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;s, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;y)</td></tr>
+<tr class="memdesc:a381c85f5aca04392d94eb06c3dae2648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Browder-Broyden-Fletcher-Goldfarb-Shanno (BFGS) update for the Hessian approximation.  <br /></td></tr>
 <tr class="memitem:a65df81b44fa62b2d55d913299188b8a2" id="r_a65df81b44fa62b2d55d913299188b8a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65df81b44fa62b2d55d913299188b8a2">updateIterate</a> ()</td></tr>
 <tr class="memdesc:a65df81b44fa62b2d55d913299188b8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the iterate after a trial step is accepted.  <br /></td></tr>
 <tr class="memitem:a892f5043eac3693faca0f28b396badcb" id="r_a892f5043eac3693faca0f28b396badcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a892f5043eac3693faca0f28b396badcb">updatePoint</a> ()</td></tr>
@@ -267,8 +273,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a24236b2521a72e239174ca02bb054cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the input data for the solver.  <br /></td></tr>
 <tr class="memitem:a53926d78055ce757b0ed632e81369d31" id="r_a53926d78055ce757b0ed632e81369d31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53926d78055ce757b0ed632e81369d31">evalInfeasibility</a> (<a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a>&lt; Real &gt; &amp;z) const</td></tr>
 <tr class="memdesc:a53926d78055ce757b0ed632e81369d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute scaled and unscaled feasibility violations.  <br /></td></tr>
-<tr class="memitem:a7cfc414cb6ffaa5aa641a929f573e628" id="r_a7cfc414cb6ffaa5aa641a929f573e628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cfc414cb6ffaa5aa641a929f573e628">evalMatrices</a> ()</td></tr>
-<tr class="memdesc:a7cfc414cb6ffaa5aa641a929f573e628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate model matrices (Hessian and Newton matrix).  <br /></td></tr>
 <tr class="memitem:a13d3b7e9c8a3f05a4a1a112ea7c0fa89" id="r_a13d3b7e9c8a3f05a4a1a112ea7c0fa89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13d3b7e9c8a3f05a4a1a112ea7c0fa89">resetMuMaxExp</a> ()</td></tr>
 <tr class="memdesc:a13d3b7e9c8a3f05a4a1a112ea7c0fa89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset maximum exponent used for mu increases to its default.  <br /></td></tr>
 <tr class="memitem:a93e58486861c64ff6a4465472f8a9805" id="r_a93e58486861c64ff6a4465472f8a9805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93e58486861c64ff6a4465472f8a9805">buildParameter</a> (<a class="el" href="namespace_pipal.html#a1f8ead3baed57e835e258e644131c4e0">Algorithm</a> t_algorithm)</td></tr>
@@ -307,6 +311,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ac8f6c93cc6092b84f6534bbe93b96e19" id="r_ac8f6c93cc6092b84f6534bbe93b96e19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_pipal_1_1_parameter.html">Parameter</a>&lt; Real &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8f6c93cc6092b84f6534bbe93b96e19">m_parameter</a></td></tr>
 <tr class="memitem:a1ba744cf2a8d943638bc0c0393342e90" id="r_a1ba744cf2a8d943638bc0c0393342e90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a7abd1d7c8ad73a5d431cbb17facd038f">ProblemPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ba744cf2a8d943638bc0c0393342e90">m_problem</a></td></tr>
 <tr class="memitem:a646f6cda70bbe80f07689a2f26f255b4" id="r_a646f6cda70bbe80f07689a2f26f255b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a646f6cda70bbe80f07689a2f26f255b4">m_verbose</a> {false}</td></tr>
+<tr class="memitem:a77369ba3693a55995413cf6702965bbd" id="r_a77369ba3693a55995413cf6702965bbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77369ba3693a55995413cf6702965bbd">m_bfgs</a> {false}</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Real&gt;<br />
@@ -749,6 +754,119 @@ template&lt;typename Real&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Performs a backtracking Armijo line search on the merit function. The routine updates the trial primal/dual variables using the candidate direction and the current acceptance object. On success the iterate is restored to the accepted trial point; otherwise the steplength is reduced until the Armijo condition or the fraction-to-boundary constraint prevents further reductions. </p>
+
+</div>
+</div>
+<a id="ae826dba910ff66c4ff5600bc0ecf665e" name="ae826dba910ff66c4ff5600bc0ecf665e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae826dba910ff66c4ff5600bc0ecf665e">&#9670;&#160;</a></span>bfgs() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::bfgs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The BFGS mode. </dd></dl>
+
+</div>
+</div>
+<a id="a50f52d26b7e86870bf116f2a05aba9a3" name="a50f52d26b7e86870bf116f2a05aba9a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50f52d26b7e86870bf116f2a05aba9a3">&#9670;&#160;</a></span>bfgs() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::bfgs </td>
+          <td>(</td>
+          <td class="paramtype">bool const</td>          <td class="paramname"><span class="paramname"><em>t_bfgs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t_bfgs</td><td>The BFGS mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a381c85f5aca04392d94eb06c3dae2648" name="a381c85f5aca04392d94eb06c3dae2648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a381c85f5aca04392d94eb06c3dae2648">&#9670;&#160;</a></span>bfgsUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::bfgsUpdate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This method updates the Hessian approximation using the Browder-Broyden-Fletcher-Goldfarb-Shanno (BFGS) formula*     </p><p class="formulaDsp">
+\[  \mathbf{B}_{k+1} = \mathbf{B}_{k} - \displaystyle\frac{(\mathbf{B}_{k}\mathbf{s}_{k})(
+    \mathbf{B}_{k}\mathbf{s}_{k}^\top)}{\mathbf{s}_{k}^\top \mathbf{B}_{k}\mathbf{s}_{k}} +
+    \displaystyle\frac{\mathbf{y}\mathbf{y}^\top)}{\mathbf{y}^\top\mathbf{s}_{k}}
+\]
+</p>
+<p> where \(B\) is the current Hessian approximation, \(s\) is the step taken, and \(y\) is the gradient difference. </p><dl class="section note"><dt>Note</dt><dd>The condition \(y^\top s &gt; 0\) must be satisfied for the update to be valid. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>Step taken in primal variables. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Difference in gradients. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Updated Hessian approximation. </dd></dl>
 
 </div>
 </div>
@@ -1259,39 +1377,6 @@ template&lt;typename Real&gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">a1</td><td>Scalar multiplier for the first direction. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a2</td><td>Scalar multiplier for the second direction. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">a3</td><td>Scalar multiplier for the third direction. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7cfc414cb6ffaa5aa641a929f573e628" name="a7cfc414cb6ffaa5aa641a929f573e628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cfc414cb6ffaa5aa641a929f573e628">&#9670;&#160;</a></span>evalMatrices()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Real&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::evalMatrices </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2920,8 +3005,8 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
-<a id="aef9a0441b1ca2e917b02fefe2f5f53f0" name="aef9a0441b1ca2e917b02fefe2f5f53f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef9a0441b1ca2e917b02fefe2f5f53f0">&#9670;&#160;</a></span>verbose_mode() <span class="overload">[1/2]</span></h2>
+<a id="a1fd6959e03b79bb4dfcef7be1f8196e9" name="a1fd6959e03b79bb4dfcef7be1f8196e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fd6959e03b79bb4dfcef7be1f8196e9">&#9670;&#160;</a></span>verbose() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2932,7 +3017,7 @@ template&lt;typename Real&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::verbose_mode </td>
+          <td class="memname">bool <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::verbose </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -2948,8 +3033,8 @@ template&lt;typename Real&gt; </div>
 
 </div>
 </div>
-<a id="a36f28d583bc107769a0e22124641a582" name="a36f28d583bc107769a0e22124641a582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36f28d583bc107769a0e22124641a582">&#9670;&#160;</a></span>verbose_mode() <span class="overload">[2/2]</span></h2>
+<a id="aa8af99182ea5e4dad4bbbe44e4d5db4c" name="aa8af99182ea5e4dad4bbbe44e4d5db4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8af99182ea5e4dad4bbbe44e4d5db4c">&#9670;&#160;</a></span>verbose() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2960,7 +3045,7 @@ template&lt;typename Real&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::verbose_mode </td>
+          <td class="memname">void <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::verbose </td>
           <td>(</td>
           <td class="paramtype">bool const</td>          <td class="paramname"><span class="paramname"><em>t_verbose</em></span></td><td>)</td>
           <td></td>
@@ -3004,6 +3089,31 @@ template&lt;typename Real&gt; </div>
 </table>
 </div><div class="memdoc">
 <p><a class="el" href="struct_pipal_1_1_acceptance.html" title="Class for managing the acceptance criteria of the solver.">Acceptance</a> criteria for trial points. </p>
+
+</div>
+</div>
+<a id="a77369ba3693a55995413cf6702965bbd" name="a77369ba3693a55995413cf6702965bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77369ba3693a55995413cf6702965bbd">&#9670;&#160;</a></span>m_bfgs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Real&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_pipal_1_1_solver.html">Pipal::Solver</a>&lt; Real &gt;::m_bfgs {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>BFGS update flag. </p>
 
 </div>
 </div>

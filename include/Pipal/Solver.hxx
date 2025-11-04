@@ -50,11 +50,13 @@ namespace Pipal {
 
     // Some options for the solver
     bool m_verbose{false}; /*!< Verbosity flag. */
+    bool m_bfgs{false};    /*!< BFGS update flag. */
 
     void buildIterate();
     void evalStep();
     void updateParameters();
     void lineSearch();
+    void bfgsUpdate(Vector<Real> const & s, Vector<Real> const & y);
     void updateIterate();
     void updatePoint();
     void backtracking();
@@ -103,17 +105,6 @@ namespace Pipal {
       // Evaluate scaled and unscaled feasibility violations
       z.v  = this->evalViolation(z.cE, z.cI)/std::max(1.0, z.v0);
       z.vu = this->evalViolation(z.cEu, z.cIu);
-    }
-
-    /**
-     * \brief Evaluate model matrices (Hessian and Newton matrix).
-     * \tparam Real Floating-point type used by the algorithm.
-     */
-    void evalMatrices()
-    {
-      // Evaluate Hessian and Newton matrices
-      this->evalHessian();
-      this->evalNewtonMatrix();
     }
 
     /**
@@ -307,13 +298,25 @@ namespace Pipal {
      * \brief Get the verbose mode.
      * \return The verbose mode.
      */
-    bool verbose_mode() const {return this->m_verbose;}
+    bool verbose() const {return this->m_verbose;}
 
     /**
      * \brief Set the verbose mode.
      * \param[in] t_verbose The verbose mode.
      */
-    void verbose_mode(bool const t_verbose) {this->m_verbose = t_verbose;}
+    void verbose(bool const t_verbose) {this->m_verbose = t_verbose;}
+
+    /**
+     * \brief Get the BFGS mode.
+     * \return The BFGS mode.
+     */
+    bool bfgs() const {return this->m_bfgs;}
+
+    /**
+     * \brief Set the BFGS mode.
+     * \param[in] t_bfgs The BFGS mode.
+     */
+    void bfgs(bool const t_bfgs) {this->m_bfgs = t_bfgs;}
 
     /**
      * \brief Get the algorithm mode.

@@ -227,38 +227,40 @@ namespace Pipal
   template<typename Real>
   struct Parameter
   {
-    static constexpr Real    rhs_bnd{1.0e+18};               /*!< Maximum absolute value allowed for constraint right-hand side. */
-    static constexpr Real    grad_max{1.0e+02};              /*!< Gradient norm limit for scaling. */
-    static constexpr Real    infeas_max{1.0e+02};            /*!< Infeasibility limit for penalty parameter update. */
-    static constexpr Real    nnz_max{2.0e+04};               /*!< Maximum non-zeros in (upper triangle of) Newton matrix. */
-    static constexpr Integer opt_err_mem{6};                 /*!< Optimality error history length. */
-    static constexpr Real    ls_factor{5.0e-01};             /*!< Line search reduction factor. */
-    static constexpr Real    ls_thresh{1.0e-08};             /*!< Line search threshold value. */
-    static constexpr Real    ls_frac{1.0e-02};               /*!< Line search fraction-to-boundary constant. */
-    static constexpr Real    slack_min{1.0e-20};             /*!< Slack variable bound. */
-    static constexpr Real    shift_min{1.0e-12};             /*!< Hessian shift (non-zero) minimum value. */
-    static constexpr Real    shift_factor1{5.0e-01};         /*!< Hessian shift update value (for decreases). */
-    static constexpr Real    shift_factor2{6.0e-01};         /*!< Hessian shift update value (for increases). */
-    static constexpr Real    shift_max{1.0e+08};             /*!< Hessian shift maximum value. */
-    static constexpr Real    rho_init{1.0e-01};              /*!< Penalty parameter initial value. */
-    static constexpr Real    rho_min{1.0e-12};               /*!< Penalty parameter minimum value. */
-    static constexpr Real    rho_factor{5.0e-01};            /*!< Penalty parameter reduction factor. */
-    static constexpr Integer rho_trials{8};                  /*!< Penalty parameter number of trial values per iteration. */
-    static constexpr Real    mu_init{1.0e-01};               /*!< Interior-point parameter initial value. */
-    static constexpr Real    mu_min{1.0e-12};                /*!< Interior-point parameter minimum value. */
-    static constexpr Real    mu_factor{1.0e-01};             /*!< Interior-point parameter reduction factor. */
-    static constexpr Real    mu_factor_exp{1.5};             /*!< Interior-point parameter reduction exponent. */
-    static constexpr Integer mu_trials{4};                   /*!< Interior-point parameter number of trial values per iteration. */
-    static constexpr Real    mu_max{1.0e-01};                /*!< Interior-point parameter maximum value. */
-    static constexpr Real    mu_max_exp0{0.0};               /*!< Interior-point parameter maximum exponent in increases (default). */
-    static constexpr Real    update_con_1{1.0e-02};          /*!< Steering rule constant 1. */
-    static constexpr Real    update_con_2{1.0e-02};          /*!< Steering rule constant 2. */
-    static constexpr Real    update_con_3{1.01};             /*!< Adaptive interior-point rule constant. */
+    static constexpr Real    rhs_bnd{1.0e+18};       /*!< Maximum absolute value allowed for constraint right-hand side. */
+    static constexpr Real    grad_max{1.0e+02};      /*!< Gradient norm limit for scaling. */
+    static constexpr Real    infeas_max{1.0e+02};    /*!< Infeasibility limit for penalty parameter update. */
+    static constexpr Real    nnz_max{2.0e+04};       /*!< Maximum non-zeros in (upper triangle of) Newton matrix. */
+    static constexpr Integer opt_err_mem{6};         /*!< Optimality error history length. */
+    static constexpr Real    ls_factor{5.0e-01};     /*!< Line search reduction factor. */
+    static constexpr Real    ls_thresh{1.0e-08};     /*!< Line search threshold value. */
+    static constexpr Real    ls_frac{1.0e-02};       /*!< Line search fraction-to-boundary constant. */
+    static constexpr Real    slack_min{1.0e-20};     /*!< Slack variable bound. */
+    static constexpr Real    shift_min{1.0e-12};     /*!< Hessian shift (non-zero) minimum value. */
+    static constexpr Real    shift_factor1{5.0e-01}; /*!< Hessian shift update value (for decreases). */
+    static constexpr Real    shift_factor2{6.0e-01}; /*!< Hessian shift update value (for increases). */
+    static constexpr Real    shift_max{1.0e+08};     /*!< Hessian shift maximum value. */
+    static constexpr Real    rho_init{1.0e-01};      /*!< Penalty parameter initial value. */
+    static constexpr Real    rho_min{1.0e-12};       /*!< Penalty parameter minimum value. */
+    static constexpr Real    rho_factor{5.0e-01};    /*!< Penalty parameter reduction factor. */
+    static constexpr Integer rho_trials{8};          /*!< Penalty parameter number of trial values per iteration. */
+    static constexpr Real    mu_init{1.0e-01};       /*!< Interior-point parameter initial value. */
+    static constexpr Real    mu_min{1.0e-12};        /*!< Interior-point parameter minimum value. */
+    static constexpr Real    mu_factor{1.0e-01};     /*!< Interior-point parameter reduction factor. */
+    static constexpr Real    mu_factor_exp{1.5};     /*!< Interior-point parameter reduction exponent. */
+    static constexpr Integer mu_trials{4};           /*!< Interior-point parameter number of trial values per iteration. */
+    static constexpr Real    mu_max{1.0e-01};        /*!< Interior-point parameter maximum value. */
+    static constexpr Real    mu_max_exp0{0.0};       /*!< Interior-point parameter maximum exponent in increases (default). */
+    static constexpr Real    update_con_1{1.0e-02};  /*!< Steering rule constant 1. */
+    static constexpr Real    update_con_2{1.0e-02};  /*!< Steering rule constant 2. */
+    static constexpr Real    update_con_3{1.01};     /*!< Adaptive interior-point rule constant. */
 
     Real      opt_err_tol{1.0e-6};            /*!< Default optimality tolerance. */
     Integer   iter_max{1000};                 /*!< Default iteration limit. */
     Algorithm algorithm{Algorithm::ADAPTIVE}; /*!< Algorithm choice. */
     Real      mu_max_exp{0.0};                /*!< Interior-point parameter maximum exponent in increases. */
+
+    Integer bfgs_update_freq{20}; /*!< BFGS update frequency. */
 
     /**
      * \brief Default constructor.
