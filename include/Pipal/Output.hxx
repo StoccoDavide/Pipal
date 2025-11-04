@@ -135,7 +135,7 @@ namespace Pipal
   * \param[in] a Acceptance object containing current step fractions.
   */
   void
-  printAcceptance( Acceptance<Real> const & a ) const {
+  printAcceptance(Acceptance<Real> const & a ) const {
     this->s << std::scientific << std::setprecision(4) << a.p << "  " << a.d;
     if (a.s == 1) { this->s << " SOC"; }
     this->s << '\n';

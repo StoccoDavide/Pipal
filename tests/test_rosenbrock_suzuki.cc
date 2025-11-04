@@ -24,7 +24,7 @@ using Vector       = Pipal::Vector<Real>;
 using Matrix       = Pipal::Matrix<Real>;
 using SparseMatrix = Pipal::SparseMatrix<Real>;
 
-constexpr bool    VERBOSE{false};
+constexpr bool    VERBOSE{true};
 constexpr Real    SOLVER_TOLERANCE{1.0e-10};
 constexpr Real    APPROX_TOLERANCE{1.0e-3};
 constexpr Integer MAX_ITERATIONS{100};

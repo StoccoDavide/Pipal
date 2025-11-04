@@ -56,7 +56,7 @@ namespace Pipal {
 
         // Check for nonlinear fraction-to-boundary violation
         Integer ftb{0};
-        const Real tmp_min{std::min(p.ls_frac, z.mu)};
+        Real const tmp_min{std::min(p.ls_frac, z.mu)};
         if (i.nE > 0) {
           ftb += (z.r1 < tmp_min*r1).count() + (z.r2 < tmp_min*r2).count();
         }
@@ -201,7 +201,7 @@ namespace Pipal {
 
         // Check for nonlinear fraction-to-boundary violation
         Integer ftb{0};
-        const Real tmp_min{std::min(p.ls_frac, z.mu)};
+        Real const tmp_min{std::min(p.ls_frac, z.mu)};
         if (i.nE > 0) {
           ftb += (z.r1 < tmp_min*r1).count() + (z.r2 < tmp_min*r2).count();
         }
@@ -308,7 +308,7 @@ namespace Pipal {
 
       // Check for nonlinear fraction-to-boundary violation
       Integer ftb{0};
-      const Real tmp_min{std::min(p.ls_frac, z.mu)};
+      Real const tmp_min{std::min(p.ls_frac, z.mu)};
       if (i.nE > 0) {
         ftb += (z.r1 < tmp_min*r1).count() + (z.r2 < tmp_min*r2).count();
       }
@@ -373,7 +373,7 @@ namespace Pipal {
 
       // Check for nonlinear fraction-to-boundary violation
       Integer ftb{0};
-      const Real tmp_min{std::min(p.ls_frac, z.mu)};
+      Real const tmp_min{std::min(p.ls_frac, z.mu)};
       if (i.nE > 0) {
         ftb += (z.r1 < tmp_min*r1).count() + (z.r2 < tmp_min*r2).count();
       }

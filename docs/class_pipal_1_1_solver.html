@@ -264,6 +264,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ad224378419f7fd3441775b6b7cbf4f90" id="r_ad224378419f7fd3441775b6b7cbf4f90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad224378419f7fd3441775b6b7cbf4f90">setPrimals</a> (<a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;x, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;r1, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;r2, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;s1, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;s2, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;lE, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;lI, Real const f, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;cE, <a class="el" href="namespace_pipal.html#a5b5f4931b4a8b74794242fe5f614b7fc">Array</a>&lt; Real &gt; const &amp;cI, Real const phi)</td></tr>
 <tr class="memdesc:ad224378419f7fd3441775b6b7cbf4f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set primal/dual blocks and associated quantities on an iterate.  <br /></td></tr>
 <tr class="memitem:a24236b2521a72e239174ca02bb054cab" id="r_a24236b2521a72e239174ca02bb054cab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24236b2521a72e239174ca02bb054cab">buildInput</a> (std::string const &amp;name, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;x0, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;bl, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;bu, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;cl, <a class="el" href="namespace_pipal.html#adc99e85cd5bca62ce7ebfa6308504103">Vector</a>&lt; Real &gt; const &amp;cu)</td></tr>
+<tr class="memdesc:a24236b2521a72e239174ca02bb054cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the input data for the solver.  <br /></td></tr>
 <tr class="memitem:a53926d78055ce757b0ed632e81369d31" id="r_a53926d78055ce757b0ed632e81369d31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53926d78055ce757b0ed632e81369d31">evalInfeasibility</a> (<a class="el" href="struct_pipal_1_1_iterate.html">Iterate</a>&lt; Real &gt; &amp;z) const</td></tr>
 <tr class="memdesc:a53926d78055ce757b0ed632e81369d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute scaled and unscaled feasibility violations.  <br /></td></tr>
 <tr class="memitem:a7cfc414cb6ffaa5aa641a929f573e628" id="r_a7cfc414cb6ffaa5aa641a929f573e628"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cfc414cb6ffaa5aa641a929f573e628">evalMatrices</a> ()</td></tr>
@@ -799,6 +800,17 @@ template&lt;typename Real&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td><a class="el" href="class_pipal_1_1_problem.html" title="Problem class for the Pipal library.">Problem</a> name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x0</td><td>Initial guess for the solution. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bl</td><td>Lower bounds for the variables. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bu</td><td>Upper bounds for the variables. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cl</td><td>Lower bounds for the constraints. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cu</td><td>Upper bounds for the constraints. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -2379,12 +2391,6 @@ template&lt;typename Real&gt; </div>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Real</td><td>Floating-point type used by the algorithm. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td><a class="el" href="struct_pipal_1_1_parameter.html" title="Internal parameters for the solver algorithm.">Parameter</a> object whose mu exponent limit is reset. </td></tr>
   </table>
   </dd>
 </dl>

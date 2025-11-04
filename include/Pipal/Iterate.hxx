@@ -64,21 +64,21 @@ namespace Pipal {
     z.lE.setZero(i.nE);
     z.lI.setConstant(i.nI, 0.5);
     z.err   = 0;
-    evalScalings();
-    evalFunctions();
-    evalGradients();
-    evalDependent();
+    this->evalScalings();
+    this->evalFunctions();
+    this->evalGradients();
+    this->evalDependent();
     z.v0    = 1.0;
-    evalInfeasibility(z);
+    this->evalInfeasibility(z);
     z.v0    = z.v;
-    evalInfeasibility(z);
+    this->evalInfeasibility(z);
     z.v_    = z.v;
-    evalHessian();
+    this->evalHessian();
     z.Hnnz  = static_cast<Integer>(z.H.nonZeros());
     z.JEnnz = static_cast<Integer>(z.JE.nonZeros());
     z.JInnz = static_cast<Integer>(z.JI.nonZeros());
     initNewtonMatrix();
-    evalNewtonMatrix();
+    this->evalNewtonMatrix();
   }
 
   /**
@@ -129,7 +129,7 @@ namespace Pipal {
 
     // Evaluate x in original space
     Vector<Real> x_orig;
-    evalXOriginal(x_orig);
+    this->evalXOriginal(x_orig);
 
     // Initialize/Reset evaluation flag
     z.err = 0;
@@ -217,7 +217,7 @@ namespace Pipal {
 
     // Evaluate x in original space
     Vector<Real> x_orig;
-    evalXOriginal(x_orig);
+    this->evalXOriginal(x_orig);
 
     // Initialize/Reset evaluation flag
     z.err = 0;
@@ -306,7 +306,7 @@ namespace Pipal {
       Pipal::insert_block<Real>(z.JI, -J_orig, i.I9, i.I4, row_offset, col_offset);
       col_offset += i.I4.size();
       Pipal::insert_block<Real>(z.JI, -J_orig, i.I9, i.I5, row_offset, col_offset);
-      row_offset += i.n9; // next row block
+      row_offset += i.n9; // Next row block
       col_offset = 0;
       Pipal::insert_block<Real>(z.JI, J_orig, i.I9, i.I1, row_offset, col_offset);
       col_offset += i.I1.size();
@@ -354,8 +354,8 @@ namespace Pipal {
 
     // Evaluate lambda in original space
     Vector<Real> l_orig, x_orig;
-    evalLambdaOriginal(l_orig);
-    evalXOriginal(x_orig);
+    this->evalLambdaOriginal(l_orig);
+    this->evalXOriginal(x_orig);
 
     // Initialize/Reset evaluation flag
     z.err = 0;
@@ -387,7 +387,7 @@ namespace Pipal {
     col_offset += i.I4.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I1, i.I5, row_offset, col_offset);
     row_offset += i.I1.size();
-    col_offset = 0; // next row block
+    col_offset = 0; // Next row block
     Pipal::insert_block<Real>(z.H, H_orig, i.I3, i.I1, row_offset, col_offset);
     col_offset += i.I1.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I3, i.I3, row_offset, col_offset);
@@ -396,7 +396,7 @@ namespace Pipal {
     col_offset += i.I4.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I3, i.I5, row_offset, col_offset);
     row_offset += i.I3.size();
-    col_offset = 0; // next row block
+    col_offset = 0; // Next row block
     Pipal::insert_block<Real>(z.H, H_orig, i.I4, i.I1, row_offset, col_offset);
     col_offset += i.I1.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I4, i.I3, row_offset, col_offset);
@@ -405,7 +405,7 @@ namespace Pipal {
     col_offset += i.I4.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I4, i.I5, row_offset, col_offset);
     row_offset += i.I4.size();
-    col_offset = 0; // next row block
+    col_offset = 0; // Next row block
     Pipal::insert_block<Real>(z.H, H_orig, i.I5, i.I1, row_offset, col_offset);
     col_offset += i.I1.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I5, i.I3, row_offset, col_offset);
@@ -414,8 +414,8 @@ namespace Pipal {
     col_offset += i.I4.size();
     Pipal::insert_block<Real>(z.H, H_orig, i.I5, i.I5, row_offset, col_offset);
 
-    // workaround se mancano elementi sulla diagonale
-    for ( Integer i{0}; i < z.H.rows(); ++i ) (void) z.H.coeffRef(i, i);  // accede o crea H(i,i)
+    // Workaround to ensure all diagonal entries exist (access or create them)
+    for (Integer i{0}; i < z.H.rows(); ++i) {(void) z.H.coeffRef(i, i);}
 
     // Rescale H
     z.H *= z.rho*z.fs;
@@ -649,49 +649,33 @@ namespace Pipal {
     Input<Real>   & i{this->m_input};
     Iterate<Real> & z{this->m_iterate};
 
-    // Clear previous Newton rhs
+    // Initialize right-hand side
     z.b.setZero();
 
     // Set gradient of objective
-    for (Integer k{0}; k < i.nV; ++k) {
-      for (Integer k{0}; k < i.nV; ++k) {z.b(k) = z.rho*z.g(k);}
+    z.b.head(i.nV) = z.rho*z.g;
 
-      // Set gradient of Lagrangian for constraints
-      if (i.nE > 0) {
-        Vector<Real> tmp((z.lE.matrix().transpose()*z.JE).transpose());
-        for (Integer k{0}; k < tmp.size(); ++k) {z.b(k) += tmp[k];}
-      }
-      if (i.nI > 0) {
-        Vector<Real> tmp((z.lI.matrix().transpose()*z.JI).transpose());
-        for (Integer k{0}; k < tmp.size(); ++k) {z.b(k) += tmp[k];}
-      }
-    }
+    // Set gradient of Lagrangian for constraints
+    if (i.nE > 0) {z.b.head(i.nV) += (z.lE.matrix().transpose()*z.JE).transpose();}
+    if (i.nI > 0) {z.b.head(i.nV) += (z.lI.matrix().transpose()*z.JI).transpose();}
 
     // Set complementarity for constraint slacks
     if (i.nE > 0) {
       // Compute element-wise complementarity terms with safe element-wise division
       Vector<Real> tmp(2*i.nE);
       tmp << 1.0 + z.lE - z.mu * z.r1.cwiseInverse(), 1.0 - z.lE - z.mu * z.r2.cwiseInverse();
-      for (Integer k{0}; k < 2*i.nE; ++k) {z.b(i.nV + k) = tmp[k];}
+      z.b.segment(i.nV, 2*i.nE) = tmp;
     }
     if (i.nI > 0) {
       // Compute element-wise complementarity terms with safe element-wise division
       Vector<Real> tmp(2*i.nI);
       tmp << z.lI - z.mu * z.s1.cwiseInverse(), 1.0 - z.lI - z.mu * z.s2.cwiseInverse();
-      for (Integer k{0}; k < 2*i.nI; ++k) {z.b(i.nV + 2*i.nE + k) = tmp[k];}
+      z.b.segment(i.nV + 2*i.nE, 2*i.nI) = tmp;
     }
 
     // Set penalty-interior-point constraint values
-    if (i.nE > 0) {
-      const Vector<Real> tmp(z.cE + z.r1 - z.r2);
-      const Integer offset{i.nV+2*i.nE+2*i.nI};
-      for (Integer k{0}; k < i.nE; ++k) {z.b(offset+k) = tmp[k];}
-    }
-    if (i.nI > 0) {
-      const Vector<Real> tmp(z.cI + z.s1 - z.s2);
-      const Integer offset{i.nV+3*i.nE+2*i.nI};
-      for (Integer k{0}; k < i.nI; ++k) {z.b(offset+k) = tmp[k];}
-    }
+    if (i.nE > 0) {z.b.segment(i.nV+2*i.nE+2*i.nI, i.nE) = z.cE + z.r1 - z.r2;}
+    if (i.nI > 0) {z.b.segment(i.nV+3*i.nE+2*i.nI, i.nI) = z.cI + z.s1 - z.s2;}
   }
 
   /**
@@ -712,7 +696,7 @@ namespace Pipal {
     z.cIs.setOnes(i.nI);
 
     // Evaluate gradients
-    evalGradients();
+    this->evalGradients();
 
     // Scale down objective if norm of gradient is too large
     z.fs = p.grad_max / std::max(z.g.template lpNorm<Eigen::Infinity>(), p.grad_max);
@@ -909,13 +893,12 @@ namespace Pipal {
 
     // Update iterate quantities
     updatePoint();
-    evalInfeasibility(z);
-    evalGradients();
-    evalDependent();
+    this->evalInfeasibility(z);
+    this->evalGradients();
+    this->evalDependent();
 
     // Update last KKT errors
-    //z.kkt_.resize(p.opt_err_mem);
-    z.kkt_ << z.kkt(1), z.kkt_.head(p.opt_err_mem-1);
+    z.kkt_ << z.kkt(1), z.kkt_.head(p.opt_err_mem - 1);
   }
 
   /**
@@ -936,7 +919,7 @@ namespace Pipal {
     while (z.mu > p.mu_min && z.kkt(2) <= std::max(z.mu, p.opt_err_tol-z.mu))
     {
       // Restrict interior-point parameter increase
-      setMuMaxExpZero();
+      this->setMuMaxExpZero();
 
       // Update interior-point parameter
       if (z.mu > p.mu_min)
@@ -945,7 +928,7 @@ namespace Pipal {
         z.mu = std::max(p.mu_min, std::min(p.mu_factor*z.mu, std::pow(z.mu, p.mu_factor_exp)));
 
         // Evaluate penalty and interior-point parameter dependent quantities
-        evalDependent();
+        this->evalDependent();
       }
     }
 
@@ -960,7 +943,7 @@ namespace Pipal {
         z.rho = std::max(p.rho_min, p.rho_factor*z.rho);
 
         // Evaluate penalty and interior-point parameter dependent quantities
-        evalDependent();
+        this->evalDependent();
       }
     }
   }

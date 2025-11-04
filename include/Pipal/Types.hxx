@@ -133,9 +133,7 @@ namespace Pipal
   static Indices find(Mask const & mask)
   {
     Indices out(mask.count());
-    for (Integer i{0}, j{0}; i < mask.size(); ++i) {
-      if (mask[i]) {out[j++] = i;}
-    }
+    for (Integer i{0}, j{0}; i < mask.size(); ++i) {if (mask[i]) {out[j++] = i;}}
     return out;
   }
 
@@ -171,7 +169,7 @@ namespace Pipal
     // Insert block
     for (Integer r{0}; r < blk_rows; ++r) {
       for (Integer c{0}; c < blk_cols; ++c) {
-        mat.coeffRef(r + row_offset, c + col_offset) = blk.coeff(r, c);
+        if (blk.coeff(r, c) != 0) {mat.coeffRef(r + row_offset, c + col_offset) = blk.coeff(r, c);}
       }
     }
 
@@ -213,7 +211,9 @@ namespace Pipal
     // Insert block
     for (Integer r{0}; r < idx_rows; ++r) {
       for (Integer c{0}; c < idx_cols; ++c) {
-        mat.coeffRef(r + row_offset, c + col_offset) = blk.coeff(row_index(r), col_index(c));
+        if (blk.coeff(row_index(r), col_index(c)) != 0) {
+          mat.coeffRef(r + row_offset, c + col_offset) = blk.coeff(row_index(r), col_index(c));
+        }
       }
     }
 

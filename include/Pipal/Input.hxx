@@ -15,6 +15,16 @@
 
 namespace Pipal
 {
+  /**
+   * \brief Build the input data for the solver.
+   *
+   * \param[in] name Problem name.
+   * \param[in] x0 Initial guess for the solution.
+   * \param[in] bl Lower bounds for the variables.
+   * \param[in] bu Upper bounds for the variables.
+   * \param[in] cl Lower bounds for the constraints.
+   * \param[in] cu Upper bounds for the constraints.
+   */
   template <typename Real>
   void Solver<Real>::buildInput(std::string  const & name, Vector<Real> const & x0, Vector<Real> const & bl,
     Vector<Real> const & bu, Vector<Real> const & cl, Vector<Real> const & cu)
