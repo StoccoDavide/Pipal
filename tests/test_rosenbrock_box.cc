@@ -66,7 +66,7 @@ TEST(Test1, ProblemWrapper) {
     [] (Vector & out) {out.resize(0); return true;}  // Upper bounds on the constraints
   );
   solver.algorithm(Pipal::Algorithm::CONSERVATIVE);
-  solver.verbose(VERBOSE);
+  solver.verbose_mode(VERBOSE);
   solver.tolerance(SOLVER_TOLERANCE);
   solver.max_iterations(MAX_ITERATIONS);
   Vector x_sol(2), x_guess(2), x_opt(2);

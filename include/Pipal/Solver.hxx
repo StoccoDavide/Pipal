@@ -298,13 +298,13 @@ namespace Pipal {
      * \brief Get the verbose mode.
      * \return The verbose mode.
      */
-    bool verbose() const {return this->m_verbose;}
+    bool verbose_mode() const {return this->m_verbose;}
 
     /**
      * \brief Set the verbose mode.
      * \param[in] t_verbose The verbose mode.
      */
-    void verbose(bool const t_verbose) {this->m_verbose = t_verbose;}
+    void verbose_mode(bool const t_verbose) {this->m_verbose = t_verbose;}
 
     /**
      * \brief Get the BFGS mode.

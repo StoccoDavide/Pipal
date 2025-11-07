@@ -94,7 +94,7 @@ TEST(Test1, ProblemWrapper) {
     [] (Vector & out) {out.setConstant(4, 0.0); return true;}  // Upper bounds on the constraints
   );
   solver.algorithm(Pipal::Algorithm::ADAPTIVE);
-  solver.verbose(VERBOSE);
+  solver.verbose_mode(VERBOSE);
   solver.tolerance(SOLVER_TOLERANCE);
   solver.max_iterations(MAX_ITERATIONS);
   Vector x_sol(4), x_guess(4), x_opt(4);
