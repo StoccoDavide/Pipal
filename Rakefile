@@ -18,8 +18,9 @@
 end
 
 # Configuration of the build
-BUILD_DEBUG = false
-BUILD_TESTS = true
+BUILD_DEBUG    = false
+BUILD_TESTS    = true
+EIGEN_EXTERNAL = true
 
 case RUBY_PLATFORM
 when /mingw|mswin/
@@ -59,6 +60,11 @@ if BUILD_DEBUG then
   cmd_cmake_build += "-DCMAKE_BUILD_TYPE:VAR=Debug "
 else
   cmd_cmake_build += "-DCMAKE_BUILD_TYPE:VAR=Release "
+end
+if EIGEN_EXTERNAL then
+  cmd_cmake_build += "-DPIPAL_EIGEN_EXTERNAL:VAR=true "
+else
+  cmd_cmake_build += "-DPIPAL_EIGEN_EXTERNAL:VAR=false "
 end
 
 task :default => [:build]
